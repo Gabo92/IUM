@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.0//EN" "http://www.web3d.org/specifications/x3d-3.0.dtd">
+<X3D profile='Immersive' >
+<head>
+ <meta name='Vizthumbnail' content='Thumb_Foglietto_x3d838441369750237.jpg'/>
+ <meta name='ExportTime' content='16:10:38'/>
+ <meta name='ExportDate' content='5/28/2013'/>
+ <meta name='VivatyStudioVersion' content='738'/>
+ <meta name='VivatyStudioSource' content='foglietto.fxw'/>
+</head>
+<Scene>
+<WorldInfo
+ title='Foglietto'
+ info='"This Web3D Content was created with Vivaty Studio, a Web3D authoring tool"
+ "www.mediamachines.com"'/>
+<Group DEF='Import_Foglietto_wrl'>
+ <Background
+  containerField='children'
+  skyAngle=''
+  skyColor='
+   .62745 .62745 .62745'/>
+ <Transform
+  containerField='children'
+  rotation='-1 0 0 1.571'>
+  <Shape
+   containerField='children'>
+   <Appearance
+    containerField='appearance'>
+    <Material DEF='material0'
+     containerField='material'
+     ambientIntensity='0'
+     shininess='1'
+     diffuseColor='1 1 1'/>
+   </Appearance>
+   <IndexedFaceSet
+    containerField='geometry'
+    solid='false'
+    creaseAngle='.5236'
+    coordIndex='
+      0 2 3 -1
+      0 3 1 -1
+      4 6 7 -1
+      4 7 5 -1
+      8 10 11 -1
+      8 11 9 -1
+      12 14 15 -1
+      12 15 13 -1
+      17 16 19 -1
+      19 18 17 -1
+      21 23 20 -1
+      23 21 22 -1'>
+    <Coordinate
+     containerField='coord'
+     point='
+      -12.81504 -.2611 6.97224
+      -12.81504 -.06028 7.01735
+      -12.81504 -1.02074 10.35378
+      -12.81504 -.81992 10.39889
+      -12.81504 -1.02074 10.35378
+      -12.81504 -.81992 10.39889
+      -9.94908 -1.02074 10.35378
+      -9.94908 -.81992 10.39889
+      -9.94908 -1.02074 10.35378
+      -9.94908 -.81992 10.39889
+      -9.94908 -.2611 6.97224
+      -9.94908 -.06028 7.01735
+      -9.94908 -.2611 6.97224
+      -9.94908 -.06028 7.01735
+      -12.81504 -.2611 6.97224
+      -12.81504 -.06028 7.01735
+      -12.81504 -.2611 6.97224
+      -12.81504 -1.02074 10.35378
+      -9.94908 -1.02074 10.35378
+      -9.94908 -.2611 6.97224
+      -12.81504 -.06028 7.01735
+      -12.81504 -.81992 10.39889
+      -9.94908 -.81992 10.39889
+      -9.94908 -.06028 7.01735'/>
+    <Normal
+     containerField='normal'
+     vector='
+      -1 0 0
+      -1 0 0
+      -1 0 0
+      -1 0 0
+      0 -.21918 .97568
+      0 -.21918 .97568
+      0 -.21918 .97568
+      0 -.21918 .97568
+      1 -0 0
+      1 -0 0
+      1 -0 0
+      1 -0 0
+      0 .21918 -.97568
+      0 .21918 -.97568
+      0 .21918 -.97568
+      0 .21918 -.97568
+      -0 -.97568 -.21918
+      -0 -.97568 -.21918
+      -0 -.97568 -.21918
+      -0 -.97568 -.21918
+      0 .97568 .21918
+      0 .97568 .21918
+      0 .97568 .21918
+      0 .97568 .21918'/>
+   </IndexedFaceSet>
+  </Shape>
+ </Transform>
+</Group>
+</Scene>
+</X3D>

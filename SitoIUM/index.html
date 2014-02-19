@@ -1,0 +1,93 @@
+<!-- DOCTYPE html -->
+<html style="margin: 0px; padding: 0px; height: 100%;">
+	<head>
+		<!-- TODO: * authors need to replace the following metadata values * -->
+		<link rel="shortcut icon" href="http://www.web3d.org/x3d/content/examples/images/X3DtextIcon16.png" title="X3D"/>
+		<title>Example HTML page with X3D Scene</title>
+		<meta name="creator"     content="Don Brutzman and Joe Williams"/>
+		<meta name="description" content="Example HTML page with X3D object tag for authors to copy, edit and reuse."/>
+		<meta name="filename"    content="newHtmlPageWithX3dObject.html"/>
+		<meta name="identifier"  content="http://www.web3d.org/x3d/content/examples/newHtmlPageWithX3dObject.html"/>
+		<meta name="reference"   content="http://www.web3d.org/x3d/content/examples/HtmlObjectTagForX3d.html"/>
+		<meta name="generator"   content="X3D-Edit, https://savage.nps.edu/X3D-Edit"/>
+		<meta name="created"     content="12 November 2007"/>
+		<meta name="revised"     content="27 October 2012"/>
+		<script type="text/javascript" src="js/x3dom.js"></script>
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<script type="text/javascript" src="js/x3dresources.js"></script>
+		<script type="text/javascript" src="js/Setup.js"></script>
+		<script type="text/javascript" src="js/Update.js"></script>
+		<script type="text/javascript" src="js/Utils.js"></script>
+		<script type="text/javascript" src="js/SosLibrary.js"></script>
+		<link rel="stylescheet" type="text/css" href="css/x3dom.css" />
+	</head>
+	<body bgcolor="#0E0E0E" style="margin: 0px; padding: 0px; height: 100%;">
+		<button onclick="camera('default');">Home</button>
+		<button onclick="camera('innovazione');">Innovazione</button>
+		<button onclick="camera('governance');">Governance</button>
+		<button onclick="camera('pol_personale');">Pol. Personale</button>
+		<button onclick="camera('pol_studenti');">Pol. Studenti</button>
+		<button onclick="camera('materiali');">Materiali</button>
+		<button onclick="camera('energia');">Energia</button>
+		<button onclick="camera('acqua');">Acqua</button>
+		<button onclick="camera('riffiuti');">Riffiuti</button>
+		<button onclick="camera('supply_chain');">Supply Chain</button>
+		<button onclick="camera('mobilita');">Mobilita`</button>
+		<x3d width="100%" height="95%">
+			<Scene>
+				<Group id="scene"></Group>
+				<Transform DEF="Lamp_TRANSFORM" translation="0 0 0">
+					<PointLight DEF="LA_Lamp"
+						ambientIntensity="0.7000"
+						color="1.0000 1.0000 1.0000"
+						intensity="0.5"
+						radius="150.0000"
+						location="0 4 -2.5"
+					/>
+				</Transform>
+				<Viewpoint DEF="acquaCamera" id="acquaCamera"
+					centerOfRotation="0 0 0"
+					position="-24 5 -14"
+					orientation="-1 0 0 0.7"
+					fieldOfView="0.7"
+					set_bind="false"
+				/>
+				<Viewpoint DEF="materialiCamera" id="materialiCamera"
+					centerOfRotation="0 0 0"
+					position="10 -4 -4"
+					orientation="0 -1 0 0.3"
+					fieldOfView="0.7"
+					set_bind="false"
+				/>
+				<Viewpoint DEF="innovazioneCamera" id="innovazioneCamera"
+					centerOfRotation="0 0 0"
+					position="10 -2 -4"
+					orientation="-1 0 0 0.5"
+					fieldOfView="0.7"
+					set_bind="false"
+				/>
+				<Viewpoint DEF="governanceCamera" id="governanceCamera"
+					centerOfRotation="0 0 0"
+					position="1 -9 -7"
+					orientation="1 0 0 0.15"
+					fieldOfView="0.7"
+					set_bind="false"
+				/>
+				<Viewpoint DEF="defaultCamera" id="defaultCamera"
+					centerOfRotation="0 0 0"
+					position="-5 1 40"
+					fieldOfView="0.7"
+					set_bind="false"
+				/>
+			</Scene>
+		</x3d>
+	</body>
+	<script type="text/javascript">
+		loadResources();
+
+		function camera(name){
+			var camera = document.getElementById(name + "Camera");
+			camera.setAttribute("set_bind","true");
+		}
+	</script>
+</html>
