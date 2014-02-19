@@ -12,7 +12,6 @@
 		            />
 		<Transform DEF="Lamp_001_TRANSFORM"
 		           translation="-1.999134 1.000000 0.004321"
-		           scale="0.039199 0.039199 0.039199"
 		           rotation="0.000000 0.707107 0.707107 3.141593"
 		           >
 			<Transform DEF="Lamp_001_ifs_TRANSFORM"

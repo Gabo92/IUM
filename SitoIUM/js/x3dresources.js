@@ -74,7 +74,7 @@ function loadResources(){
 		for(i=1;i<10 && count<libNum;i++){
 			libri[i] = new X3DResource("libro" + i);
 			libri[i].addResource("libro","models/libro.x3d");
-			scene.appendChild(libri[i].getElement());
+			//scene.appendChild(libri[i].getElement());
 			libri[i].setAttributes({
 				translation: (x + " " + y + " -9.5").scaleByFactor(factor),
 				scale: "0.5 0.5 0.5".scaleByFactor(factor),
@@ -95,15 +95,15 @@ function loadResources(){
 		rotation: "0 1 0 -3.14"
 	});
 	libreria.addResource("libreria","models/libreria.x3d");
-	scene.appendChild(libreria.getElement());
+	//scene.appendChild(libreria.getElement());
 
 	lampada.setAttributes({
 		translation: "0 2.7 -10".scaleByFactor(factor),
-		scale: "1 1 1".scaleByFactor(factor),
+		scale: "0.039199 0.039199 0.039199".scaleByFactor(factor),
 		rotation: "0 1 0 1.57"
 	});
 	lampada.addResource("lampada","models/lampada.x3d");
-	scene.appendChild(lampada.getElement());
+        //scene.appendChild(lampada.getElement());
 
 	omino.setAttributes({
 		translation: "-2 -4 -4".scaleByFactor(factor),
@@ -111,7 +111,7 @@ function loadResources(){
 		rotation: "0.5 0 0 -1.57"
 	});
 	omino.addResource("omino", "models/Omino.x3d");
-	scene.appendChild(omino.getElement());
+	//scene.appendChild(omino.getElement());
 
 	autobus.setAttributes({
 		translation: "-2 -4 -3".scaleByFactor(factor),
@@ -225,5 +225,5 @@ function loadResources(){
 		scale: "1 1 1".scaleByFactor(factor)
 	});
 	soffitto.addResource("soffitto","models/soffitto.x3d");
-	scene.appendChild(soffitto.getElement());
+        scene.appendChild(soffitto.getElement());
 }
