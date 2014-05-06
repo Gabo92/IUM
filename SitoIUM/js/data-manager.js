@@ -28,21 +28,21 @@
        },
        getAllData: { writtable: false, configurable: false, enumerable: false,
            value: function(){
-               var that = this;
-               $(DataManager.NAMES).each(function(){
-                   getRowsFromVeryBeginningToNow(this,"tpellegr","DESC",that.onDataRecieved,that.onError);
-               });
+                var that = this;
+                $(DataManager.NAMES).each(function(){
+                    getRowsFromVeryBeginningToNow(this,"tpellegr","DESC",that.onDataRecieved,that.onError);
+                });
            }
        },
        onDataRecieved: { writtable: false, configurable: false, enumerable: false,
            value: function(xml){
-            $(xml).find('Riga').each(function(){
-                             var Nome = $(this).find('Nome').text();
-                             var Valore = $(this).find('Valore').text();
-                             var Data = $(this).find('Data').text();
-                             var Unita = $(this).find('Unita').text();
+                $(xml).find('Riga').each(function(){
+                                 var Nome = $(this).find('Nome').text();
+                                 var Valore = $(this).find('Valore').text();
+                                 var Data = $(this).find('Data').text();
+                                 var Unita = $(this).find('Unita').text();
 
-            console.log("Nome: "+ Nome + "\nValore: " + Valore + "\nUnita " + Unita + "\nData: "+ Data);})
+                console.log("Nome: "+ Nome + "\nValore: " + Valore + "\nUnita " + Unita + "\nData: "+ Data);})
            }
        },
        onError: { writtable: false, configurable: false, enumerable: false,
