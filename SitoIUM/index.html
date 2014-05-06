@@ -84,6 +84,13 @@
 		</x3d>
 	</body>
 	<script type="text/javascript">
+                var dataManager = new DataManager({
+                   events: {
+                       onReady: function(){
+                           console.log("Data manager is ready");
+                       }
+                   } 
+                });
 		loadResources();
 
 		function camera(name){
