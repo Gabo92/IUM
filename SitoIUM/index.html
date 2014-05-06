@@ -14,14 +14,17 @@
 		<meta name="revised"     content="27 October 2012"/>
 		<script type="text/javascript" src="js/x3dom.js"></script>
 		<script type="text/javascript" src="js/jquery.js"></script>
+                <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+                <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
 		<script type="text/javascript" src="js/x3dresources.js"></script>
 		<script type="text/javascript" src="js/Setup.js"></script>
 		<script type="text/javascript" src="js/Update.js"></script>
 		<script type="text/javascript" src="js/Utils.js"></script>
 		<script type="text/javascript" src="js/SosLibrary.js"></script>
                 <script type="text/javascript" src="js/data-manager.js"></script>
+                <script type="text/javascript" src="js/Slider.js"></script>
 		<!--<link rel="stylesheet" type="text/css" href="css/x3dom.css" />-->
-                <link rel="stylesheet" type="text/css" href="css/popupStyles.css" />
+                <link rel="stylesheet" type="text/css" href="css/interface.css" />
 	</head>
 	<body bgcolor="#0E0E0E" style="margin: 0px; padding: 0px; height: 100%;">
 		<button onclick="camera('default');">Home</button>
@@ -42,6 +45,16 @@
 
                     <input type="button" value="Chiudi" onclick="$('#popup').hide();" />
                 </div>
+                <form id="barra">
+                <label for="anni">Selezionare anno</label>
+                    <select name="anni" id="anni">
+                      <option>2010</option>
+                      <option>2011</option>
+                      <option>2012</option>
+                      <option selected>2013</option>
+                    </select>
+                </form>
+    
 		<x3d width="100%" height="95%">
 			<Scene>
 				<Group id="scene"></Group>
