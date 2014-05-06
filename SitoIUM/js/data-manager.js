@@ -4,7 +4,7 @@
         this.events = configs["events"] || {};
         this.responsesCount = 0;
         this.data = {};
-        this.init();
+        this.getAllData();
     };
     
     DataManager.NAMES = [
@@ -14,11 +14,6 @@
     ];
     
     var DataManagerPrototype = Object.defineProperties({},{
-        init: { writtable: false, configurable: false, enumerable: false,
-            value: function(){
-                this.getAllData();
-            }
-        },
         trigger: { writtable: false, configurable: false, enumerable: false,
             value: function(name,data){
                 var handler = this.events[name + ''];
@@ -55,7 +50,7 @@
                     that.data[year][type] = that.data[year][type] || {}
                     that.data[year][type].unity = unity;
                     that.data[year][type].values = that.data[year][type].values || [];
-                    that.data[year][type].values.push(value);
+                    that.data[year][type].values.push(Number(value));
                 });
                 this.responsesCount++;
                 if(this.responsesCount === DataManager.NAMES.length){
