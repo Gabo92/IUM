@@ -20,7 +20,8 @@
 		<script type="text/javascript" src="js/Utils.js"></script>
 		<script type="text/javascript" src="js/SosLibrary.js"></script>
                 <script type="text/javascript" src="js/data-manager.js"></script>
-		<link rel="stylescheet" type="text/css" href="css/x3dom.css" />
+		<!--<link rel="stylesheet" type="text/css" href="css/x3dom.css" />-->
+                <link rel="stylesheet" type="text/css" href="css/popupStyles.css" />
 	</head>
 	<body bgcolor="#0E0E0E" style="margin: 0px; padding: 0px; height: 100%;">
 		<button onclick="camera('default');">Home</button>
@@ -34,6 +35,13 @@
 		<button onclick="camera('rifiuti');">Rifiuti</button>
 		<button onclick="camera('supply_chain');">Supply Chain</button>
 		<button onclick="camera('mobilita');">Mobilita`</button>
+                <div id="popup">  
+                    <b id="tipo">Governance:</b>
+                    <p id="testo">"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+                    <p id="nomeValore">Media Voti: <b><span id="valore"></span> / 10</b></p>
+
+                    <input type="button" value="Chiudi" onclick="$('#popup').hide();" />
+                </div>
 		<x3d width="100%" height="95%">
 			<Scene>
 				<Group id="scene"></Group>
