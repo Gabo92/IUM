@@ -99,7 +99,7 @@ function loadResources(){
 
 	lampada.setAttributes({
 		translation: "0 2.7 -10".scaleByFactor(factor),
-		scale: "0.039199 0.039199 0.039199".scaleByFactor(factor),
+		scale: "1 1 1".scaleByFactor(factor),
 		rotation: "0 1 0 1.57"
 	});
 	lampada.addResource("lampada","models/lampada.x3d");

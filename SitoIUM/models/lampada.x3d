@@ -6,17 +6,14 @@
 		<meta name="generator" content="Blender 2.66 (sub 1)" />
 	</head>
 	<Scene>
-		<Background DEF="WO_World"
-		            groundColor="0.051 0.051 0.051"
-		            skyColor="0.051 0.051 0.051"
-		            />
 		<Transform DEF="Lamp_001_TRANSFORM"
 		           translation="-1.999134 1.000000 0.004321"
+                           scale="0.100000 0.100000 0.100000"
 		           rotation="0.000000 0.707107 0.707107 3.141593"
 		           >
 			<Transform DEF="Lamp_001_ifs_TRANSFORM"
 			           translation="-0.000004 0.000000 0.000000"
-			           scale="1.000000 1.000000 1.000000"
+                                   scale="1.00000 1.00000 1.00000"
 			           rotation="1.000000 0.000000 0.000000 0.000000"
 			           >
 				<Group DEF="group_ME_Lamp">
