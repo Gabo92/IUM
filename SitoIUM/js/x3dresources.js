@@ -69,12 +69,43 @@ function loadResources(){
 	var y = 0.355;
 	var count = 0;
 	var libNum = 10;
+        
+        muro_destro.setAttributes({
+		translation: "-10 -0.2 -2".scaleByFactor(factor),
+		scale: "1 1 0.2".scaleByFactor(factor),
+		rotation: "0 1 0 1.57"
+	});
+	muro_destro.addResource("muro_destro","models/wall.x3d");
+	scene.appendChild(muro_destro.getElement());
+
+	muro_sinistro.setAttributes({
+		translation: "6 -0.2 -2".scaleByFactor(factor),
+		scale: "1 1 0.2".scaleByFactor(factor),
+		rotation: "0 1 0 1.57"
+	});
+	muro_sinistro.addResource("muro_sinistro","models/wall.x3d");
+	scene.appendChild(muro_sinistro.getElement());
+
+	muro_frontale.setAttributes({
+		translation: "-2 -0.2 -10".scaleByFactor(factor),
+		scale: "1 1 0.2".scaleByFactor(factor)
+	});
+	muro_frontale.addResource("muro_frontale","models/wall.x3d");
+	scene.appendChild(muro_frontale.getElement());
+
+	soffitto.setAttributes({
+		translation: "-2 3.8 -2".scaleByFactor(factor),
+		scale: "1 1 1".scaleByFactor(factor)
+	});
+	soffitto.addResource("soffitto","models/soffitto.x3d");
+        scene.appendChild(soffitto.getElement());
+        
 	for(j=0;j<5 && count<libNum;j++){
 		x = 2.91;
 		for(i=1;i<10 && count<libNum;i++){
 			libri[i] = new X3DResource("libro" + i);
 			libri[i].addResource("libro","models/libro.x3d");
-			//scene.appendChild(libri[i].getElement());
+			scene.appendChild(libri[i].getElement());
 			libri[i].setAttributes({
 				translation: (x + " " + y + " -9.5").scaleByFactor(factor),
 				scale: "0.5 0.5 0.5".scaleByFactor(factor),
@@ -95,7 +126,7 @@ function loadResources(){
 		rotation: "0 1 0 -3.14"
 	});
 	libreria.addResource("libreria","models/libreria.x3d");
-	//scene.appendChild(libreria.getElement());
+	scene.appendChild(libreria.getElement());
 
 	lampada.setAttributes({
 		translation: "0 2.7 -10".scaleByFactor(factor),
@@ -103,7 +134,7 @@ function loadResources(){
 		rotation: "0 1 0 1.57"
 	});
 	lampada.addResource("lampada","models/lampada.x3d");
-        //scene.appendChild(lampada.getElement());
+        scene.appendChild(lampada.getElement());
 
 	omino.setAttributes({
 		translation: "-2 -4 -4".scaleByFactor(factor),
@@ -111,7 +142,7 @@ function loadResources(){
 		rotation: "0.5 0 0 -1.57"
 	});
 	omino.addResource("omino", "models/Omino.x3d");
-	//scene.appendChild(omino.getElement());
+	scene.appendChild(omino.getElement());
 
 	autobus.setAttributes({
 		translation: "-2 -4 -3".scaleByFactor(factor),
@@ -196,34 +227,4 @@ function loadResources(){
 	});
 	tavolo.addResource("tavolo","models/tavolo.x3d");
 	scene.appendChild(tavolo.getElement());
-
-	muro_destro.setAttributes({
-		translation: "-10 -0.2 -2".scaleByFactor(factor),
-		scale: "1 1 0.2".scaleByFactor(factor),
-		rotation: "0 1 0 1.57"
-	});
-	muro_destro.addResource("muro_destro","models/wall.x3d");
-	scene.appendChild(muro_destro.getElement());
-
-	muro_sinistro.setAttributes({
-		translation: "6 -0.2 -2".scaleByFactor(factor),
-		scale: "1 1 0.2".scaleByFactor(factor),
-		rotation: "0 1 0 1.57"
-	});
-	muro_sinistro.addResource("muro_sinistro","models/wall.x3d");
-	scene.appendChild(muro_sinistro.getElement());
-
-	muro_frontale.setAttributes({
-		translation: "-2 -0.2 -10".scaleByFactor(factor),
-		scale: "1 1 0.2".scaleByFactor(factor)
-	});
-	muro_frontale.addResource("muro_frontale","models/wall.x3d");
-	scene.appendChild(muro_frontale.getElement());
-
-	soffitto.setAttributes({
-		translation: "-2 3.8 -2".scaleByFactor(factor),
-		scale: "1 1 1".scaleByFactor(factor)
-	});
-	soffitto.addResource("soffitto","models/soffitto.x3d");
-        scene.appendChild(soffitto.getElement());
 }
