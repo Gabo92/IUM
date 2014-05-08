@@ -5,7 +5,7 @@ function cameraHome(){
 }
 
 function cameraInnovazione(){
-    camera('innovazione');
+    //camera('innovazione');
     
     var data = window.dataManager.data;
     var anno = $("#anni").val();
@@ -21,7 +21,7 @@ function cameraInnovazione(){
 }
 
 function cameraGovernance(){
-    camera('governance');
+    //camera('governance');
     
     var data = window.dataManager.data;
     var anno = $("#anni").val();
@@ -44,7 +44,7 @@ function cameraGovernance(){
 }
 
 function cameraPolitichePersonale(){
-    camera('pol_personale');
+    //camera('pol_personale');
     
     var data = window.dataManager.data;
     var anno = $("#anni").val();
@@ -54,13 +54,13 @@ function cameraPolitichePersonale(){
   
     $("#tipo").html("Obiettivi strategici: promuovere il benessere dei lavoratori e promuovere l'assunzione di responsabilita' del personale");
     $("#testo").html("Per sostenere i propri dipendenti che per vari motivi necessitano di essere maggiormente presenti a casa, l'ateneo emette ogni anno un bando per prestazioni lavorative in telelavoro. L'obiettivo dell'Area Risorse Umane e' di incrementare ogni anno il monte ore disponibile in modo da permettere a tutti i dipendenti che ne facciano richiesta l'attivazione di questo tipo di contratto.");
-    $("#nomeValore").html("Proporzione ore di lavoro telematico: <b>" + String(valore) + String(unita) + "</b>" + "del lavoro totale");
+    $("#nomeValore").html("Proporzione ore di lavoro telematico: <b>" + String(valore) + String(unita) + "</b>" + " del lavoro totale");
     
     $('#popup').show();
 }
 
 function cameraPoliticheStudenti(){
-    camera('pol_studenti');
+    //camera('pol_studenti');
     
     var data = window.dataManager.data;
     var anno = $("#anni").val();
@@ -76,7 +76,7 @@ function cameraPoliticheStudenti(){
 }
 
 function cameraMateriali(){
-    camera('materiali');
+    //camera('materiali');
     
     var data = window.dataManager.data;
     var anno = $("#anni").val();
@@ -92,7 +92,7 @@ function cameraMateriali(){
 }
 
 function cameraEnergia(){
-    camera('energia');
+    //camera('energia');
     
     var data = window.dataManager.data;
     var anno = $("#anni").val();
@@ -115,7 +115,7 @@ function cameraEnergia(){
 }
 
 function cameraAcqua(){
-    camera('acqua');
+    //camera('acqua');
     
     var data = window.dataManager.data;
     var anno = $("#anni").val();
@@ -125,7 +125,7 @@ function cameraAcqua(){
     
     $("#tipo").html("Obiettivo strategico: Migliorare l'efficienza energetica");
     $("#testo").html("In questa area sono raccolte tutte le attivita' utili all'avviare di un piano operativo per la gestione dell'acqua all'interno dell'ateneo. Oltre agli impegni specifici relativi ai consumi, Ca' Foscari si propone di attuare delle azioni di sensibilizzazione del personale e degli studenti per promuovere un utilizzo piu' oculato dell'acqua.");
-    $("#nomeValore").html("Acqua utilizzata: <b>" + String(valore) + String(unita) + "</b>");
+    $("#nomeValore").html("Acqua utilizzata: <b>" + String(valore) + " " + String(unita) + "</b>");
     
     $('#popup').show();
 }
@@ -147,7 +147,7 @@ function cameraRifiuti(){
 }
 
 function cameraSupplyChain(){
-    camera('supply_chain');
+    //camera('supply_chain');
     
     var data = window.dataManager.data;
     var anno = $("#anni").val();
@@ -163,7 +163,7 @@ function cameraSupplyChain(){
 }
 
 function cameraMobilita(){
-    camera('mobilita');
+    //camera('mobilita');
     
     var data = window.dataManager.data;
     var anno = $("#anni").val();
