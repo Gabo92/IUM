@@ -163,7 +163,7 @@ function cameraSupplyChain(){
 }
 
 function cameraMobilita(){
-    //camera('mobilita');
+    camera('mobilita');
     
     var data = window.dataManager.data;
     var anno = $("#anni").val();
