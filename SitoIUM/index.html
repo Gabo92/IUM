@@ -23,21 +23,22 @@
 		<script type="text/javascript" src="js/SosLibrary.js"></script>
                 <script type="text/javascript" src="js/data-manager.js"></script>
                 <script type="text/javascript" src="js/Slider.js"></script>
+                <script type="text/javascript" src="js/movement.js"></script>
 		<!--<link rel="stylesheet" type="text/css" href="css/x3dom.css" />-->
                 <link rel="stylesheet" type="text/css" href="css/interface.css" />
 	</head>
 	<body bgcolor="#0E0E0E" style="margin: 0px; padding: 0px; height: 100%;">
-		<button onclick="camera('default');">Home</button>
-		<button onclick="camera('innovazione');">Innovazione</button>
-		<button onclick="camera('governance');">Governance</button>
-		<button onclick="camera('pol_personale');">Pol. Personale</button>
-		<button onclick="camera('pol_studenti');">Pol. Studenti</button>
-		<button onclick="camera('materiali');">Materiali</button>
-		<button onclick="camera('energia');">Energia</button>
-		<button onclick="camera('acqua');">Acqua</button>
-		<button onclick="camera('rifiuti');">Rifiuti</button>
-		<button onclick="camera('supply_chain');">Supply Chain</button>
-		<button onclick="camera('mobilita');">Mobilita`</button>
+		<button onclick="cameraHome();">Home</button>
+		<button onclick="cameraInnovazione();">Innovazione</button>
+		<button onclick="cameraGovernance();">Governance</button>
+		<button onclick="cameraPolitichePersonale();">Pol. Personale</button>
+		<button onclick="cameraPoliticheStudenti();">Pol. Studenti</button>
+		<button onclick="cameraMateriali();">Materiali</button>
+		<button onclick="cameraEnergia();">Energia</button>
+		<button onclick="cameraAcqua();">Acqua</button>
+		<button onclick="cameraRifiuti();">Rifiuti</button>
+		<button onclick="cameraSupplyChain();">Supply Chain</button>
+		<button onclick="cameraMobilita();">Mobilita`</button>
                 <div id="popup">  
                     <b id="tipo">Governance:</b>
                     <p id="testo">"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
@@ -48,10 +49,9 @@
                 <form id="barra">
                 <label for="anni">Selezionare anno</label>
                     <select name="anni" id="anni">
-                      <option>2010</option>
-                      <option>2011</option>
-                      <option>2012</option>
-                      <option selected>2013</option>
+                        <option value="2010">2010</option>
+                        <option value="2011">2011</option>
+                        <option value="2012" selected="">2012</option>
                     </select>
                 </form>
     
@@ -105,7 +105,7 @@
 		</x3d>
 	</body>
 	<script type="text/javascript">
-                var dataManager = new DataManager({
+                window.dataManager = new DataManager({
                    events: {
                        onReady: function(){
                            console.log("Data manager is ready");

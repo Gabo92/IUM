@@ -2,7 +2,7 @@ $(function() {
     var select = $( "#anni" );
     var slider = $( "<div id='slider'></div>" ).insertAfter( select ).slider({
       min: 1,
-      max: 4,
+      max: 3,
       range: "min",
       value: select[ 0 ].selectedIndex + 1,
       slide: function( event, ui ) {
