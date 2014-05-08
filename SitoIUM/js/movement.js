@@ -15,7 +15,7 @@ function cameraInnovazione(){
   
     $("#tipo").html("Obiettivo strategico: Investire nella ricerca sui temi");
     $("#testo").html("L'obiettivo e' da un lato quello di potenziare il supporto agli investimenti nella ricerca su questi temi, e dall'altro di valorizzare le competenze dei docenti dell'ateneo e dare maggiore visibilita' ai risultati dei progetti realizzati su tematiche sostenibili.");
-    $("#nomeValore").html("Fondi innovazione: <b>" + String(valore) + String(unita) + "</b>");
+    $("#nomeValore").html("Fondi destinati all'innovazione: <b>" + String(valore) + String(unita) + "</b>");
     
     $('#popup').show();
 }
@@ -53,7 +53,7 @@ function cameraPolitichePersonale(){
     var valore = data[anno]["Politiche Personale"]["values"][0];  
   
     $("#tipo").html("Obiettivi strategici: promuovere il benessere dei lavoratori e promuovere l'assunzione di responsabilita' del personale");
-    $("#testo").html("In questa sezione vengono raccolte tutte le azioni dedicate al personale dell'ateneo, ovvero tecnici amministrativi e docenti. Sono quindi presenti le iniziative finalizzate alla realizzazione di interventi formativi e alla valorizzazione delle competenze personali, ma anche azioni per migliorare il benessere sul posto di lavoro, la salute, la sicurezza e anche le azioni di supporto alla famiglia del dipendente. Infine rientrano in quest'area tutti i progetti mirati a diffondere la cultura della sostenibilita' presso il personale.");
+    $("#testo").html("Per sostenere i propri dipendenti che per vari motivi necessitano di essere maggiormente presenti a casa, l'ateneo emette ogni anno un bando per prestazioni lavorative in telelavoro. L'obiettivo dell'Area Risorse Umane e' di incrementare ogni anno il monte ore disponibile in modo da permettere a tutti i dipendenti che ne facciano richiesta l'attivazione di questo tipo di contratto.");
     $("#nomeValore").html("Proporzione ore di lavoro telematico: <b>" + String(valore) + String(unita) + "</b>" + "del lavoro totale");
     
     $('#popup').show();
@@ -94,9 +94,22 @@ function cameraMateriali(){
 function cameraEnergia(){
     camera('energia');
     
-    $("#tipo").html("ciao");
-    $("#testo").html("ciao");
-    $("#nomeValore").html("ciao");
+    var data = window.dataManager.data;
+    var anno = $("#anni").val();
+    
+    if (anno == 2011){
+        $("#tipo").html("Neesun dato");
+        $("#testo").html("Per quest anno non ci sono dati disponibili.");
+        $("#nomeValore").html("");
+    }
+    else{   
+        var unita = data[anno]["Energia"]["unity"];
+        var valore = data[anno]["Energia"]["values"][0];  
+
+        $("#tipo").html("Obiettivo strategico: Migliorare l'efficienza energetica");
+        $("#testo").html("In questa area sono raccolte tutte le azioni che riguardano la gestione dell'energia dell'ateneo. Qui convergono anche gli impegni relativi al Carbon Management, che una volta terminata la fase sperimentale del progetto sono stati inseriti tra le prassi energetiche dell'ateneo.");
+        $("#nomeValore").html("Energia utilizzata: <b>" + String(valore) + String(unita) + "</b>");
+    }
     
     $('#popup').show();
 }
@@ -104,19 +117,31 @@ function cameraEnergia(){
 function cameraAcqua(){
     camera('acqua');
     
-    $("#tipo").html("ciao");
-    $("#testo").html("ciao");
-    $("#nomeValore").html("ciao");
+    var data = window.dataManager.data;
+    var anno = $("#anni").val();
+    
+    var unita = data[anno]["Acqua"]["unity"];
+    var valore = data[anno]["Acqua"]["values"][0];  
+    
+    $("#tipo").html("Obiettivo strategico: Migliorare l'efficienza energetica");
+    $("#testo").html("In questa area sono raccolte tutte le attivita' utili all'avviare di un piano operativo per la gestione dell'acqua all'interno dell'ateneo. Oltre agli impegni specifici relativi ai consumi, Ca' Foscari si propone di attuare delle azioni di sensibilizzazione del personale e degli studenti per promuovere un utilizzo piu' oculato dell'acqua.");
+    $("#nomeValore").html("Acqua utilizzata: <b>" + String(valore) + String(unita) + "</b>");
     
     $('#popup').show();
 }
 
 function cameraRifiuti(){
-    camera('rifiuti');
+    //camera('rifiuti');
     
-    $("#tipo").html("ciao");
-    $("#testo").html("ciao");
-    $("#nomeValore").html("ciao");
+    var data = window.dataManager.data;
+    var anno = $("#anni").val();
+    
+    var unita = data[anno]["Rifiuti"]["unity"];
+    var valore = data[anno]["Rifiuti"]["values"][0];  
+    
+    $("#tipo").html("Obiettivo strategico: Tutelare l'ambiente e il territorio");
+    $("#testo").html("In questa area rientrano le attivita' di riduzione dei rifiuti e di razionalizzare e riqualificazione del processo di raccolta differenziata. A queste si aggiungono il rispetto delle normative specifiche e le azioni di sensibilizzazione rivolta a chi studia e lavora in ateneo.");
+    $("#nomeValore").html("Proporzione rifiuti differenziati: <b>" + String(valore) + String(unita) + "</b> dei rifiuti totali");
 
     $('#popup').show();
 }
@@ -124,19 +149,31 @@ function cameraRifiuti(){
 function cameraSupplyChain(){
     camera('supply_chain');
     
-    $("#tipo").html("ciao");
-    $("#testo").html("ciao");
-    $("#nomeValore").html("ciao");
+    var data = window.dataManager.data;
+    var anno = $("#anni").val();
+    
+    var unita = data[anno]["Supply Chain"]["unity"];
+    var valore = data[anno]["Supply Chain"]["values"][0];  
+    
+    $("#tipo").html("Obiettivo strategico: Predisporre un sistema di Sustainable Public Procurement");
+    $("#testo").html("In questa area sono raccolte tutte le azioni che riguardano la gestione degli acquisti e le relative attivita' logistiche. Ca' Foscari si sta impegnando a implementare gli acquisti verdi inserendo criteri di selezione sociali e ambientali, oltre a quelli economici e tecnici, per la scelta dei fornitori di beni e servizi.");
+    $("#nomeValore").html("Proporzione fornitura ecosostenibile: <b>" + String(valore) + String(unita) + "</b> del totale");
     
     $('#popup').show();
 }
 
 function cameraMobilita(){
-    camera('mobilita');
+    //camera('mobilita');
     
-    $("#tipo").html("ciao");
-    $("#testo").html("ciao");
-    $("#nomeValore").html("ciao");
+    var data = window.dataManager.data;
+    var anno = $("#anni").val();
+    
+    var unita = data[anno]["Mobilita"]["unity"];
+    var valore = data[anno]["Mobilita"]["values"][0];  
+    
+    $("#tipo").html("Obiettivo strategico: Ridurre le emissioni di CO2");
+    $("#testo").html("In questa area sono raccolte le azioni dell'Ateneo per favorire una mobilita' aziendale piu' sostenibile, che riduca le emissioni generate dagli spostamenti di personale e studenti.");
+    $("#nomeValore").html("Proporzione utilizzo mezzi pubblici: <b>" + String(valore) + String(unita) + "</b> del totale");
     
     $('#popup').show();
 }
