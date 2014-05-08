@@ -5,7 +5,7 @@ function cameraHome(){
 }
 
 function cameraInnovazione(){
-    //camera('innovazione');
+    camera('innovazione');
     
     var data = window.dataManager.data;
     var anno = $("#anni").val();
@@ -21,7 +21,7 @@ function cameraInnovazione(){
 }
 
 function cameraGovernance(){
-    //camera('governance');
+    camera('governance');
     
     var data = window.dataManager.data;
     var anno = $("#anni").val();
@@ -44,7 +44,7 @@ function cameraGovernance(){
 }
 
 function cameraPolitichePersonale(){
-    //camera('pol_personale');
+    camera('pol_personale');
     
     var data = window.dataManager.data;
     var anno = $("#anni").val();
@@ -60,7 +60,7 @@ function cameraPolitichePersonale(){
 }
 
 function cameraPoliticheStudenti(){
-    //camera('pol_studenti');
+    camera('pol_studenti');
     
     var data = window.dataManager.data;
     var anno = $("#anni").val();
@@ -76,7 +76,7 @@ function cameraPoliticheStudenti(){
 }
 
 function cameraMateriali(){
-    //camera('materiali');
+    camera('materiali');
     
     var data = window.dataManager.data;
     var anno = $("#anni").val();
@@ -92,7 +92,7 @@ function cameraMateriali(){
 }
 
 function cameraEnergia(){
-    //camera('energia');
+    camera('energia');
     
     var data = window.dataManager.data;
     var anno = $("#anni").val();
@@ -115,7 +115,7 @@ function cameraEnergia(){
 }
 
 function cameraAcqua(){
-    //camera('acqua');
+    camera('acqua');
     
     var data = window.dataManager.data;
     var anno = $("#anni").val();
@@ -131,7 +131,7 @@ function cameraAcqua(){
 }
 
 function cameraRifiuti(){
-    //camera('rifiuti');
+    camera('rifiuti');
     
     var data = window.dataManager.data;
     var anno = $("#anni").val();
@@ -147,7 +147,7 @@ function cameraRifiuti(){
 }
 
 function cameraSupplyChain(){
-    //camera('supply_chain');
+    camera('supply_chain');
     
     var data = window.dataManager.data;
     var anno = $("#anni").val();
@@ -163,7 +163,7 @@ function cameraSupplyChain(){
 }
 
 function cameraMobilita(){
-    //camera('mobilita');
+    camera('mobilita');
     
     var data = window.dataManager.data;
     var anno = $("#anni").val();
