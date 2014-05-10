@@ -29,8 +29,11 @@ X3DResource.prototype = {
 	},
 	getElement: function(){
 		return this.transform;
-	}
-}
+	},
+        appendToScene: function(scene){
+            scene.appendChild(this.transform);
+        }
+};
 
 String.prototype.scaleByFactor = function(factor){
 	var nums = this.split(" ");
@@ -40,7 +43,7 @@ String.prototype.scaleByFactor = function(factor){
 		nums[i] = parseFloat(nums[i]) * factor;
 	}
 	return nums.join(" ");
-}
+};
 
 function loadResources(){
 	var scene = document.getElementById("scene");

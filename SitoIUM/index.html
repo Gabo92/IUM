@@ -17,6 +17,7 @@
                 <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
                 <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
 		<script type="text/javascript" src="js/x3dresources.js"></script>
+                <script type="text/javascript" src="js/renderer.js"></script>
 		<script type="text/javascript" src="js/Setup.js"></script>
 		<script type="text/javascript" src="js/Update.js"></script>
 		<script type="text/javascript" src="js/Utils.js"></script>
@@ -39,12 +40,18 @@
 		<button onclick="cameraRifiuti();">Rifiuti</button>
 		<button onclick="cameraSupplyChain();">Supply Chain</button>
 		<button onclick="cameraMobilita();">Mobilita`</button>
+                <button id="buttonInfo" onclick="$('#info').show();">Info </button>
                 <div id="popup">  
                     <b id="tipo">Governance:</b>
                     <p id="testo">"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
                     <p id="nomeValore">Media Voti: <b><span id="valore"></span> / 10</b></p>
 
                     <input type="button" value="Chiudi" onclick="$('#popup').hide();" />
+                </div>
+                <div id="info">  
+                    <b>Informazioni</b>
+                    <p id="testo">Premi i bottoni nella barra superiore per spostarti tra le varie telecamere. <br/> Usa la barra nella zona bassa dello schermo per selezionare l'anno.</p>
+                    <input type="button" value="Chiudi" onclick="$('#info').hide();" />
                 </div>
                 <form id="barra">
                 <label for="anni">Selezionare anno</label>
@@ -113,7 +120,9 @@
                        }
                    } 
                 });
-		loadResources();
+		//loadResources();
+                window.renderer = new Renderer({factor: 3});
+                
 
 		function camera(name){
 			var camera = document.getElementById(name + "Camera");
