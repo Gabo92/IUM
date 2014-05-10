@@ -13,6 +13,26 @@
     background-color:rgba(30,144,255,0.7);
 }
 
+#info{
+    display:none; 
+    position:absolute;
+    padding: 5px;
+    z-index: 1;
+    width: 620px;
+    left:0;
+    right:0;
+    margin-left:auto;
+    margin-right:auto;
+    border: 1px solid #000;
+    color: white; 
+    background-color:rgba(30,144,255,0.7);
+}
+
+#buttonInfo{
+    position: absolute;
+    right:0;
+}
+
 #barra{
     position:absolute;
     bottom:0;
