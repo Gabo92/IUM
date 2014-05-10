@@ -7,50 +7,49 @@ $(function() {
       value: select[ 0 ].selectedIndex + 1,
       slide: function( event, ui ) {
         select[ 0 ].selectedIndex = ui.value - 1;
-      
-        var defaultFocus = document.getElementById("defaultCamera").getAttribute("set_bind");
-        var innovazioneFocus = document.getElementById("innovazioneCamera").getAttribute("set_bind");
-        var governanceFocus = document.getElementById("governanceCamera").getAttribute("set_bind");
-        //var politichepersonaleFocus = document.getElementById("politichepersonaleCamera").getAttribute("set_bind");
-        //var politicheStudentifocus = document.getElementById("politichestudentiCamera").getAttribute("set_bind");
-        var materialiFocus = document.getElementById("materialiCamera").getAttribute("set_bind");
-        //var energiaFocus = document.getElementById("energiaCamera").getAttribute("set_bind");
-        var acquaFocus = document.getElementById("acquaCamera").getAttribute("set_bind");
-        //var rifiutiFocus = document.getElementById("rifiutiCamera").getAttribute("set_bind");
-        //var supplychainFocus = document.getElementById("supplychainCamera").getAttribute("set_bind");
-        //var mobilitaFocus = document.getElementById("mobilitaCamera").getAttribute("set_bind");
 
-        if(defaultFocus == "false"){
-            if(innovazioneFocus == "true"){
-                cameraInnovazione();
+        switch(window.focused){
+            case "defaultCamera":{break;}
+            case "innovazioneCamera":{
+                    cameraInnovazione();
+                    break;
             }
-            else if(governanceFocus == "true"){
-                cameraGovernance();
+            case "governanceCamera":{
+                    cameraGovernance();
+                    break;
             }
-            /*else if(politichepersonaleFocus == "true"){
-                cameraPolitichePersonale();
+            case "politichepersonaleCamera":{
+                    cameraPolitichePersonale();
+                    break;
             }
-            else if(politicheStudentifocus == "true"){
-                cameraPoliticheStudenti();
-            }*/
-            else if(materialiFocus == "true"){
-                cameraMateriali();
+            case "politichestudentiCamera":{
+                    cameraPoliticheStudenti();
+                    break;
             }
-            /*else if(energiaFocus == "true"){
-                cameraEnergia();
-            }*/
-            else if(acquaFocus == "true"){
-                cameraAcqua();
+            case "materialiCamera":{
+                    cameraMateriali();
+                    break;
             }
-            /*else if(rifiutiFocus == "true"){
-                cameraRifiuti();
+            case "energiaCamera":{
+                    cameraEnergia();
+                    break;
             }
-            else if(supplychainFocus == "true"){
-                cameraSupplyChain();
+            case "acquaCamera":{
+                    cameraAcqua();
+                    break;
             }
-            else if(mobilitaFocus == "true"){
-                cameraMobilita();
-            }*/
+            case "rifiutiCamera":{
+                    cameraRifiuti();
+                    break;
+            }
+            case "supplychainCamera":{
+                    cameraSupplyChain();
+                    break;
+            }
+            case "mobilitaCamera":{
+                    cameraMobilita();
+                    break;
+            }
         }
       }
     });

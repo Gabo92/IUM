@@ -1,11 +1,13 @@
 function cameraHome(){
     camera('default');
+    window.focused = "defaultCamera";
     
     $('#popup').hide();
 }
 
 function cameraInnovazione(){
     camera('innovazione');
+    window.focused = "innovazioneCamera";
     
     var data = window.dataManager.data;
     var anno = $("#anni").val();
@@ -22,6 +24,7 @@ function cameraInnovazione(){
 
 function cameraGovernance(){
     camera('governance');
+    window.focused = "governanceCamera";
     
     var data = window.dataManager.data;
     var anno = $("#anni").val();
@@ -45,6 +48,7 @@ function cameraGovernance(){
 
 function cameraPolitichePersonale(){
     camera('pol_personale');
+    //window.focused = "politichepersonaleCamera";
     
     var data = window.dataManager.data;
     var anno = $("#anni").val();
@@ -61,6 +65,7 @@ function cameraPolitichePersonale(){
 
 function cameraPoliticheStudenti(){
     camera('pol_studenti');
+    //window.focused = "politichestudentiCamera";
     
     var data = window.dataManager.data;
     var anno = $("#anni").val();
@@ -77,6 +82,7 @@ function cameraPoliticheStudenti(){
 
 function cameraMateriali(){
     camera('materiali');
+    window.focused = "materialiCamera";
     
     var data = window.dataManager.data;
     var anno = $("#anni").val();
@@ -93,6 +99,7 @@ function cameraMateriali(){
 
 function cameraEnergia(){
     camera('energia');
+    //window.focused = "energiaCamera";
     
     var data = window.dataManager.data;
     var anno = $("#anni").val();
@@ -116,6 +123,7 @@ function cameraEnergia(){
 
 function cameraAcqua(){
     camera('acqua');
+    window.focused = "acquaCamera";
     
     var data = window.dataManager.data;
     var anno = $("#anni").val();
@@ -132,6 +140,7 @@ function cameraAcqua(){
 
 function cameraRifiuti(){
     camera('rifiuti');
+    //window.focused = "rifiutiCamera";
     
     var data = window.dataManager.data;
     var anno = $("#anni").val();
@@ -148,6 +157,7 @@ function cameraRifiuti(){
 
 function cameraSupplyChain(){
     camera('supply_chain');
+    //window.focused = "supplychainCamera";
     
     var data = window.dataManager.data;
     var anno = $("#anni").val();
@@ -164,6 +174,7 @@ function cameraSupplyChain(){
 
 function cameraMobilita(){
     camera('mobilita');
+    window.focused = "mobilitaCamera";
     
     var data = window.dataManager.data;
     var anno = $("#anni").val();
