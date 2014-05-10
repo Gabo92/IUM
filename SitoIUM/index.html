@@ -17,6 +17,7 @@
                 <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
                 <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
 		<script type="text/javascript" src="js/x3dresources.js"></script>
+                <script type="text/javascript" src="js/renderer.js"></script>
 		<script type="text/javascript" src="js/Setup.js"></script>
 		<script type="text/javascript" src="js/Update.js"></script>
 		<script type="text/javascript" src="js/Utils.js"></script>
@@ -113,7 +114,9 @@
                        }
                    } 
                 });
-		loadResources();
+		//loadResources();
+                window.renderer = new Renderer({factor: 3});
+                
 
 		function camera(name){
 			var camera = document.getElementById(name + "Camera");
