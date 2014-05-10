@@ -7,7 +7,6 @@
 (function(window,undefined){
     window.Renderer = function(options){
         var configs = options || {};
-        this.libri = [];
         this.scene = document.getElementById("scene");
         this.factor = configs["factor"] || 3;
         this.robot = new X3DResource("robot");
@@ -30,9 +29,8 @@
         this.muro_frontale = new X3DResource("muro_frontale");
         this.soffitto = new X3DResource("soffitto");
         this.addElementsToScene();
+        this.render(configs["data"]);
     };
-    
-    window.Renderer.MAX_LIBRI = 45;
     
     Object.defineProperties(window.Renderer.prototype, {
         addElementsToScene: { writtable: false, configurable: false, enumerable: false,
@@ -52,7 +50,7 @@
                 this.cestino.addResource("cestino","models/Cestino.x3d");
                 this.barile.addResource("barile","models/barile.x3d");
                 this.robot.addResource("robot","models/robot.x3d");
-                this.universita.addResource("universita","models/universita.x3d");
+                this.universita.addResource("universita","models/universita2.x3d");
                 this.cartellini.addResource("cartellini","models/Cartellini.x3d");
                 this.tavolo.addResource("tavolo","models/tavolo.x3d");
                 this.muro_destro.appendToScene(this.scene);
@@ -65,12 +63,11 @@
                 this.cestino.appendToScene(this.scene);
                 this.universita.appendToScene(this.scene);
                 this.cartellini.appendToScene(this.scene);
+                this.macchina.appendToScene(this.scene);
             }
         },
         render: { writtable: false, configurable: false, enumerable: false,
-            value: function(dataManager,year){
-                var data = dataManager.data[year];
-                console.log("Refreshing the scene ...");
+            value: function(data){
                 this.muro_destro.setAttributes({
                     translation: "-10 -0.2 -2".scaleByFactor(this.factor),
                     scale: "1 1 0.2".scaleByFactor(this.factor),
@@ -105,86 +102,34 @@
                 });
                 
                 this.lavello.setAttributes({
-                    translation: "-8 -3 -8.8".scaleByFactor(this.factor),
+                    translation: "-8.8 -3 -4.5".scaleByFactor(this.factor),
                     scale: "1 1 1".scaleByFactor(this.factor),
-                    rotation: "0 1 0 -3.14"
+                    rotation: "0 1 0 4.71"
                 });
                 
                 this.cestino.setAttributes({
-                    translation: "-9 -3.97 -6".scaleByFactor(this.factor),
+                    translation: "-9 -3.97 0".scaleByFactor(this.factor),
                     scale: "0.05 0.05 0.05".scaleByFactor(this.factor),
                     rotation: "0 1 0 0.3"
                 });
                 
                 this.universita.setAttributes({
-                    translation: "0 -4 -8.7".scaleByFactor(this.factor),
+                    translation: "0 -3.97 -8.7".scaleByFactor(this.factor),
                     rotation: "0 1 0 -3.14",
-                    scale: "0.5 1.2 0.6".scaleByFactor(this.factor)
+                    scale: "0.7 0.7 0.7".scaleByFactor(this.factor)
                 });
                 
                 this.cartellini.setAttributes({
-                    translation: "-5.5 -4 -9.5".scaleByFactor(this.factor),
+                    translation: "5.7 -3 -6.5".scaleByFactor(this.factor),
                     scale: "0.2 0.2 0.2".scaleByFactor(this.factor),
-                    rotation: "0 0 0 1.57"
+                    rotation: "0 1 0 4.71"
                 });
                 
                 this.macchina.setAttributes({
-                    translation: "-4 -3.9 -3".scaleByFactor(this.factor),
-                    scale: "0.05 0.05 0.05".scaleByFactor(this.factor),
+                    translation: "4 -3.9 -4.5".scaleByFactor(this.factor),
+                    scale: "0.1 0.1 0.1".scaleByFactor(this.factor),
                     rotation: "1 0 0 -1.57"
                 });
-                
-                this.clearLibri();
-                if(data && data["Materiali"]){
-                    this.generateLibri(data["Materiali"].values.reverse()[0] || 0);
-                }
-                this.renderLibri();
-            }
-        },
-        
-        clearLibri: { writtable: false, configurable: false, enumerable: false,
-            value: function(){
-                for(var i=0; i < this.libri.length; i++){
-                    this.libri[i].remove();
-                }
-                this.libri = [];
-            }
-        },
-        
-        generateLibri: { writtable: false, configurable: false, enumerable: false,
-            value: function(number){
-                var libro;
-                for(var i=0; i < number; i++){
-                    libro = new X3DResource("libro" + i);
-                    this.libri.push(libro);
-                    libro.addResource("libro","models/libro.x3d");
-                    libro.appendToScene(this.scene);
-                }
-            }
-        },
-    
-        renderLibri: { writtable: false, configurable: false, enumerable: false,
-            value: function(){
-                var x = 2.91;
-                var y = 0.355;
-                var count = 0;
-                for(var j=0; count< this.libri.length; j++){
-                    x = 2.91;
-                    for(var i=1; i<10 && count < this.libri.length; i++){
-                        this.libri[count].setAttributes({
-                            translation: (x + " " + y + " -9.5").scaleByFactor(this.factor),
-                            scale: "0.5 0.5 0.5".scaleByFactor(this.factor),
-                            rotation: "-0.25 1 -0.25 -1.57"
-                        });
-                        if(i % 3 === 0){
-                            x += 0.6;
-                        }else{
-                            x += 0.18;
-                        }
-                        count++;
-                    }
-                    y += -0.95;
-                }
             }
         }
     });
