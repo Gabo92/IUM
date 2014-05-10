@@ -2,8 +2,8 @@
 <!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.0//EN" "http://www.web3d.org/specifications/x3d-3.0.dtd">
 <X3D profile='Immersive' >
 <head>
- <meta name='Vizthumbnail' content='Thumb_Macchina3_x3d13271251399715935.jpg'/>
- <meta name='ExportTime' content='11:58:55'/>
+ <meta name='Vizthumbnail' content='Thumb_Macchina3_x3d15251311399716133.jpg'/>
+ <meta name='ExportTime' content='12: 2:13'/>
  <meta name='ExportDate' content='5/10/2014'/>
  <meta name='VivatyStudioVersion' content='738'/>
  <meta name='VivatyStudioSource' content='macchina3.fxw'/>
@@ -5365,5 +5365,17 @@
  cycleInterval='10'
  loop='true'
  startTime='-1'/>
+<PositionInterpolator DEF='Wizard_pos0'
+ key='
+  0 .5 1'
+ keyValue='
+  0 0 0 50 0 0 0 0 0'/>
+<TimeSensor DEF='vizx_init'
+ cycleInterval='.1'
+ loop='true'/>
+<ROUTE fromNode='vizx_init' fromField='cycleTime' toNode='Wizard' toField='startTime'/>
+<ROUTE fromNode='vizx_init' fromField='cycleTime' toNode='vizx_init' toField='stopTime'/>
+<ROUTE fromNode='Wizard' fromField='fraction_changed' toNode='Wizard_pos0' toField='set_fraction'/>
+<ROUTE fromNode='Wizard_pos0' fromField='value_changed' toNode='dad_Import_Macchina_wrl' toField='set_translation'/>
 </Scene>
 </X3D>
