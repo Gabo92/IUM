@@ -2,15 +2,15 @@
 <!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.0//EN" "http://www.web3d.org/specifications/x3d-3.0.dtd">
 <X3D profile='Immersive' >
 <head>
- <meta name='Vizthumbnail' content='Thumb_Macchina3_x3d49332101399711800.jpg'/>
- <meta name='ExportTime' content='10:50: 0'/>
+ <meta name='Vizthumbnail' content='Thumb_Macchina3_x3d58784851399712745.jpg'/>
+ <meta name='ExportTime' content='11: 5:45'/>
  <meta name='ExportDate' content='5/10/2014'/>
  <meta name='VivatyStudioVersion' content='738'/>
- <meta name='VivatyStudioSource' content='provamacchinafxw.fxw'/>
+ <meta name='VivatyStudioSource' content='macchina3.fxw'/>
 </head>
 <Scene>
 <WorldInfo
- title='ProvaMacchinafxw'
+ title='Macchina3'
  info='"This Web3D Content was created with Vivaty Studio, a Web3D authoring tool"
  "www.mediamachines.com"'/>
 <Transform DEF='dad_Import_Macchina_wrl'>
@@ -5371,22 +5371,6 @@
  cycleInterval='10'
  loop='true'
  startTime='-1'/>
-<TimeSensor DEF='RuotaPosterioreSX'
- cycleInterval='10'
- loop='true'
- startTime='-1'/>
-<TimeSensor DEF='RuotaAnterioreSX'
- cycleInterval='10'
- loop='true'
- startTime='-1'/>
-<TimeSensor DEF='RuotaPosterioreDX'
- cycleInterval='10'
- loop='true'
- startTime='-1'/>
-<TimeSensor DEF='RuotaAnterioreSX0'
- cycleInterval='10'
- loop='true'
- startTime='-1'/>
 <Viewpoint DEF='Viewpoint1'
  description='Viewpoint1'
  jump='true'
@@ -5398,62 +5382,12 @@
   0 1'
  keyValue='
   0 0 0 160 0 0'/>
-<PositionInterpolator DEF='Telaio_pos1'
- key='
-  0 1'
- keyValue='
-  0 0 0 0 0 0'/>
-<PositionInterpolator DEF='Telaio_pos3'
- key='
-  0 1'
- keyValue='
-  0 0 0 0 0 0'/>
-<PositionInterpolator DEF='Telaio_pos4'
- key='
-  0 1'
- keyValue='
-  0 0 0 0 0 0'/>
-<PositionInterpolator DEF='RuotaPosterioreSX_pos0'
- key='
-  0 1'
- keyValue='
-  0 0 0 160 0 0'/>
-<PositionInterpolator DEF='RuotaAnterioreSX_pos0'
- key='
-  0 1'
- keyValue='
-  0 0 0 160 0 0'/>
-<PositionInterpolator DEF='RuotaPosterioreDX_pos0'
- key='
-  0 1'
- keyValue='
-  0 0 0 160 0 0'/>
-<PositionInterpolator DEF='RuotaAnterioreSX0_pos0'
- key='
-  0 1'
- keyValue='
-  0 0 0 160 0 0'/>
 <TimeSensor DEF='vizx_init'
  cycleInterval='.1'
  loop='true'/>
 <ROUTE fromNode='vizx_init' fromField='cycleTime' toNode='Telaio' toField='startTime'/>
-<ROUTE fromNode='vizx_init' fromField='cycleTime' toNode='RuotaPosterioreSX' toField='startTime'/>
-<ROUTE fromNode='vizx_init' fromField='cycleTime' toNode='RuotaAnterioreSX' toField='startTime'/>
-<ROUTE fromNode='vizx_init' fromField='cycleTime' toNode='RuotaPosterioreDX' toField='startTime'/>
-<ROUTE fromNode='vizx_init' fromField='cycleTime' toNode='RuotaAnterioreSX0' toField='startTime'/>
 <ROUTE fromNode='vizx_init' fromField='cycleTime' toNode='vizx_init' toField='stopTime'/>
 <ROUTE fromNode='Telaio' fromField='fraction_changed' toNode='Telaio_pos0' toField='set_fraction'/>
 <ROUTE fromNode='Telaio_pos0' fromField='value_changed' toNode='dad_Import_Macchina_wrl' toField='set_translation'/>
-<ROUTE fromNode='Telaio' fromField='fraction_changed' toNode='Telaio_pos1' toField='set_fraction'/>
-<ROUTE fromNode='Telaio' fromField='fraction_changed' toNode='Telaio_pos3' toField='set_fraction'/>
-<ROUTE fromNode='Telaio' fromField='fraction_changed' toNode='Telaio_pos4' toField='set_fraction'/>
-<ROUTE fromNode='RuotaPosterioreSX' fromField='fraction_changed' toNode='RuotaPosterioreSX_pos0' toField='set_fraction'/>
-<ROUTE fromNode='RuotaPosterioreSX_pos0' fromField='value_changed' toNode='dad_Import_Macchina_wrl' toField='set_translation'/>
-<ROUTE fromNode='RuotaAnterioreSX' fromField='fraction_changed' toNode='RuotaAnterioreSX_pos0' toField='set_fraction'/>
-<ROUTE fromNode='RuotaAnterioreSX' fromField='cycleTime' toNode='Telaio' toField='startTime'/>
-<ROUTE fromNode='RuotaPosterioreDX' fromField='fraction_changed' toNode='RuotaPosterioreDX_pos0' toField='set_fraction'/>
-<ROUTE fromNode='RuotaPosterioreDX' fromField='cycleTime' toNode='Telaio' toField='startTime'/>
-<ROUTE fromNode='RuotaAnterioreSX0' fromField='fraction_changed' toNode='RuotaAnterioreSX0_pos0' toField='set_fraction'/>
-<ROUTE fromNode='RuotaAnterioreSX0' fromField='cycleTime' toNode='Telaio' toField='startTime'/>
 </Scene>
 </X3D>
