@@ -52,7 +52,7 @@
                 this.cestino.addResource("cestino","models/Cestino.x3d");
                 this.barile.addResource("barile","models/barile.x3d");
                 this.robot.addResource("robot","models/robot.x3d");
-                this.universita.addResource("universita","models/universita.x3d");
+                this.universita.addResource("universita","models/universita2.x3d");
                 this.cartellini.addResource("cartellini","models/Cartellini.x3d");
                 this.tavolo.addResource("tavolo","models/tavolo.x3d");
                 this.muro_destro.appendToScene(this.scene);
@@ -65,6 +65,7 @@
                 this.cestino.appendToScene(this.scene);
                 this.universita.appendToScene(this.scene);
                 this.cartellini.appendToScene(this.scene);
+                this.macchina.appendToScene(this.scene);
             }
         },
         render: { writtable: false, configurable: false, enumerable: false,
@@ -105,27 +106,27 @@
                 });
                 
                 this.lavello.setAttributes({
-                    translation: "-8 -3 -8.8".scaleByFactor(this.factor),
+                    translation: "-8.8 -3 -4.5".scaleByFactor(this.factor),
                     scale: "1 1 1".scaleByFactor(this.factor),
-                    rotation: "0 1 0 -3.14"
+                    rotation: "0 1 0 4.71"
                 });
                 
                 this.cestino.setAttributes({
-                    translation: "-9 -3.97 -6".scaleByFactor(this.factor),
+                    translation: "-9 -3.97 0".scaleByFactor(this.factor),
                     scale: "0.05 0.05 0.05".scaleByFactor(this.factor),
                     rotation: "0 1 0 0.3"
                 });
                 
                 this.universita.setAttributes({
-                    translation: "0 -4 -8.7".scaleByFactor(this.factor),
+                    translation: "-2 -3.97 -8.7".scaleByFactor(this.factor),
                     rotation: "0 1 0 -3.14",
-                    scale: "0.5 1.2 0.6".scaleByFactor(this.factor)
+                    scale: "0.7 0.7 0.7".scaleByFactor(this.factor)
                 });
                 
                 this.cartellini.setAttributes({
-                    translation: "-5.5 -4 -9.5".scaleByFactor(this.factor),
+                    translation: "5.7 -3 -6.5".scaleByFactor(this.factor),
                     scale: "0.2 0.2 0.2".scaleByFactor(this.factor),
-                    rotation: "0 0 0 1.57"
+                    rotation: "0 1 0 4.71"
                 });
                 
                 this.macchina.setAttributes({
