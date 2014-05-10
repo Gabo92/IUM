@@ -1,48 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.0//EN" "http://www.web3d.org/specifications/x3d-3.0.dtd">
 <X3D profile='Immersive' >
-<head>
- <meta name='Vizthumbnail' content='Thumb_Macchina3_x3d15251311399716133.jpg'/>
- <meta name='ExportTime' content='12: 2:13'/>
- <meta name='ExportDate' content='5/10/2014'/>
- <meta name='VivatyStudioVersion' content='738'/>
- <meta name='VivatyStudioSource' content='macchina3.fxw'/>
-</head>
-<Scene>
-<WorldInfo
- title='Macchina3'
- info='"This Web3D Content was created with Vivaty Studio, a Web3D authoring tool"
+    <head>
+        <meta name='Vizthumbnail' content='Thumb_Macchina3_x3d15251311399716133.jpg'/>
+        <meta name='ExportTime' content='12: 2:13'/>
+        <meta name='ExportDate' content='5/10/2014'/>
+        <meta name='VivatyStudioVersion' content='738'/>
+        <meta name='VivatyStudioSource' content='macchina3.fxw'/>
+    </head>
+    <Scene>
+        <WorldInfo
+            title='Macchina3'
+            info='"This Web3D Content was created with Vivaty Studio, a Web3D authoring tool"
  "www.mediamachines.com"'/>
-<Viewpoint DEF='Viewpoint1'
- description='Viewpoint1'
- jump='true'
- fieldOfView='.7854'
- position='50 10 100'
- orientation='0 0 1 0'/>
-<Transform DEF='dad_Import_Macchina_wrl'>
- <Background
-  containerField='children'
-  skyAngle=''
-  skyColor='
+        <Viewpoint DEF='Viewpoint1'
+           description='Viewpoint1'
+           jump='true'
+           fieldOfView='.7854'
+           position='50 10 100'
+           orientation='0 0 1 0'/>
+        <Transform DEF='dad_Import_Macchina_wrl'>
+            <Background
+                containerField='children'
+                skyAngle=''
+                skyColor='
    .62745 .62745 .62745'
-  groundAngle=''
-  groundColor='
+                groundAngle=''
+                groundColor='
    0 0 0'/>
- <Shape
-  containerField='children'>
-  <Appearance
-   containerField='appearance'>
-   <Material DEF='material1'
-    containerField='material'
-    ambientIntensity='0'
-    shininess='1'
-    diffuseColor='1 1 1'/>
-  </Appearance>
-  <IndexedFaceSet
-   containerField='geometry'
-   solid='false'
-   creaseAngle='.5236'
-   coordIndex='
+            <Shape
+                containerField='children'>
+                <Appearance
+                    containerField='appearance'>
+                    <Material DEF='material1'
+             containerField='material'
+             ambientIntensity='0'
+             shininess='1'
+             diffuseColor='1 1 1'/>
+                </Appearance>
+                <IndexedFaceSet
+                    containerField='geometry'
+                    solid='false'
+                    creaseAngle='.5236'
+                    coordIndex='
      0 1 2 -1
      0 2 3 -1
      4 5 6 -1
@@ -255,9 +255,9 @@
      92 94 97 -1
      94 92 95 -1
      92 97 105 -1'>
-   <Coordinate
-    containerField='coord'
-    point='
+                    <Coordinate
+                        containerField='coord'
+                        point='
      16.43792 7.19025 -1.08467
      16.43792 8.17959 -1.08467
      16.65308 8.17959 -1.10441
@@ -366,23 +366,23 @@
      17.07114 7.71994 -.34001
      17.2028 7.71994 -.13958
      16.87071 7.71994 -.47167'/>
-  </IndexedFaceSet>
- </Shape>
- <Shape
-  containerField='children'>
-  <Appearance
-   containerField='appearance'>
-   <Material DEF='material3'
-    containerField='material'
-    ambientIntensity='0'
-    shininess='1'
-    diffuseColor='1 1 1'/>
-  </Appearance>
-  <IndexedFaceSet
-   containerField='geometry'
-   solid='false'
-   creaseAngle='.5236'
-   coordIndex='
+                </IndexedFaceSet>
+            </Shape>
+            <Shape
+                containerField='children'>
+                <Appearance
+                    containerField='appearance'>
+                    <Material DEF='material3'
+             containerField='material'
+             ambientIntensity='0'
+             shininess='1'
+             diffuseColor='1 1 1'/>
+                </Appearance>
+                <IndexedFaceSet
+                    containerField='geometry'
+                    solid='false'
+                    creaseAngle='.5236'
+                    coordIndex='
      2 3 1 -1
      2 1 0 -1
      6 7 5 -1
@@ -595,9 +595,9 @@
      195 193 194 -1
      195 206 193 -1
      205 206 203 -1'>
-   <Coordinate
-    containerField='coord'
-    point='
+                    <Coordinate
+                        containerField='coord'
+                        point='
      2.88932 .7248 1.23062
      2.88932 -.26454 1.23062
      2.67415 .7248 1.21088
@@ -806,9 +806,9 @@
      3.43904 .19511 .26579
      3.30738 .19511 .46622
      3.10695 .19511 .59788'/>
-   <Normal
-    containerField='normal'
-    vector='
+                    <Normal
+                        containerField='normal'
+                        vector='
      0 0 1
      0 0 1
      -.18196 0 .98331
@@ -1017,23 +1017,23 @@
      0 -1 0
      0 -1 0
      0 -1 0'/>
-  </IndexedFaceSet>
- </Shape>
- <Shape
-  containerField='children'>
-  <Appearance
-   containerField='appearance'>
-   <Material DEF='material4'
-    containerField='material'
-    ambientIntensity='0'
-    shininess='1'
-    diffuseColor='1 1 1'/>
-  </Appearance>
-  <IndexedFaceSet
-   containerField='geometry'
-   solid='false'
-   creaseAngle='.5236'
-   coordIndex='
+                </IndexedFaceSet>
+            </Shape>
+            <Shape
+                containerField='children'>
+                <Appearance
+                    containerField='appearance'>
+                    <Material DEF='material4'
+             containerField='material'
+             ambientIntensity='0'
+             shininess='1'
+             diffuseColor='1 1 1'/>
+                </Appearance>
+                <IndexedFaceSet
+                    containerField='geometry'
+                    solid='false'
+                    creaseAngle='.5236'
+                    coordIndex='
      2 3 1 -1
      2 1 0 -1
      6 7 5 -1
@@ -1246,9 +1246,9 @@
      196 193 194 -1
      196 197 193 -1
      205 192 197 -1'>
-   <Coordinate
-    containerField='coord'
-    point='
+                    <Coordinate
+                        containerField='coord'
+                        point='
      16.65426 .6705 1.28767
      16.65426 -.31884 1.28767
      16.4391 .6705 1.26793
@@ -1457,9 +1457,9 @@
      17.20398 .14082 .32284
      17.07233 .14082 .52327
      16.87189 .14082 .65493'/>
-   <Normal
-    containerField='normal'
-    vector='
+                    <Normal
+                        containerField='normal'
+                        vector='
      -0 0 1
      0 0 1
      -.18196 0 .98331
@@ -1668,23 +1668,23 @@
      0 -1 0
      0 -1 0
      0 -1 0'/>
-  </IndexedFaceSet>
- </Shape>
- <Shape
-  containerField='children'>
-  <Appearance
-   containerField='appearance'>
-   <Material DEF='material0'
-    containerField='material'
-    ambientIntensity='0'
-    shininess='1'
-    diffuseColor='1 1 1'/>
-  </Appearance>
-  <IndexedFaceSet
-   containerField='geometry'
-   solid='false'
-   creaseAngle='.5236'
-   coordIndex='
+                </IndexedFaceSet>
+            </Shape>
+            <Shape
+                containerField='children'>
+                <Appearance
+                    containerField='appearance'>
+                    <Material DEF='material0'
+             containerField='material'
+             ambientIntensity='0'
+             shininess='1'
+             diffuseColor='1 1 1'/>
+                </Appearance>
+                <IndexedFaceSet
+                    containerField='geometry'
+                    solid='false'
+                    creaseAngle='.5236'
+                    coordIndex='
      0 2 33 -1
      0 33 1 -1
      3 4 31 -1
@@ -2717,9 +2717,9 @@
      972 973 983 -1
      986 981 982 -1
      964 976 991 -1'>
-   <Coordinate
-    containerField='coord'
-    point='
+                    <Coordinate
+                        containerField='coord'
+                        point='
      -.91232 1.04664 .61788
      -.18736 1.04664 .61788
      -.91232 1.04131 .53419
@@ -3712,9 +3712,9 @@
      -.05962 7.4206 2.47577
      -.13241 7.25848 2.31364
      -.17426 7.09292 2.14808'/>
-   <Normal
-    containerField='normal'
-    vector='
+                    <Normal
+                        containerField='normal'
+                        vector='
      0 -.96841 .24935
      0 -.96841 .24935
      0 -.9922 -.12463
@@ -4707,23 +4707,23 @@
      -.87226 -0 .48904
      -.94505 -0 .32691
      -.9869 0 .16136'/>
-  </IndexedFaceSet>
- </Shape>
- <Shape
-  containerField='children'>
-  <Appearance
-   containerField='appearance'>
-   <Material DEF='material2'
-    containerField='material'
-    ambientIntensity='0'
-    shininess='1'
-    diffuseColor='1 1 1'/>
-  </Appearance>
-  <IndexedFaceSet
-   containerField='geometry'
-   solid='false'
-   creaseAngle='.5236'
-   coordIndex='
+                </IndexedFaceSet>
+            </Shape>
+            <Shape
+                containerField='children'>
+                <Appearance
+                    containerField='appearance'>
+                    <Material DEF='material2'
+             containerField='material'
+             ambientIntensity='0'
+             shininess='1'
+             diffuseColor='1 1 1'/>
+                </Appearance>
+                <IndexedFaceSet
+                    containerField='geometry'
+                    solid='false'
+                    creaseAngle='.5236'
+                    coordIndex='
      2 3 1 -1
      2 1 0 -1
      6 7 5 -1
@@ -4936,9 +4936,9 @@
      194 195 196 -1
      206 194 196 -1
      194 206 193 -1'>
-   <Coordinate
-    containerField='coord'
-    point='
+                    <Coordinate
+                        containerField='coord'
+                        point='
      2.89705 7.19034 -1.13574
      2.89705 8.17968 -1.13574
      2.68189 7.19034 -1.116
@@ -5147,9 +5147,9 @@
      3.44677 7.72003 -.17091
      3.31511 7.72003 -.37135
      3.11468 7.72003 -.503'/>
-   <Normal
-    containerField='normal'
-    vector='
+                    <Normal
+                        containerField='normal'
+                        vector='
      -0 0 -1
      0 0 -1
      -.18196 0 -.98331
@@ -5358,24 +5358,24 @@
      0 1 0
      0 1 0
      0 1 0'/>
-  </IndexedFaceSet>
- </Shape>
-</Transform>
-<TimeSensor DEF='Wizard'
- cycleInterval='10'
- loop='true'
- startTime='-1'/>
-<PositionInterpolator DEF='Wizard_pos0'
- key='
+                </IndexedFaceSet>
+            </Shape>
+        </Transform>
+        <TimeSensor DEF='Wizard'
+            cycleInterval='10'
+            loop='true'
+            startTime='-1'/>
+        <PositionInterpolator DEF='Wizard_pos0'
+                      key='
   0 .5 1'
- keyValue='
+                      keyValue='
   0 0 0 50 0 0 0 0 0'/>
-<TimeSensor DEF='vizx_init'
- cycleInterval='.1'
- loop='true'/>
-<ROUTE fromNode='vizx_init' fromField='cycleTime' toNode='Wizard' toField='startTime'/>
-<ROUTE fromNode='vizx_init' fromField='cycleTime' toNode='vizx_init' toField='stopTime'/>
-<ROUTE fromNode='Wizard' fromField='fraction_changed' toNode='Wizard_pos0' toField='set_fraction'/>
-<ROUTE fromNode='Wizard_pos0' fromField='value_changed' toNode='dad_Import_Macchina_wrl' toField='set_translation'/>
-</Scene>
+        <TimeSensor DEF='vizx_init'
+            cycleInterval='.1'
+            loop='true'/>
+        <ROUTE fromNode='vizx_init' fromField='cycleTime' toNode='Wizard' toField='startTime'/>
+        <ROUTE fromNode='vizx_init' fromField='cycleTime' toNode='vizx_init' toField='stopTime'/>
+        <ROUTE fromNode='Wizard' fromField='fraction_changed' toNode='Wizard_pos0' toField='set_fraction'/>
+        <ROUTE fromNode='Wizard_pos0' fromField='value_changed' toNode='dad_Import_Macchina_wrl' toField='set_translation'/>
+    </Scene>
 </X3D>

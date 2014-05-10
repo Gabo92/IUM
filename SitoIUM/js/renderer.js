@@ -114,7 +114,7 @@
                 });
                 
                 this.universita.setAttributes({
-                    translation: "0 -3.97 -8.7".scaleByFactor(this.factor),
+                    translation: "-2 -3.92 -8.7".scaleByFactor(this.factor),
                     rotation: "0 1 0 -3.14",
                     scale: "0.7 0.7 0.7".scaleByFactor(this.factor)
                 });
