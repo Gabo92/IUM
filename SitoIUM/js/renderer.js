@@ -137,7 +137,21 @@
                 
                 this.clearLibri();
                 if(data && data["Materiali"]){
-                    this.generateLibri(data["Materiali"].values.reverse()[0] || 0);
+                    var minmax = dataManager.getMinMax("Materiali");
+                    var min = minmax[0];
+                    var max = minmax[1];
+                    var numLibri = 0;
+                    var values = data["Materiali"].values || [];
+                    for(var i=0; i<values.length; i++){
+                        numLibri += values[i];
+                    }
+                    if(values.length > 0){
+                        numLibri = numLibri / values.length;
+                    }
+                    console.log("min: " + min + " max: " + max + " lib: " + numLibri);
+                    numLibri -= min;
+                    numLibri = numLibri * Renderer.MAX_LIBRI / (max-min);
+                    this.generateLibri(Math.max(numLibri,1));
                 }
                 this.renderLibri();
             }
