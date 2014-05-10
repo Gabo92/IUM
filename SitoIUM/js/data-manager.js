@@ -5,6 +5,7 @@
         this.responsesCount = 0;
         this.data = {};
         this.getAllData();
+        this.ready = false;
     };
     
     DataManager.NAMES = [
@@ -55,6 +56,7 @@
                 this.responsesCount++;
                 if(this.responsesCount === DataManager.NAMES.length){
                     this.trigger("onReady",this.data);
+                    this.ready = true;
                 }
             }
         },
@@ -64,7 +66,21 @@
                 this.responsesCount++;
                 if(this.responsesCount === DataManager.NAMES.length){
                     this.trigger("onReady",this.data);
+                    this.ready = true;
                 }
+            }
+        },
+        getMax: { writtable: false, configurable: false, enumerable: false,
+            value: function(type){
+               var max = -Infinity;
+               var values;
+               for(year in this.data){
+                   values = this.data[year][type].values || [];
+                   for(var i=0; i < values.length; i++){
+                       max = Math.max(max,values[i]);
+                   }
+               }
+               return max;
             }
         }
     });

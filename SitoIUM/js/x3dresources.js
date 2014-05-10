@@ -30,6 +30,9 @@ X3DResource.prototype = {
 	getElement: function(){
 		return this.transform;
 	},
+        remove: function(){
+            this.transform.parentNode.removeChild(this.transform);
+        },
         appendToScene: function(scene){
             scene.appendChild(this.transform);
         }
@@ -113,7 +116,7 @@ function loadResources(){
 				scale: "0.5 0.5 0.5".scaleByFactor(factor),
 				rotation: "-0.25 1 -0.25 -1.57"
 			});
-			if(i % 3 == 0){
+			if(i % 3 === 0){
 				x += 0.6;
 			}else{
 				x += 0.18;

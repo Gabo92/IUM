@@ -113,16 +113,15 @@
 	</body>
 	<script type="text/javascript">
                 window.focused = "defaultCamera";
+                window.renderer = new Renderer({factor: 3});
                 window.dataManager = new DataManager({
                    events: {
                        onReady: function(){
                            console.log("Data manager is ready");
+                           renderer.render(dataManager,2010);
                        }
                    } 
                 });
-		//loadResources();
-                window.renderer = new Renderer({factor: 3});
-                
 
 		function camera(name){
 			var camera = document.getElementById(name + "Camera");
