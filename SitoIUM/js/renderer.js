@@ -13,9 +13,9 @@
         this.barili = [];
         this.macchine = [];
         this.buses = [];
+        this.lampade = [];
         this.scene = document.getElementById("scene");
         this.factor = configs["factor"] || 3;
-        this.lampada = new X3DResource("lampada");
         this.libreria = new X3DResource("libreria");
         this.omino = new X3DResource("omino");
         this.autobus = new X3DResource("autobus");
@@ -41,6 +41,7 @@
     window.Renderer.MAX_ALBERI = 12;
     window.Renderer.MAX_VEICOLI = 5;
     window.Renderer.MAX_ROBOTS = 9;
+    window.Renderer.MAX_LAMPADE = 6;
     
     Object.defineProperties(window.Renderer.prototype, {
         addElementsToScene: { writtable: false, configurable: false, enumerable: false,
@@ -51,7 +52,6 @@
                 this.soffitto.addResource("soffitto","models/soffitto.x3d");
                 this.pavimento.addResource("pavimento","models/pavimento.x3d");
                 this.libreria.addResource("libreria","models/libreria.x3d");
-                this.lampada.addResource("lampada","models/lampada.x3d");
                 this.omino.addResource("omino", "models/Omino.x3d");
                 this.albero.addResource("albero","models/Albero.x3d");
                 this.lavello.addResource("lavello","models/lavello1.x3d");
@@ -71,14 +71,12 @@
                 this.cestino.appendToScene(this.scene);
                 this.cestinox.appendToScene(this.scene);
                 this.universita.appendToScene(this.scene);
-                this.lampada.appendToScene(this.scene);
                 this.cartellini.appendToScene(this.scene);
                 this.generateLibri();
                 this.generateAlberi();
                 this.generateVeicoli();
                 this.generateRobots();
-                
-
+                this.generateLampade();
             }
         },
         render: { writtable: false, configurable: false, enumerable: false,
@@ -141,12 +139,6 @@
                     scale: "0.7 0.7 0.7".scaleByFactor(this.factor)
                 });
                 
-                this.lampada.setAttributes({
-                    translation: "-2 3.25 -2".scaleByFactor(this.factor),
-                    rotation: "0 1 0 1.57",
-                    scale: "0.5 0.5 0.5".scaleByFactor(this.factor)
-                });
-                
                 this.cartellini.setAttributes({
                     translation: "5.7 -3 -6.5".scaleByFactor(this.factor),
                     scale: "0.2 0.2 0.2".scaleByFactor(this.factor),
@@ -157,6 +149,7 @@
                 this.renderAlberi(this.calculateNumber(dataManager,data,"Supply Chain",Renderer.MAX_ALBERI));
                 this.renderVeicoli(this.calculateNumber(dataManager,data,"Mobilita",Renderer.MAX_VEICOLI));
                 this.renderRobots(this.calculateNumber(dataManager,data,"Innovazione",Renderer.MAX_ROBOTS));
+                //this.renderLampade(this.calculateNumber(dataManager,data,"Energia",Renderer.MAX_LAMPADE));
 
                 if(data && data["Rifiuti"]){
                     var values = data["Rifiuti"].values || [];
@@ -309,6 +302,34 @@
             }
         },
         
+        generateLampade: { writtable: false, configurable: false, enumerable: false,
+            value: function(){
+                var lampada;
+                var count = 0;
+
+                var x = -4.25;
+                var z = -2;
+                for(var i=0; i < 2 && count < Renderer.MAX_LAMPADE; i++){
+                    for(var j=0; j < 3 && count < Renderer.MAX_LAMPADE; j++){
+                        lampada = new X3DResource("lampada" + i);
+                        lampada.addResource("lampada","models/lampada.x3d");
+                        lampada.setAttributes({
+                            translation: (x + " 3.25 " + z).scaleByFactor(this.factor),
+                            rotation: "0 1 0 1.57",
+                            scale: "0.3 0.3 0.3".scaleByFactor(this.factor),
+                            render: true
+                        });
+                        lampada.appendToScene(this.scene);
+                        this.lampade.push(lampada);
+                        z += 1.5;
+                        count++;
+                    }
+                    z = -2;
+                    x += 4.5;
+                }
+            }
+        },
+        
         
     
         renderLibri: { writtable: false, configurable: false, enumerable: false,
@@ -356,5 +377,13 @@
                 }
             }
         },
+        
+        renderLampade: { writtable: false, configurable: false, enumerable: false,
+            value: function(number){
+                for(var i=0; i < this.lampade.length; i++){
+                    this.lampade[i].setAttributes({render: i < number});
+                }
+            }
+        }
     })
 })(window,undefined);
