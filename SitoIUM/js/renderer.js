@@ -302,12 +302,12 @@
         
         renderVeicoli: { writtable: false, configurable: false, enumerable: false,
             value: function(number){
-                var numbus = this.buses.length;
-                for(var i=0; i < numbus; i++){
+                var nummacchine = 5 - number;
+                for(var i=0; i < this.buses.length; i++){
                     this.buses[i].setAttributes({render: i < number});
                 }
-                for(var i=0; i < numbus - this.macchine.length; i++){
-                    this.macchine[i].setAttributes({render: i < number});
+                for(var i=0; i < this.macchine.length; i++){
+                    this.macchine[i].setAttributes({render: i < nummacchine});
                 }
             }
         }
