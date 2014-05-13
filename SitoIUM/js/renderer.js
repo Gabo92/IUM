@@ -46,7 +46,7 @@
                 this.lampada.addResource("lampada","models/lampada.x3d");
                 this.omino.addResource("omino", "models/Omino.x3d");
                 this.autobus.addResource("autobus","models/Autobus.x3d");
-                this.macchina.addResource("macchina","models/Macchina2.x3d");
+                this.macchina.addResource("macchina","models/Macchina3.x3d");
                 this.albero.addResource("albero","models/Albero.x3d");
                 this.lavello.addResource("lavello","models/lavello1.x3d");
                 this.cestino.addResource("cestino","models/Cestino.x3d");
@@ -55,6 +55,7 @@
                 this.universita.addResource("universita","models/universita2.x3d");
                 this.cartellini.addResource("cartellini","models/Cartellini.x3d");
                 this.tavolo.addResource("tavolo","models/tavolo.x3d");
+                this.generateLibri();
                 this.muro_destro.appendToScene(this.scene);
                 this.muro_sinistro.appendToScene(this.scene);
                 this.muro_frontale.appendToScene(this.scene);
@@ -66,6 +67,7 @@
                 this.universita.appendToScene(this.scene);
                 this.cartellini.appendToScene(this.scene);
                 this.macchina.appendToScene(this.scene);
+                
             }
         },
         render: { writtable: false, configurable: false, enumerable: false,
@@ -135,7 +137,6 @@
                     rotation: "1 0 0 -1.57"
                 });
                 
-                this.clearLibri();
                 if(data && data["Materiali"]){
                     var minmax = dataManager.getMinMax("Materiali");
                     var min = minmax[0];
@@ -151,9 +152,8 @@
                     console.log("min: " + min + " max: " + max + " lib: " + numLibri);
                     numLibri -= min;
                     numLibri = numLibri * Renderer.MAX_LIBRI / (max-min);
-                    this.generateLibri(Math.max(numLibri,1));
+                    this.renderLibri(Math.max(numLibri,1));
                 }
-                this.renderLibri();
             }
         },
         
@@ -169,28 +169,22 @@
         generateLibri: { writtable: false, configurable: false, enumerable: false,
             value: function(number){
                 var libro;
-                for(var i=0; i < number; i++){
-                    libro = new X3DResource("libro" + i);
-                    this.libri.push(libro);
-                    libro.addResource("libro","models/libro.x3d");
-                    libro.appendToScene(this.scene);
-                }
-            }
-        },
-    
-        renderLibri: { writtable: false, configurable: false, enumerable: false,
-            value: function(){
                 var x = 2.91;
                 var y = 0.355;
-                var count = 0;
-                for(var j=0; count< this.libri.length; j++){
+                var count = 0;                
+                for(var j=0; count< Renderer.MAX_LIBRI; j++){
                     x = 2.91;
-                    for(var i=1; i<10 && count < this.libri.length; i++){
-                        this.libri[count].setAttributes({
+                    for(var i=1; i<10 && count < Renderer.MAX_LIBRI; i++){
+                        libro = new X3DResource("libro" + i);
+                        libro.addResource("libro","models/libro.x3d");
+                        libro.setAttributes({
                             translation: (x + " " + y + " -9.5").scaleByFactor(this.factor),
                             scale: "0.5 0.5 0.5".scaleByFactor(this.factor),
-                            rotation: "-0.25 1 -0.25 -1.57"
+                            rotation: "-0.25 1 -0.25 -1.57",
+                            render: false
                         });
+                        libro.appendToScene(this.scene);
+                        this.libri.push(libro);
                         if(i % 3 === 0){
                             x += 0.6;
                         }else{
@@ -199,6 +193,14 @@
                         count++;
                     }
                     y += -0.95;
+                }
+            }
+        },
+    
+        renderLibri: { writtable: false, configurable: false, enumerable: false,
+            value: function(number){
+                for(var i=0; i < this.libri.length; i++){
+                    this.libri[i].setAttributes({render: i < number});
                 }
             }
         }
