@@ -54,6 +54,7 @@
                 </form>
     
 		<x3d width="100%" height="95%">
+                        
 			<Scene>
 				<Group id="scene"></Group>
 				<Transform DEF="Lamp_TRANSFORM" translation="0 0 0">
@@ -110,7 +111,7 @@
                    events: {
                        onReady: function(){
                            console.log("Data manager is ready");
-                           renderer.render(dataManager,2010);
+                           renderer.render(dataManager,$("#anni").val());
                        }
                    } 
                 });
