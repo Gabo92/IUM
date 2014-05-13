@@ -8,6 +8,11 @@
     window.Renderer = function(options){
         var configs = options || {};
         this.libri = [];
+        this.robotini = [];
+        this.alberi = [];
+        this.barili = [];
+        this.macchine = [];
+        this.buses = [];
         this.scene = document.getElementById("scene");
         this.factor = configs["factor"] || 3;
         this.robot = new X3DResource("robot");
@@ -33,6 +38,7 @@
     };
     
     window.Renderer.MAX_LIBRI = 45;
+    window.Renderer.MAX_ALBERI = 12;
     
     Object.defineProperties(window.Renderer.prototype, {
         addElementsToScene: { writtable: false, configurable: false, enumerable: false,
@@ -156,16 +162,7 @@
                 }
             }
         },
-        
-        clearLibri: { writtable: false, configurable: false, enumerable: false,
-            value: function(){
-                for(var i=0; i < this.libri.length; i++){
-                    this.libri[i].remove();
-                }
-                this.libri = [];
-            }
-        },
-        
+
         generateLibri: { writtable: false, configurable: false, enumerable: false,
             value: function(number){
                 var libro;
@@ -193,6 +190,26 @@
                         count++;
                     }
                     y += -0.95;
+                }
+            }
+        },
+        
+        generateAlberi: { writtable: false, configurable: false, enumerable: false,
+            value: function(){
+                var albero;
+                var count = 0;
+                for(var i=0; i < 3 && count < Renderer.MAX_ALBERI; i++){
+                    for(var j=0; j < 4 && count < Renderer.MAX_ALBERI; i++){
+                        albero = new X3DResource("albero" + i);
+                        albero.addResource("libro","models/Albero.x3d");
+                        albero.setAttributes({
+                            translation: (x + " " + y + " -9.5").scaleByFactor(this.factor),
+                            scale: "0.5 0.5 0.5".scaleByFactor(this.factor),
+                            rotation: "-0.25 1 -0.25 -1.57",
+                            render: true
+                        });
+                        albero.appendToScene(this.scene);
+                    }
                 }
             }
         },
