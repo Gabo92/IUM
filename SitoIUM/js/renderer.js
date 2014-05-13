@@ -84,7 +84,6 @@
         render: { writtable: false, configurable: false, enumerable: false,
             value: function(dataManager,year){
                 var data = dataManager.data[year];
-                console.log("Refreshing the scene ...");
                 this.muro_destro.setAttributes({
                     translation: "-10 -0.2 -2".scaleByFactor(this.factor),
                     scale: "1 1 0.2".scaleByFactor(this.factor),
@@ -154,28 +153,35 @@
                     rotation: "1 0 0 -1.57"
                 });
                 
-                if(data && data["Materiali"]){
-                    var minmax = dataManager.getMinMax("Materiali");
-                    var min = minmax[0];
-                    var max = minmax[1];
-                    var numLibri = 0;
-                    var values = data["Materiali"].values || [];
-                    for(var i=0; i<values.length; i++){
-                        numLibri += values[i];
-                    }
-                    if(values.length > 0){
-                        numLibri = numLibri / values.length;
-                    }
-                    console.log("min: " + min + " max: " + max + " lib: " + numLibri);
-                    numLibri -= min;
-                    numLibri = numLibri * Renderer.MAX_LIBRI / (max-min);
-                    this.renderLibri(Math.max(numLibri,1));
-                }
+                this.renderLibri(this.calculateNumber(dataManager,data,"Materiali",Renderer.MAX_LIBRI));
+                this.renderAlberi(this.calculateNumber(dataManager,data,"Supply Chain",Renderer.MAX_ALBERI));
                 
                 if(data && data["Rifiuti"]){
                     var values = data["Rifiuti"].values || [];
                     this.renderCestini(values);
                 }
+            }
+        },
+        
+        calculateNumber: { writtable: false, configurable: false, enumerable: false,
+            value: function(dataManager,data,type,maximum){
+                var number = 0;
+                if(data && data[type]){
+                    var minmax = dataManager.getMinMax(type);
+                    var min = minmax[0];
+                    var max = minmax[1];
+                    var values = data[type].values || [];
+                    for(var i=0; i<values.length; i++){
+                        number += values[i];
+                    }
+                    if(values.length > 0){
+                        number = number / values.length;
+                    }
+                    number -= min;
+                    number = number * maximum / (max-min);
+                    number = Math.max(number,1);
+                }
+                return number;
             }
         },
 
@@ -224,7 +230,7 @@
                             translation: (x + " -3.9 " + z).scaleByFactor(this.factor),
                             scale: "0.02 0.02 0.035".scaleByFactor(this.factor),
                             rotation: "1 0 0 -1.57",
-                            render: true
+                            render: false
                         });
                         albero.appendToScene(this.scene);
                         this.alberi.push(albero);
@@ -236,11 +242,21 @@
                 }
             }
         },
+        
+        
     
         renderLibri: { writtable: false, configurable: false, enumerable: false,
             value: function(number){
                 for(var i=0; i < this.libri.length; i++){
                     this.libri[i].setAttributes({render: i < number});
+                }
+            }
+        },
+        
+        renderAlberi: { writtable: false, configurable: false, enumerable: false,
+            value: function(number){
+                for(var i=0; i < this.alberi.length; i++){
+                    this.alberi[i].setAttributes({render: i < number});
                 }
             }
         },
