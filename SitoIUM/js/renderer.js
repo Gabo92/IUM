@@ -25,6 +25,7 @@
         this.lavello = new X3DResource("lavello");
         this.pavimento = new X3DResource("pavimento");
         this.cestino = new X3DResource("cestino");
+        this.cestinox = new X3DResource("cestino2");
         this.barile = new X3DResource("barile");
         this.universita = new X3DResource("universita");
         this.cartellini = new X3DResource("cartellini");
@@ -56,6 +57,7 @@
                 this.albero.addResource("albero","models/Albero.x3d");
                 this.lavello.addResource("lavello","models/lavello1.x3d");
                 this.cestino.addResource("cestino","models/Cestino.x3d");
+                this.cestinox.addResource("cestino","models/Cestino2.x3d");
                 this.barile.addResource("barile","models/barile.x3d");
                 this.robot.addResource("robot","models/robot.x3d");
                 this.universita.addResource("universita","models/universita2.x3d");
@@ -70,6 +72,7 @@
                 this.libreria.appendToScene(this.scene);
                 this.lavello.appendToScene(this.scene);
                 this.cestino.appendToScene(this.scene);
+                this.cestinox.appendToScene(this.scene);
                 this.universita.appendToScene(this.scene);
                 this.cartellini.appendToScene(this.scene);
                 this.macchina.appendToScene(this.scene);
@@ -120,7 +123,13 @@
                 });
                 
                 this.cestino.setAttributes({
-                    translation: "-9 -3.97 0".scaleByFactor(this.factor),
+                    translation: "-9 -3.97 -9.5".scaleByFactor(this.factor),
+                    scale: "0.05 0.05 0.05".scaleByFactor(this.factor),
+                    rotation: "0 1 0 0.3"
+                });
+                
+                this.cestinox.setAttributes({
+                    translation: "-7.5 -3.97 -9.5".scaleByFactor(this.factor),
                     scale: "0.05 0.05 0.05".scaleByFactor(this.factor),
                     rotation: "0 1 0 0.3"
                 });
@@ -215,6 +224,14 @@
         },
     
         renderLibri: { writtable: false, configurable: false, enumerable: false,
+            value: function(number){
+                for(var i=0; i < this.libri.length; i++){
+                    this.libri[i].setAttributes({render: i < number});
+                }
+            }
+        },
+        
+        renderCestini: { writtable: false, configurable: false, enumerable: false,
             value: function(number){
                 for(var i=0; i < this.libri.length; i++){
                     this.libri[i].setAttributes({render: i < number});
