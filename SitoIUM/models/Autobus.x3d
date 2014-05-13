@@ -11466,14 +11466,14 @@
  keyValue='
   0 0 1 0 -0 -0 1 -1.571 -0 -0 1 -3.142 -0 -0 1 -4.712 0 0 1 -6.283'/>
 <TimeSensor DEF='Wizard'
-            cycleInterval='4'
+            cycleInterval='6'
             loop='true'
             startTime='-1'/>
         <PositionInterpolator DEF='Wizard_pos0'
                                 key='
             0 .5 1'
                                 keyValue='
-            -200 0 0 0 0 0 200 0 0'/>
+            200 0 0 0 0 0 -400 0 0'/>
                   <TimeSensor DEF='vizx_init'
                       cycleInterval='.1'
                       loop='true'/>

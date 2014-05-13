@@ -147,7 +147,8 @@
                 
                 this.renderLibri(this.calculateNumber(dataManager,data,"Materiali",Renderer.MAX_LIBRI));
                 this.renderAlberi(this.calculateNumber(dataManager,data,"Supply Chain",Renderer.MAX_ALBERI));
-                
+                this.renderVeicoli(this.calculateNumber(dataManager,data,"Mobilita",Renderer.MAX_VEICOLI));
+
                 if(data && data["Rifiuti"]){
                     var values = data["Rifiuti"].values || [];
                     this.renderCestini(values);
@@ -239,17 +240,17 @@
             value: function(){
                 var macchina;
                 var autobus;
-                var xmacchina = 0;
+                var xmacchina = -4;
                 var xautobus = 0;
 
                 for(var i=0; i < Renderer.MAX_VEICOLI; i++){
                     macchina = new X3DResource("macchina" + i);
                     macchina.addResource("macchina","models/Macchina2.x3d");
                     macchina.setAttributes({
-                        translation: xmacchina + " -3.9 -3".scaleByFactor(this.factor),
+                        translation: (xmacchina + " -3.9 -4").scaleByFactor(this.factor),
                         scale: "0.05 0.05 0.05".scaleByFactor(this.factor),
                         rotation: "1 0 0 -1.57",
-                        render: true
+                        render: false
                     });
                     macchina.appendToScene(this.scene);
                     this.macchine.push(macchina);
@@ -260,16 +261,14 @@
                     autobus = new X3DResource("autobus" + i);
                     autobus.addResource("autobus","models/Autobus.x3d");
                     autobus.setAttributes({
-                        translation: xautobus + " -3.9 -3".scaleByFactor(this.factor),
+                        translation: (xautobus + " -3.9 -2.5").scaleByFactor(this.factor),
                         scale: "0.05 0.05 0.05".scaleByFactor(this.factor),
-                        rotation: "1 0 0 -1.57",
-                        render: true
+                        render: false
                     });
                     autobus.appendToScene(this.scene);
                     this.buses.push(autobus);
                     xautobus += 1.5;
-                }
-                
+                }           
             }
         },
         
@@ -303,10 +302,13 @@
         
         renderVeicoli: { writtable: false, configurable: false, enumerable: false,
             value: function(number){
-                var valorebus = number;
-                var valoreauto = 100 - number;
-                
-                
+                var numbus = this.buses.length;
+                for(var i=0; i < numbus; i++){
+                    this.buses[i].setAttributes({render: i < number});
+                }
+                for(var i=0; i < numbus - this.macchine.length; i++){
+                    this.macchine[i].setAttributes({render: i < number});
+                }
             }
         }
     });
