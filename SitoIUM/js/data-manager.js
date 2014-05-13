@@ -70,17 +70,18 @@
                 }
             }
         },
-        getMax: { writtable: false, configurable: false, enumerable: false,
+        getMinMax: { writtable: false, configurable: false, enumerable: false,
             value: function(type){
-               var max = -Infinity;
+               var result = [Infinity,-Infinity];
                var values;
                for(year in this.data){
                    values = this.data[year][type].values || [];
-                   for(var i=0; i < values.length; i++){
-                       max = Math.max(max,values[i]);
-                   }
+                   result[0] = Math.min(result[0],values.sort()[0]);
+                   result[1] = Math.max(result[1],values.reverse()[0]);
                }
-               return max;
+               result[0] = result[0] === -Infinity ? 0 : result[0];
+               result[1] = result[1] === Infinity ? 0 : result[1];
+               return result;
             }
         }
     });

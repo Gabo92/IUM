@@ -8,6 +8,11 @@
     window.Renderer = function(options){
         var configs = options || {};
         this.libri = [];
+        this.robotini = [];
+        this.alberi = [];
+        this.barili = [];
+        this.macchine = [];
+        this.buses = [];
         this.scene = document.getElementById("scene");
         this.factor = configs["factor"] || 3;
         this.robot = new X3DResource("robot");
@@ -20,6 +25,7 @@
         this.lavello = new X3DResource("lavello");
         this.pavimento = new X3DResource("pavimento");
         this.cestino = new X3DResource("cestino");
+        this.cestinox = new X3DResource("cestino2");
         this.barile = new X3DResource("barile");
         this.universita = new X3DResource("universita");
         this.cartellini = new X3DResource("cartellini");
@@ -33,6 +39,7 @@
     };
     
     window.Renderer.MAX_LIBRI = 45;
+    window.Renderer.MAX_ALBERI = 12;
     
     Object.defineProperties(window.Renderer.prototype, {
         addElementsToScene: { writtable: false, configurable: false, enumerable: false,
@@ -46,10 +53,11 @@
                 this.lampada.addResource("lampada","models/lampada.x3d");
                 this.omino.addResource("omino", "models/Omino.x3d");
                 this.autobus.addResource("autobus","models/Autobus.x3d");
-                this.macchina.addResource("macchina","models/Macchina2.x3d");
+                this.macchina.addResource("macchina","models/Macchina3.x3d");
                 this.albero.addResource("albero","models/Albero.x3d");
                 this.lavello.addResource("lavello","models/lavello1.x3d");
                 this.cestino.addResource("cestino","models/Cestino.x3d");
+                this.cestinox.addResource("cestino","models/Cestino2.x3d");
                 this.barile.addResource("barile","models/barile.x3d");
                 this.robot.addResource("robot","models/robot.x3d");
                 this.universita.addResource("universita","models/universita2.x3d");
@@ -63,9 +71,14 @@
                 this.libreria.appendToScene(this.scene);
                 this.lavello.appendToScene(this.scene);
                 this.cestino.appendToScene(this.scene);
+                this.cestinox.appendToScene(this.scene);
                 this.universita.appendToScene(this.scene);
                 this.cartellini.appendToScene(this.scene);
+                this.macchina.appendToScene(this.scene);
                 this.autobus.appendToScene(this.scene);
+                this.generateLibri();
+                this.generateAlberi();
+
             }
         },
         render: { writtable: false, configurable: false, enumerable: false,
@@ -112,7 +125,13 @@
                 });
                 
                 this.cestino.setAttributes({
-                    translation: "-9 -3.97 0".scaleByFactor(this.factor),
+                    translation: "-9 -3.97 -9".scaleByFactor(this.factor),
+                    scale: "0.05 0.05 0.05".scaleByFactor(this.factor),
+                    rotation: "0 1 0 0.3"
+                });
+                
+                this.cestinox.setAttributes({
+                    translation: "-7.5 -3.97 -9".scaleByFactor(this.factor),
                     scale: "0.05 0.05 0.05".scaleByFactor(this.factor),
                     rotation: "0 1 0 0.3"
                 });
@@ -135,48 +154,50 @@
                     rotation: "1 0 0 -1.57"
                 });
                 
-                this.clearLibri();
                 if(data && data["Materiali"]){
-                    this.generateLibri(data["Materiali"].values.reverse()[0] || 0);
+                    var minmax = dataManager.getMinMax("Materiali");
+                    var min = minmax[0];
+                    var max = minmax[1];
+                    var numLibri = 0;
+                    var values = data["Materiali"].values || [];
+                    for(var i=0; i<values.length; i++){
+                        numLibri += values[i];
+                    }
+                    if(values.length > 0){
+                        numLibri = numLibri / values.length;
+                    }
+                    console.log("min: " + min + " max: " + max + " lib: " + numLibri);
+                    numLibri -= min;
+                    numLibri = numLibri * Renderer.MAX_LIBRI / (max-min);
+                    this.renderLibri(Math.max(numLibri,1));
                 }
-                this.renderLibri();
+                
+                if(data && data["Rifiuti"]){
+                    var values = data["Rifiuti"].values || [];
+                    this.renderCestini(values);
+                }
             }
         },
-        
-        clearLibri: { writtable: false, configurable: false, enumerable: false,
-            value: function(){
-                for(var i=0; i < this.libri.length; i++){
-                    this.libri[i].remove();
-                }
-                this.libri = [];
-            }
-        },
-        
+
         generateLibri: { writtable: false, configurable: false, enumerable: false,
             value: function(number){
                 var libro;
-                for(var i=0; i < number; i++){
-                    libro = new X3DResource("libro" + i);
-                    this.libri.push(libro);
-                    libro.addResource("libro","models/libro.x3d");
-                    libro.appendToScene(this.scene);
-                }
-            }
-        },
-    
-        renderLibri: { writtable: false, configurable: false, enumerable: false,
-            value: function(){
                 var x = 2.91;
                 var y = 0.355;
-                var count = 0;
-                for(var j=0; count< this.libri.length; j++){
+                var count = 0;                
+                for(var j=0; count< Renderer.MAX_LIBRI; j++){
                     x = 2.91;
-                    for(var i=1; i<10 && count < this.libri.length; i++){
-                        this.libri[count].setAttributes({
+                    for(var i=1; i<10 && count < Renderer.MAX_LIBRI; i++){
+                        libro = new X3DResource("libro" + i);
+                        libro.addResource("libro","models/libro.x3d");
+                        libro.setAttributes({
                             translation: (x + " " + y + " -9.5").scaleByFactor(this.factor),
                             scale: "0.5 0.5 0.5".scaleByFactor(this.factor),
-                            rotation: "-0.25 1 -0.25 -1.57"
+                            rotation: "-0.25 1 -0.25 -1.57",
+                            render: false
                         });
+                        libro.appendToScene(this.scene);
+                        this.libri.push(libro);
                         if(i % 3 === 0){
                             x += 0.6;
                         }else{
@@ -186,6 +207,51 @@
                     }
                     y += -0.95;
                 }
+            }
+        },
+        
+        generateAlberi: { writtable: false, configurable: false, enumerable: false,
+            value: function(){
+                var albero;
+                var count = 0;
+                var x = -9;
+                var z = -2;
+                for(var i=0; i < 3 && count < Renderer.MAX_ALBERI; i++){
+                    for(var j=0; j < 4 && count < Renderer.MAX_ALBERI; j++){
+                        albero = new X3DResource("albero" + i);
+                        albero.addResource("albero","models/Albero.x3d");
+                        albero.setAttributes({
+                            translation: (x + " -3.9 " + z).scaleByFactor(this.factor),
+                            scale: "0.02 0.02 0.035".scaleByFactor(this.factor),
+                            rotation: "1 0 0 -1.57",
+                            render: true
+                        });
+                        albero.appendToScene(this.scene);
+                        this.alberi.push(albero);
+                        z += 0.5;
+                        count++;
+                    }
+                    z = -2;
+                    x += 1;
+                }
+            }
+        },
+    
+        renderLibri: { writtable: false, configurable: false, enumerable: false,
+            value: function(number){
+                for(var i=0; i < this.libri.length; i++){
+                    this.libri[i].setAttributes({render: i < number});
+                }
+            }
+        },
+        
+        renderCestini: { writtable: false, configurable: false, enumerable: false,
+            value: function(number){
+                var valorebuono = 0.055 + 0.2*(number/100);
+                var valorecattivo = 0.055 + 0.2*((100-number)/100);
+                
+                this.cestino.setAttributes({scale: valorebuono + " " + valorebuono + " " + valorebuono});
+                this.cestinox.setAttributes({scale: valorecattivo + " " + valorecattivo + " " + valorecattivo});
             }
         }
     });
