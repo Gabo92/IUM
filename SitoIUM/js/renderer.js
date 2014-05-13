@@ -215,7 +215,7 @@
                 var albero;
                 var count = 0;
                 var x = -9;
-                var z = -2;
+                var z = -1;
                 for(var i=0; i < 3 && count < Renderer.MAX_ALBERI; i++){
                     for(var j=0; j < 4 && count < Renderer.MAX_ALBERI; j++){
                         albero = new X3DResource("albero" + i);
@@ -231,7 +231,7 @@
                         z += 0.5;
                         count++;
                     }
-                    z = -2;
+                    z = -1;
                     x += 0.5;
                 }
             }
