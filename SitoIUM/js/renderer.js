@@ -123,13 +123,13 @@
                 });
                 
                 this.cestino.setAttributes({
-                    translation: "-9 -3.97 -9.5".scaleByFactor(this.factor),
+                    translation: "-9 -3.97 -9".scaleByFactor(this.factor),
                     scale: "0.05 0.05 0.05".scaleByFactor(this.factor),
                     rotation: "0 1 0 0.3"
                 });
                 
                 this.cestinox.setAttributes({
-                    translation: "-7.5 -3.97 -9.5".scaleByFactor(this.factor),
+                    translation: "-7.5 -3.97 -9".scaleByFactor(this.factor),
                     scale: "0.05 0.05 0.05".scaleByFactor(this.factor),
                     rotation: "0 1 0 0.3"
                 });
@@ -168,6 +168,11 @@
                     numLibri -= min;
                     numLibri = numLibri * Renderer.MAX_LIBRI / (max-min);
                     this.renderLibri(Math.max(numLibri,1));
+                }
+                
+                if(data && data["Rifiuti"]){
+                    var values = data["Rifiuti"].values || [];
+                    this.renderCestini(values);
                 }
             }
         },
@@ -233,9 +238,11 @@
         
         renderCestini: { writtable: false, configurable: false, enumerable: false,
             value: function(number){
-                for(var i=0; i < this.libri.length; i++){
-                    this.libri[i].setAttributes({render: i < number});
-                }
+                var valorebuono = 0.055 + 0.2*(number/100);
+                var valorecattivo = 0.055 + 0.2*((100-number)/100);
+                
+                this.cestino.setAttributes({scale: valorebuono + " " + valorebuono + " " + valorebuono});
+                this.cestinox.setAttributes({scale: valorecattivo + " " + valorecattivo + " " + valorecattivo});
             }
         }
     });
