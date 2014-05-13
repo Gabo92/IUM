@@ -11465,14 +11465,21 @@
   0 .25 .5 .75 1'
  keyValue='
   0 0 1 0 -0 -0 1 -1.571 -0 -0 1 -3.142 -0 -0 1 -4.712 0 0 1 -6.283'/>
-<TimeSensor DEF='vizx_init'
- cycleInterval='.1'
- loop='true'/>
-<ROUTE fromNode='vizx_init' fromField='cycleTime' toNode='Wizard' toField='startTime'/>
-<ROUTE fromNode='vizx_init' fromField='cycleTime' toNode='vizx_init' toField='stopTime'/>
-<ROUTE fromNode='Wizard' fromField='fraction_changed' toNode='Wizard_pos0' toField='set_fraction'/>
-<ROUTE fromNode='Wizard_pos0' fromField='value_changed' toNode='dad_Import_autobus_wrl' toField='set_translation'/>
-<ROUTE fromNode='Wizard' fromField='fraction_changed' toNode='Wizard_rot0' toField='set_fraction'/>
-<ROUTE fromNode='Wizard_rot0' fromField='value_changed' toNode='dad_Import_autobus_wrl' toField='set_rotation'/>
+<TimeSensor DEF='Wizard'
+            cycleInterval='4'
+            loop='true'
+            startTime='-1'/>
+        <PositionInterpolator DEF='Wizard_pos0'
+                                key='
+            0 .5 1'
+                                keyValue='
+            -200 0 0 0 0 0 200 0 0'/>
+                  <TimeSensor DEF='vizx_init'
+                      cycleInterval='.1'
+                      loop='true'/>
+        <ROUTE fromNode='vizx_init' fromField='cycleTime' toNode='Wizard' toField='startTime'/>
+        <ROUTE fromNode='vizx_init' fromField='cycleTime' toNode='vizx_init' toField='stopTime'/>
+        <ROUTE fromNode='Wizard' fromField='fraction_changed' toNode='Wizard_pos0' toField='set_fraction'/>
+        <ROUTE fromNode='Wizard_pos0' fromField='value_changed' toNode='dad_Import_autobus_wrl' toField='set_translation'/>
 </Scene>
 </X3D>
