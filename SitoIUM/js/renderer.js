@@ -8,14 +8,13 @@
     window.Renderer = function(options){
         var configs = options || {};
         this.libri = [];
-        this.robotini = [];
+        this.robots = [];
         this.alberi = [];
         this.barili = [];
         this.macchine = [];
         this.buses = [];
         this.scene = document.getElementById("scene");
         this.factor = configs["factor"] || 3;
-        this.robot = new X3DResource("robot");
         this.lampada = new X3DResource("lampada");
         this.libreria = new X3DResource("libreria");
         this.omino = new X3DResource("omino");
@@ -41,6 +40,7 @@
     window.Renderer.MAX_LIBRI = 45;
     window.Renderer.MAX_ALBERI = 12;
     window.Renderer.MAX_VEICOLI = 5;
+    window.Renderer.MAX_ROBOTS = 9;
     
     Object.defineProperties(window.Renderer.prototype, {
         addElementsToScene: { writtable: false, configurable: false, enumerable: false,
@@ -58,7 +58,6 @@
                 this.cestino.addResource("cestino","models/Cestino.x3d");
                 this.cestinox.addResource("cestino","models/Cestino2.x3d");
                 this.barile.addResource("barile","models/barile.x3d");
-                this.robot.addResource("robot","models/robot.x3d");
                 this.universita.addResource("universita","models/universita2.x3d");
                 this.cartellini.addResource("cartellini","models/Cartellini.x3d");
                 this.tavolo.addResource("tavolo","models/tavolo.x3d");
@@ -72,10 +71,13 @@
                 this.cestino.appendToScene(this.scene);
                 this.cestinox.appendToScene(this.scene);
                 this.universita.appendToScene(this.scene);
+                this.lampada.appendToScene(this.scene);
                 this.cartellini.appendToScene(this.scene);
                 this.generateLibri();
                 this.generateAlberi();
                 this.generateVeicoli();
+                this.generateRobots();
+                
 
             }
         },
@@ -139,6 +141,12 @@
                     scale: "0.7 0.7 0.7".scaleByFactor(this.factor)
                 });
                 
+                this.lampada.setAttributes({
+                    translation: "-2 3.25 -2".scaleByFactor(this.factor),
+                    rotation: "0 1 0 1.57",
+                    scale: "0.5 0.5 0.5".scaleByFactor(this.factor)
+                });
+                
                 this.cartellini.setAttributes({
                     translation: "5.7 -3 -6.5".scaleByFactor(this.factor),
                     scale: "0.2 0.2 0.2".scaleByFactor(this.factor),
@@ -148,6 +156,7 @@
                 this.renderLibri(this.calculateNumber(dataManager,data,"Materiali",Renderer.MAX_LIBRI));
                 this.renderAlberi(this.calculateNumber(dataManager,data,"Supply Chain",Renderer.MAX_ALBERI));
                 this.renderVeicoli(this.calculateNumber(dataManager,data,"Mobilita",Renderer.MAX_VEICOLI));
+                this.renderRobots(this.calculateNumber(dataManager,data,"Innovazione",Renderer.MAX_ROBOTS));
 
                 if(data && data["Rifiuti"]){
                     var values = data["Rifiuti"].values || [];
@@ -272,6 +281,34 @@
             }
         },
         
+        generateRobots: { writtable: false, configurable: false, enumerable: false,
+            value: function(){
+                var robot;
+                var count = 0;
+
+                var x = 2.5;
+                var z = -1;
+                for(var i=0; i < 3 && count < Renderer.MAX_ROBOTS; i++){
+                    for(var j=0; j < 3 && count < Renderer.MAX_ROBOTS; j++){
+                        robot = new X3DResource("robot" + i);
+                        robot.addResource("robot","models/robot.x3d");
+                        robot.setAttributes({
+                            translation: (x + " -3.9 " + z).scaleByFactor(this.factor),
+                            scale: "0.25 0.25 0.25".scaleByFactor(this.factor),
+                            rotation: "0 1 0 1.57",
+                            render: false
+                        });
+                        robot.appendToScene(this.scene);
+                        this.robots.push(robot);
+                        z += 1;
+                        count++;
+                    }
+                    z = -1;
+                    x += 1;
+                }
+            }
+        },
+        
         
     
         renderLibri: { writtable: false, configurable: false, enumerable: false,
@@ -310,6 +347,14 @@
                     this.macchine[i].setAttributes({render: i < nummacchine});
                 }
             }
-        }
-    });
+        },
+        
+        renderRobots: { writtable: false, configurable: false, enumerable: false,
+            value: function(number){
+                for(var i=0; i < this.robots.length; i++){
+                    this.robots[i].setAttributes({render: i < number});
+                }
+            }
+        },
+    })
 })(window,undefined);
