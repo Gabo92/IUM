@@ -40,6 +40,7 @@
     
     window.Renderer.MAX_LIBRI = 45;
     window.Renderer.MAX_ALBERI = 12;
+    window.Renderer.MAX_VEICOLI = 5;
     
     Object.defineProperties(window.Renderer.prototype, {
         addElementsToScene: { writtable: false, configurable: false, enumerable: false,
@@ -52,8 +53,6 @@
                 this.libreria.addResource("libreria","models/libreria.x3d");
                 this.lampada.addResource("lampada","models/lampada.x3d");
                 this.omino.addResource("omino", "models/Omino.x3d");
-                this.autobus.addResource("autobus","models/Autobus.x3d");
-                this.macchina.addResource("macchina","models/Macchina3.x3d");
                 this.albero.addResource("albero","models/Albero.x3d");
                 this.lavello.addResource("lavello","models/lavello1.x3d");
                 this.cestino.addResource("cestino","models/Cestino.x3d");
@@ -74,10 +73,9 @@
                 this.cestinox.appendToScene(this.scene);
                 this.universita.appendToScene(this.scene);
                 this.cartellini.appendToScene(this.scene);
-                this.macchina.appendToScene(this.scene);
-                this.autobus.appendToScene(this.scene);
                 this.generateLibri();
                 this.generateAlberi();
+                this.generateVeicoli();
 
             }
         },
@@ -145,12 +143,6 @@
                     translation: "5.7 -3 -6.5".scaleByFactor(this.factor),
                     scale: "0.2 0.2 0.2".scaleByFactor(this.factor),
                     rotation: "0 1 0 4.71"
-                });
-                
-                this.autobus.setAttributes({
-                    translation: "-4 -3.9 -3".scaleByFactor(this.factor),
-                    scale: "0.05 0.05 0.05".scaleByFactor(this.factor),
-                    rotation: "1 0 0 -1.57"
                 });
                 
                 this.renderLibri(this.calculateNumber(dataManager,data,"Materiali",Renderer.MAX_LIBRI));
@@ -243,6 +235,44 @@
             }
         },
         
+        generateVeicoli: { writtable: false, configurable: false, enumerable: false,
+            value: function(){
+                var macchina;
+                var autobus;
+                var xmacchina = 0;
+                var xautobus = 0;
+
+                for(var i=0; i < Renderer.MAX_VEICOLI; i++){
+                    macchina = new X3DResource("macchina" + i);
+                    macchina.addResource("macchina","models/Macchina2.x3d");
+                    macchina.setAttributes({
+                        translation: xmacchina + " -3.9 -3".scaleByFactor(this.factor),
+                        scale: "0.05 0.05 0.05".scaleByFactor(this.factor),
+                        rotation: "1 0 0 -1.57",
+                        render: true
+                    });
+                    macchina.appendToScene(this.scene);
+                    this.macchine.push(macchina);
+                    xmacchina += 1.5;
+                }
+
+                for(var i=0; i < Renderer.MAX_VEICOLI; i++){
+                    autobus = new X3DResource("autobus" + i);
+                    autobus.addResource("autobus","models/Autobus.x3d");
+                    autobus.setAttributes({
+                        translation: xautobus + " -3.9 -3".scaleByFactor(this.factor),
+                        scale: "0.05 0.05 0.05".scaleByFactor(this.factor),
+                        rotation: "1 0 0 -1.57",
+                        render: true
+                    });
+                    autobus.appendToScene(this.scene);
+                    this.buses.push(autobus);
+                    xautobus += 1.5;
+                }
+                
+            }
+        },
+        
         
     
         renderLibri: { writtable: false, configurable: false, enumerable: false,
@@ -273,8 +303,8 @@
         
         renderVeicoli: { writtable: false, configurable: false, enumerable: false,
             value: function(number){
-                var valorebuono = 0.055 + 0.2*(number/100);
-                var valorecattivo = 0.055 + 0.2*((100-number)/100);
+                var valorebus = number;
+                var valoreauto = 100 - number;
                 
                 
             }
