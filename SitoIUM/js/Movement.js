@@ -140,7 +140,7 @@ function cameraAcqua(){
 
 function cameraRifiuti(){
     camera('rifiuti');
-    //window.focused = "rifiutiCamera";
+    window.focused = "rifiutiCamera";
     
     var data = window.dataManager.data;
     var anno = $("#anni").val();
