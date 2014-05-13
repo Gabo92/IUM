@@ -63,7 +63,6 @@
                 this.universita.addResource("universita","models/universita2.x3d");
                 this.cartellini.addResource("cartellini","models/Cartellini.x3d");
                 this.tavolo.addResource("tavolo","models/tavolo.x3d");
-                this.generateLibri();
                 this.muro_destro.appendToScene(this.scene);
                 this.muro_sinistro.appendToScene(this.scene);
                 this.muro_frontale.appendToScene(this.scene);
@@ -77,6 +76,9 @@
                 this.cartellini.appendToScene(this.scene);
                 this.macchina.appendToScene(this.scene);
                 this.autobus.appendToScene(this.scene);
+                this.generateLibri();
+                this.generateAlberi();
+
             }
         },
         render: { writtable: false, configurable: false, enumerable: false,
@@ -212,18 +214,25 @@
             value: function(){
                 var albero;
                 var count = 0;
+                var x = -9;
+                var z = -2;
                 for(var i=0; i < 3 && count < Renderer.MAX_ALBERI; i++){
-                    for(var j=0; j < 4 && count < Renderer.MAX_ALBERI; i++){
+                    for(var j=0; j < 4 && count < Renderer.MAX_ALBERI; j++){
                         albero = new X3DResource("albero" + i);
-                        albero.addResource("libro","models/Albero.x3d");
+                        albero.addResource("albero","models/Albero.x3d");
                         albero.setAttributes({
-                            translation: (x + " " + y + " -9.5").scaleByFactor(this.factor),
-                            scale: "0.5 0.5 0.5".scaleByFactor(this.factor),
-                            rotation: "-0.25 1 -0.25 -1.57",
+                            translation: (x + " -3.9 " + z).scaleByFactor(this.factor),
+                            scale: "0.02 0.02 0.035".scaleByFactor(this.factor),
+                            rotation: "1 0 0 -1.57",
                             render: true
                         });
                         albero.appendToScene(this.scene);
+                        this.alberi.push(albero);
+                        z += 0.5;
+                        count++;
                     }
+                    z = -2;
+                    x += 1;
                 }
             }
         },
