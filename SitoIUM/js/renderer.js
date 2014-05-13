@@ -67,7 +67,7 @@
                 this.universita.appendToScene(this.scene);
                 this.cartellini.appendToScene(this.scene);
                 this.macchina.appendToScene(this.scene);
-                
+                this.autobus.appendToScene(this.scene);
             }
         },
         render: { writtable: false, configurable: false, enumerable: false,
@@ -131,7 +131,7 @@
                     rotation: "0 1 0 4.71"
                 });
                 
-                this.macchina.setAttributes({
+                this.autobus.setAttributes({
                     translation: "-4 -3.9 -3".scaleByFactor(this.factor),
                     scale: "0.05 0.05 0.05".scaleByFactor(this.factor),
                     rotation: "1 0 0 -1.57"
