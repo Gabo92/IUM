@@ -247,11 +247,20 @@
         
         renderCestini: { writtable: false, configurable: false, enumerable: false,
             value: function(number){
+                var valorebuono = 0.03 + 0.05*(number/100);
+                var valorecattivo = 0.03 + 0.05*((100-number)/100);
+                
+                this.cestino.setAttributes({scale: (valorebuono + " " + valorebuono + " " + valorebuono).scaleByFactor(this.factor)});
+                this.cestinox.setAttributes({scale: (valorecattivo + " " + valorecattivo + " " + valorecattivo).scaleByFactor(this.factor)});
+            }
+        },
+        
+        renderVeicoli: { writtable: false, configurable: false, enumerable: false,
+            value: function(number){
                 var valorebuono = 0.055 + 0.2*(number/100);
                 var valorecattivo = 0.055 + 0.2*((100-number)/100);
                 
-                this.cestino.setAttributes({scale: valorebuono + " " + valorebuono + " " + valorebuono});
-                this.cestinox.setAttributes({scale: valorecattivo + " " + valorecattivo + " " + valorecattivo});
+                
             }
         }
     });
