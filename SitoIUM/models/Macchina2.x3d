@@ -5,7 +5,7 @@
 		<meta name="filename" content="Macchina.x3d" />
 		<meta name="generator" content="Blender 2.67 (sub 0)" />
 	</head>
-	<Scene>
+	<Scene><Transform DEF="MioTransform">
 		<Transform DEF="ShapeIndexedFaceSet_004_TRANSFORM"
 		           translation="0.000000 0.000000 0.000000"
 		           scale="1.000000 1.000000 1.000000"
@@ -284,5 +284,22 @@
 				</Group>
 			</Transform>
 		</Transform>
+        </Transform>
+                <TimeSensor DEF='Wizard'
+            cycleInterval='4'
+            loop='true'
+            startTime='-1'/>
+        <PositionInterpolator DEF='Wizard_pos0'
+                                key='
+            0 .5 1'
+                                keyValue='
+            -200 0 0 0 0 0 200 0 0'/>
+                  <TimeSensor DEF='vizx_init'
+                      cycleInterval='.1'
+                      loop='true'/>
+        <ROUTE fromNode='vizx_init' fromField='cycleTime' toNode='Wizard' toField='startTime'/>
+        <ROUTE fromNode='vizx_init' fromField='cycleTime' toNode='vizx_init' toField='stopTime'/>
+        <ROUTE fromNode='Wizard' fromField='fraction_changed' toNode='Wizard_pos0' toField='set_fraction'/>
+        <ROUTE fromNode='Wizard_pos0' fromField='value_changed' toNode='MioTransform' toField='set_translation'/>
 	</Scene>
 </X3D>

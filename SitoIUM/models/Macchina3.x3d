@@ -5362,14 +5362,14 @@
             </Shape>
         </Transform>
         <TimeSensor DEF='Wizard'
-            cycleInterval='10'
+            cycleInterval='4'
             loop='true'
             startTime='-1'/>
         <PositionInterpolator DEF='Wizard_pos0'
                       key='
   0 .5 1'
                       keyValue='
-  0 0 0 50 0 0 0 0 0'/>
+  -200 0 0 0 0 0 200 0 0'/>
         <TimeSensor DEF='vizx_init'
             cycleInterval='.1'
             loop='true'/>
