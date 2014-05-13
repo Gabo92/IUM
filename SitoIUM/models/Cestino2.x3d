@@ -49,7 +49,7 @@
 					<Shape>
 						<Appearance>
 							<ImageTexture DEF="IM_cestino_jpg"
-							              url='"textures/cestino.jpg"' repeatS="false" repeatT="false"
+							              url='"textures/cestino2.jpg"' repeatS="false" repeatT="false"
 							              />
 							<TextureTransform
 							                  translation="0.000000 0.000000"
