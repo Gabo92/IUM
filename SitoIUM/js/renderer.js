@@ -148,7 +148,7 @@
                 this.renderAlberi(this.calculateNumber(dataManager,data,"Supply Chain",Renderer.MAX_ALBERI));
                 this.renderVeicoli(this.calculateNumber(dataManager,data,"Mobilita",Renderer.MAX_VEICOLI));
                 this.renderRobots(this.calculateNumber(dataManager,data,"Innovazione",Renderer.MAX_ROBOTS));
-                //this.renderLampade(this.calculateNumber(dataManager,data,"Energia",Renderer.MAX_LAMPADE));
+                this.renderLampade(this.calculateNumber(dataManager,data,"Energia",Renderer.MAX_LAMPADE));
 
                 if(data && data["Rifiuti"]){
                     var values = data["Rifiuti"].values || [];
@@ -337,7 +337,7 @@
                             translation: (x + " 3.25 " + z).scaleByFactor(this.factor),
                             rotation: "0 1 0 1.57",
                             scale: "0.3 0.3 0.3".scaleByFactor(this.factor),
-                            render: true
+                            render: false
                         });
                         lampada.appendToScene(this.scene);
                         this.lampade.push(lampada);
@@ -431,6 +431,7 @@
         
         renderLampade: { writtable: false, configurable: false, enumerable: false,
             value: function(number){
+                console.log("Lampade: " + number);
                 for(var i=0; i < this.lampade.length; i++){
                     this.lampade[i].setAttributes({render: i < number});
                 }

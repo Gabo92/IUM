@@ -44,7 +44,7 @@
                 var that = this;
                 $(xml).find("Riga").each(function(){
                     var year = $(this).find("Data").text().split("-")[0] + '';
-                    var type = $(this).find("Tipo").text().replace(/à/g,"a");
+                    var type = $.trim($(this).find("Tipo").text()).replace(/[àÃ]/g,"a");
                     var unity = $(this).find("Unita").text();
                     var value = $(this).find("Valore").text();
                     that.data[year] = that.data[year] || {};
@@ -72,16 +72,18 @@
         },
         getMinMax: { writtable: false, configurable: false, enumerable: false,
             value: function(type){
-               var result = [Infinity,-Infinity];
-               var values;
-               for(year in this.data){
-                   values = this.data[year][type].values || [];
-                   result[0] = Math.min(result[0],values.sort()[0]);
-                   result[1] = Math.max(result[1],values.reverse()[0]);
-               }
-               result[0] = result[0] === -Infinity ? 0 : result[0];
-               result[1] = result[1] === Infinity ? 0 : result[1];
-               return result;
+                var result = [Infinity,-Infinity];
+                var values;
+                for(year in this.data){
+                    values = (this.data[year][type] || {}).values || [];
+                    if(values.length > 0){
+                        result[0] = Math.min(result[0],values.sort()[0]);
+                        result[1] = Math.max(result[1],values.reverse()[0]);
+                    }
+                }
+                result[0] = result[0] === -Infinity ? 0 : result[0];
+                result[1] = result[1] === Infinity ? 0 : result[1];
+                return result;
             }
         }
     });
