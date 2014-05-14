@@ -53,14 +53,11 @@
                 this.soffitto.addResource("soffitto","models/soffitto.x3d");
                 this.pavimento.addResource("pavimento","models/pavimento.x3d");
                 this.libreria.addResource("libreria","models/libreria.x3d");
-                this.albero.addResource("albero","models/Albero.x3d");
                 this.lavello.addResource("lavello","models/lavello1.x3d");
                 this.cestino.addResource("cestino","models/Cestino.x3d");
                 this.cestinox.addResource("cestino","models/Cestino2.x3d");
-                this.barile.addResource("barile","models/barile.x3d");
                 this.universita.addResource("universita","models/universita2.x3d");
                 this.cartellini.addResource("cartellini","models/Cartellini.x3d");
-                this.tavolo.addResource("tavolo","models/tavolo.x3d");
                 this.muro_destro.appendToScene(this.scene);
                 this.muro_sinistro.appendToScene(this.scene);
                 this.muro_frontale.appendToScene(this.scene);
@@ -367,7 +364,7 @@
                         studente.setAttributes({
                             translation: (x + " -3.97 " + z).scaleByFactor(this.factor),
                             rotation: "-1 0 0 1.57",
-                            scale: "0.1 0.1 0.1".scaleByFactor(this.factor),
+                            scale: "0.05 0.05 0.05".scaleByFactor(this.factor),
                             render: true
                         });
                         studente.appendToScene(this.scene);
@@ -414,7 +411,7 @@
         
         renderVeicoli: { writtable: false, configurable: false, enumerable: false,
             value: function(number){
-                var nummacchine = 5 - number;
+                var nummacchine = Renderer.MAX_VEICOLI - number;
                 for(var i=0; i < this.buses.length; i++){
                     this.buses[i].setAttributes({render: i < number});
                 }
@@ -439,5 +436,5 @@
                 }
             }
         }
-    })
+    });
 })(window,undefined);

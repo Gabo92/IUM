@@ -11473,7 +11473,7 @@
                                 key='
             0 .5 1'
                                 keyValue='
-            200 0 0 0 0 0 -400 0 0'/>
+            300 0 0 0 0 0 -300 0 0'/>
                   <TimeSensor DEF='vizx_init'
                       cycleInterval='.1'
                       loop='true'/>
