@@ -48,7 +48,7 @@ function cameraGovernance(){
 
 function cameraPolitichePersonale(){
     camera('pol_personale');
-    //window.focused = "politichepersonaleCamera";
+    window.focused = "pol_personaleCamera";
     
     var data = window.dataManager.data;
     var anno = $("#anni").val();
@@ -65,7 +65,7 @@ function cameraPolitichePersonale(){
 
 function cameraPoliticheStudenti(){
     camera('pol_studenti');
-    //window.focused = "politichestudentiCamera";
+    window.focused = "pol_studentiCamera";
     
     var data = window.dataManager.data;
     var anno = $("#anni").val();
@@ -75,7 +75,7 @@ function cameraPoliticheStudenti(){
   
     $("#tipo").html("Obiettivo strategico: promuovere la soddisfazione degli studenti");
     $("#testo").html("In quest'area vengono inserite le azioni che mirano ad aumentare il benessere degli studenti e a rendere la loro esperienza presso l'ateneo piu' soddisfacente e piu' proficua. Rientrano quindi le azioni per migliorare l'efficienza e l'efficacia dei servizi agli studenti, con particolare attenzione alle situazioni di difficolta'. Sono comprese in quest'area anche tutte le iniziative volte a promuovere la diffusione della cultura della sostenibilita' presso gli studenti.");
-    $("#nomeValore").html("Voto medio degli studenti: <b>" + String(valore) + "</b>");
+    $("#nomeValore").html("Voto medio assegnato all'ateneo dagli studenti: <b>" + String(valore) + "</b>");
     
     $('#popup').show();
 }
@@ -99,7 +99,7 @@ function cameraMateriali(){
 
 function cameraEnergia(){
     camera('energia');
-    //window.focused = "energiaCamera";
+    window.focused = "energiaCamera";
     
     var data = window.dataManager.data;
     var anno = $("#anni").val();
@@ -157,7 +157,7 @@ function cameraRifiuti(){
 
 function cameraSupplyChain(){
     camera('supply_chain');
-    //window.focused = "supplychainCamera";
+    window.focused = "supplychainCamera";
     
     var data = window.dataManager.data;
     var anno = $("#anni").val();

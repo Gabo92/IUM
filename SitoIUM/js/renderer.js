@@ -14,10 +14,10 @@
         this.macchine = [];
         this.buses = [];
         this.lampade = [];
+        this.studenti = [];
         this.scene = document.getElementById("scene");
         this.factor = configs["factor"] || 3;
         this.libreria = new X3DResource("libreria");
-        this.omino = new X3DResource("omino");
         this.autobus = new X3DResource("autobus");
         this.macchina = new X3DResource("macchina");
         this.albero = new X3DResource("albero");
@@ -42,6 +42,7 @@
     window.Renderer.MAX_VEICOLI = 5;
     window.Renderer.MAX_ROBOTS = 9;
     window.Renderer.MAX_LAMPADE = 6;
+    window.Renderer.MAX_STUDENTI = 10;
     
     Object.defineProperties(window.Renderer.prototype, {
         addElementsToScene: { writtable: false, configurable: false, enumerable: false,
@@ -52,7 +53,6 @@
                 this.soffitto.addResource("soffitto","models/soffitto.x3d");
                 this.pavimento.addResource("pavimento","models/pavimento.x3d");
                 this.libreria.addResource("libreria","models/libreria.x3d");
-                this.omino.addResource("omino", "models/Omino.x3d");
                 this.albero.addResource("albero","models/Albero.x3d");
                 this.lavello.addResource("lavello","models/lavello1.x3d");
                 this.cestino.addResource("cestino","models/Cestino.x3d");
@@ -77,6 +77,8 @@
                 this.generateVeicoli();
                 this.generateRobots();
                 this.generateLampade();
+                this.generateStudenti();
+
             }
         },
         render: { writtable: false, configurable: false, enumerable: false,
@@ -134,7 +136,7 @@
                 });
                 
                 this.universita.setAttributes({
-                    translation: "-2 -3.97 -8.7".scaleByFactor(this.factor),
+                    translation: "-2 -3.97 -9".scaleByFactor(this.factor),
                     rotation: "0 1 0 -3.14",
                     scale: "0.7 0.7 0.7".scaleByFactor(this.factor)
                 });
@@ -330,6 +332,33 @@
             }
         },
         
+        generateStudenti: { writtable: false, configurable: false, enumerable: false,
+            value: function(){
+                var studente;
+                var count = 0;
+
+                var x = -3.3;
+                var z = -5.7;
+                for(var i=0; i < 5 && count < Renderer.MAX_STUDENTI; i++){
+                    for(var j=0; j < 2 && count < Renderer.MAX_STUDENTI; j++){
+                        studente = new X3DResource("studente" + i);
+                        studente.addResource("studente","models/Omino.x3d");
+                        studente.setAttributes({
+                            translation: (x + " -3.97 " + z).scaleByFactor(this.factor),
+                            rotation: "-1 0 0 1.57",
+                            scale: "0.1 0.1 0.1".scaleByFactor(this.factor),
+                            render: true
+                        });
+                        studente.appendToScene(this.scene);
+                        this.studenti.push(studente);
+                        z += 0.5;
+                        count++;
+                    }
+                    z = -5.7;
+                    x += 0.5;
+                }
+            }
+        },
         
     
         renderLibri: { writtable: false, configurable: false, enumerable: false,

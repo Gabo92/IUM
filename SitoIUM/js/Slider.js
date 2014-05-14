@@ -22,11 +22,11 @@ $(function() {
                         cameraGovernance();
                         break;
                 }
-                case "politichepersonaleCamera":{
+                case "pol_personaleCamera":{
                         cameraPolitichePersonale();
                         break;
                 }
-                case "politichestudentiCamera":{
+                case "pol_studentiCamera":{
                         cameraPoliticheStudenti();
                         break;
                 }
