@@ -216,15 +216,18 @@
         generateAlberi: { writtable: false, configurable: false, enumerable: false,
             value: function(){
                 var albero;
-                var count = 0;
-                var x = -9;
+                var barile;
+                var countalberi = 0;
+                var countbarili = 0;
+                var xalberi = -9;
+                var xbarili = -7.5;
                 var z = -1;
-                for(var i=0; i < 3 && count < Renderer.MAX_ALBERI; i++){
-                    for(var j=0; j < 4 && count < Renderer.MAX_ALBERI; j++){
+                for(var i=0; i < 3 && countalberi < Renderer.MAX_ALBERI; i++){
+                    for(var j=0; j < 4 && countalberi < Renderer.MAX_ALBERI; j++){
                         albero = new X3DResource("albero" + i);
                         albero.addResource("albero","models/Albero.x3d");
                         albero.setAttributes({
-                            translation: (x + " -3.9 " + z).scaleByFactor(this.factor),
+                            translation: (xalberi + " -3.9 " + z).scaleByFactor(this.factor),
                             scale: "0.02 0.02 0.035".scaleByFactor(this.factor),
                             rotation: "1 0 0 -1.57",
                             render: false
@@ -232,10 +235,28 @@
                         albero.appendToScene(this.scene);
                         this.alberi.push(albero);
                         z += 0.5;
-                        count++;
+                        countalberi++;
                     }
                     z = -1;
-                    x += 0.5;
+                    xalberi += 0.5;
+                }
+                z = -1;
+                for(var i=0; i < 3 && countbarili < Renderer.MAX_ALBERI; i++){
+                    for(var j=0; j < 4 && countbarili < Renderer.MAX_ALBERI; j++){
+                        barile = new X3DResource("barile" + i);
+                        barile.addResource("barile","models/barile.x3d");
+                        barile.setAttributes({
+                            translation: (xbarili + " -3.9 " + z).scaleByFactor(this.factor),
+                            scale: "0.05 0.05 0.05".scaleByFactor(this.factor),
+                            render: true
+                        });
+                        barile.appendToScene(this.scene);
+                        this.barili.push(barile);
+                        z += 0.5;
+                        countbarili++;
+                    }
+                    z = -1;
+                    xbarili += 0.5;
                 }
             }
         },
@@ -371,8 +392,12 @@
         
         renderAlberi: { writtable: false, configurable: false, enumerable: false,
             value: function(number){
+                var numbarili = 12 - number;
                 for(var i=0; i < this.alberi.length; i++){
                     this.alberi[i].setAttributes({render: i < number});
+                }
+                for(var i=0; i < this.barili.length; i++){
+                    this.barili[i].setAttributes({render: i < numbarili});
                 }
             }
         },
