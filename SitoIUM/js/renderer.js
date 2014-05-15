@@ -355,7 +355,7 @@
                 var studente;
                 var count = 0;
 
-                var x = -3.3;
+                var x = -3.1;
                 var z = -5.7;
                 for(var i=0; i < 5 && count < Renderer.MAX_STUDENTI; i++){
                     for(var j=0; j < 2 && count < Renderer.MAX_STUDENTI; j++){
@@ -389,7 +389,7 @@
         
         renderAlberi: { writtable: false, configurable: false, enumerable: false,
             value: function(number){
-                var numbarili = 12 - number;
+                var numbarili = Renderer.MAX_ALBERI - number;
                 for(var i=0; i < this.alberi.length; i++){
                     this.alberi[i].setAttributes({render: i < number});
                 }
