@@ -154,6 +154,17 @@
                     var values = data["Rifiuti"].values || [];
                     this.renderCestini(values);
                 }
+                
+                if(data && data["Governance"]){
+                    var values = data["Governance"].values || [];
+                    var media = 0;
+                    for(var i = 0; i < values.length; i++){
+                        media += values[i];
+                }
+    
+                    media /= values.length;
+                    this.renderUniversita(media/10);
+                }
             }
         },
         
@@ -399,16 +410,6 @@
             }
         },
         
-        renderCestini: { writtable: false, configurable: false, enumerable: false,
-            value: function(number){
-                var valorebuono = 0.03 + 0.05*(number/100);
-                var valorecattivo = 0.03 + 0.05*((100-number)/100);
-                
-                this.cestino.setAttributes({scale: (valorebuono + " " + valorebuono + " " + valorebuono).scaleByFactor(this.factor)});
-                this.cestinox.setAttributes({scale: (valorecattivo + " " + valorecattivo + " " + valorecattivo).scaleByFactor(this.factor)});
-            }
-        },
-        
         renderVeicoli: { writtable: false, configurable: false, enumerable: false,
             value: function(number){
                 var nummacchine = Renderer.MAX_VEICOLI - number;
@@ -435,6 +436,22 @@
                 for(var i=0; i < this.lampade.length; i++){
                     this.lampade[i].setAttributes({render: i < number});
                 }
+            }
+        },
+        
+        renderCestini: { writtable: false, configurable: false, enumerable: false,
+            value: function(number){
+                var valorebuono = 0.03 + 0.05*(number/100);
+                var valorecattivo = 0.03 + 0.05*((100-number)/100);
+                
+                this.cestino.setAttributes({scale: (valorebuono + " " + valorebuono + " " + valorebuono).scaleByFactor(this.factor)});
+                this.cestinox.setAttributes({scale: (valorecattivo + " " + valorecattivo + " " + valorecattivo).scaleByFactor(this.factor)});
+            }
+        },
+        
+        renderUniversita: { writtable: false, configurable: false, enumerable: false,
+            value: function(number){
+                this.universita.setAttributes({scale: (number + " " + number + " " + number).scaleByFactor(this.factor)});
             }
         }
     });
