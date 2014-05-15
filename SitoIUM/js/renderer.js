@@ -24,6 +24,7 @@
         this.macchina = new X3DResource("macchina");
         this.albero = new X3DResource("albero");
         this.lavello = new X3DResource("lavello");
+        this.acqua = new X3DResource("acqua");
         this.pavimento = new X3DResource("pavimento");
         this.cestino = new X3DResource("cestino");
         this.cestinox = new X3DResource("cestino2");
@@ -61,6 +62,7 @@
                 this.pavimento.addResource("pavimento","models/pavimento.x3d");
                 this.libreria.addResource("libreria","models/libreria.x3d");
                 this.lavello.addResource("lavello","models/lavello1.x3d");
+                this.acqua.addResource("acqua","models/water.x3d");
                 this.cestino.addResource("cestino","models/Cestino.x3d");
                 this.cestinox.addResource("cestino","models/Cestino2.x3d");
                 this.universita.addResource("universita","models/universita2.x3d");
@@ -76,14 +78,15 @@
                 this.pavimento.appendToScene(this.scene);
                 this.libreria.appendToScene(this.scene);
                 this.lavello.appendToScene(this.scene);
+                this.acqua.appendToScene(this.scene);
                 this.cestino.appendToScene(this.scene);
                 this.cestinox.appendToScene(this.scene);
                 this.universita.appendToScene(this.scene);
                 this.cartellini.appendToScene(this.scene);
                 this.tunnel1.appendToScene(this.scene);
                 this.tunnel2.appendToScene(this.scene);
-                //this.tunnel3.appendToScene(this.scene);
-                //this.tunnel4.appendToScene(this.scene);
+                this.tunnel3.appendToScene(this.scene);
+                this.tunnel4.appendToScene(this.scene);
                 this.generateLibri();
                 this.generateAlberi();
                 this.generateVeicoli();
@@ -166,7 +169,19 @@
                 });
                 
                 this.tunnel2.setAttributes({
-                    translation: "-15 -3.9 -2.55".scaleByFactor(this.factor),
+                    translation: "-9.1 -3.9 -2.55".scaleByFactor(this.factor),
+                    scale: "0.1 0.05 0.05".scaleByFactor(this.factor),
+                    rotation: "-1 0 0 1.57"
+                });
+                
+                this.tunnel3.setAttributes({
+                    translation: "5 -3.9 -4".scaleByFactor(this.factor),
+                    scale: "0.1 0.05 0.05".scaleByFactor(this.factor),
+                    rotation: "-1 0 0 1.57"
+                });
+                
+                this.tunnel4.setAttributes({
+                    translation: "-9.1 -3.9 -4".scaleByFactor(this.factor),
                     scale: "0.1 0.05 0.05".scaleByFactor(this.factor),
                     rotation: "-1 0 0 1.57"
                 });
@@ -192,6 +207,11 @@
     
                     media /= values.length;
                     this.renderUniversita(media/10);
+                }
+                
+                if(data && data["Acqua"]){
+                    var values = data["Acqua"].values || [];
+                    this.renderAcqua(values);
                 }
             }
         },
@@ -527,6 +547,15 @@
         renderUniversita: { writtable: false, configurable: false, enumerable: false,
             value: function(number){
                 this.universita.setAttributes({scale: (number + " " + number + " " + number).scaleByFactor(this.factor)});
+            }
+        },
+        
+        renderAcqua: { writtable: false, configurable: false, enumerable: false,
+            value: function(number){
+                var y = -3.5 + 1.7*(number/100);
+                this.acqua.setAttributes({translation: ("-8.8 " + y +" -4.5").scaleByFactor(this.factor),
+                                          scale: "1 1 1".scaleByFactor(this.factor),
+                                          rotation: "0 -1 0 1.57"});
             }
         }
     });
