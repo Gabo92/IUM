@@ -36,6 +36,10 @@
         this.muro_sinistro = new X3DResource("muro_sinistro");
         this.muro_frontale = new X3DResource("muro_frontale");
         this.soffitto = new X3DResource("soffitto");
+        this.tunnel1 = new X3DResource("tunnel");
+        this.tunnel2 = new X3DResource("tunnel");
+        this.tunnel3 = new X3DResource("tunnel");
+        this.tunnel4 = new X3DResource("tunnel");
         this.addElementsToScene();
     };
     
@@ -72,6 +76,10 @@
                 this.cestinox.appendToScene(this.scene);
                 this.universita.appendToScene(this.scene);
                 this.cartellini.appendToScene(this.scene);
+                this.tunnel1.appendToScene(this.scene);
+                this.tunnel2.appendToScene(this.scene);
+                this.tunnel3.appendToScene(this.scene);
+                this.tunnel4.appendToScene(this.scene);
                 this.generateLibri();
                 this.generateAlberi();
                 this.generateVeicoli();
@@ -147,11 +155,17 @@
                     rotation: "0 1 0 4.71"
                 });
                 
+                this.tunnel1.setAttributes({
+                    translation: "5.7 -3 -6.5".scaleByFactor(this.factor),
+                    scale: "0.05 0.05 0.05".scaleByFactor(this.factor),
+                });
+                
                 this.renderLibri(this.calculateNumber(dataManager,data,"Materiali",Renderer.MAX_LIBRI));
                 this.renderAlberi(this.calculateNumber(dataManager,data,"Supply Chain",Renderer.MAX_ALBERI));
                 this.renderVeicoli(this.calculateNumber(dataManager,data,"Mobilita",Renderer.MAX_VEICOLI));
                 this.renderRobots(this.calculateNumber(dataManager,data,"Innovazione",Renderer.MAX_ROBOTS));
                 this.renderLampade(this.calculateNumber(dataManager,data,"Energia",Renderer.MAX_LAMPADE));
+                this.renderFoglietti(this.calculateNumber(dataManager,data,"Politiche Personale",Renderer.MAX_FOGLIETTI));
 
                 if(data && data["Rifiuti"]){
                     var values = data["Rifiuti"].values || [];
@@ -395,8 +409,8 @@
         generateFoglietti: { writtable: false, configurable: false, enumerable: false,
             value: function(number){
                 var foglietto;
-                var x = 2.91;
-                var y = 5;              
+                var x = 7.5;
+                var y = -1.8;              
                 for(var i=0; i < Renderer.MAX_FOGLIETTI; i++){
                     foglietto = new X3DResource("foglietto" + i);
                     foglietto.addResource("foglietto","models/Foglietto.x3d");
@@ -415,7 +429,7 @@
                     foglietto = new X3DResource("fogliettoterra" + i);
                     foglietto.addResource("fogliettoterra","models/Foglietto.x3d");
                     foglietto.setAttributes({
-                        translation: (x + " -3.63 -1.7").scaleByFactor(this.factor),
+                        translation: (x + " -3.63 -3.85").scaleByFactor(this.factor),
                         scale: "0.2 0.2 0.2".scaleByFactor(this.factor),
                         rotation: "-1 0 0 1.78",
                         render: true
@@ -456,6 +470,18 @@
                 }
                 for(var i=0; i < this.macchine.length; i++){
                     this.macchine[i].setAttributes({render: i < nummacchine});
+                }
+            }
+        },
+        
+        renderFoglietti: { writtable: false, configurable: false, enumerable: false,
+            value: function(number){
+                var fogliettiterra = Renderer.MAX_FOGLIETTI - number;
+                for(var i=0; i < this.foglietti.length; i++){
+                    this.foglietti[i].setAttributes({render: i < number});
+                }
+                for(var i=0; i < this.fogliettiterra.length; i++){
+                    this.fogliettiterra[i].setAttributes({render: i < fogliettiterra});
                 }
             }
         },
