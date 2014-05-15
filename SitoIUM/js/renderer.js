@@ -14,7 +14,8 @@
         this.macchine = [];
         this.buses = [];
         this.lampade = [];
-        this.studenti = [];
+        this.studentiverdi = [];
+        this.studentirossi = [];
         this.fogliettiterra = [];
         this.foglietti = [];
         this.scene = document.getElementById("scene");
@@ -192,11 +193,15 @@
                 this.renderRobots(this.calculateNumber(dataManager,data,"Innovazione",Renderer.MAX_ROBOTS));
                 this.renderLampade(this.calculateNumber(dataManager,data,"Energia",Renderer.MAX_LAMPADE));
                 this.renderFoglietti(this.calculateNumber(dataManager,data,"Politiche Personale",Renderer.MAX_FOGLIETTI));
-                this.renderStudenti(this.calculateNumber(dataManager,data,"Politiche Studenti",Renderer.MAX_STUDENTI));
 
                 if(data && data["Rifiuti"]){
                     var values = data["Rifiuti"].values || [];
                     this.renderCestini(values);
+                }
+                
+                if(data && data["Politiche Studenti"]){
+                    var values = data["Politiche Studenti"].values || [];
+                    this.renderStudenti(values);
                 }
                 
                 if(data && data["Governance"]){
@@ -419,23 +424,46 @@
                 var z = -5.7;
                 for(var i=0; i < 5 && count < Renderer.MAX_STUDENTI; i++){
                     for(var j=0; j < 2 && count < Renderer.MAX_STUDENTI; j++){
-                        studente = new X3DResource("studente" + i);
-                        studente.addResource("studente","models/Omino.x3d");
+                        studente = new X3DResource("studenteverde" + i);
+                        studente.addResource("studenteverde","models/studenteVerde.x3d");
                         studente.setAttributes({
                             translation: (x + " -3.97 " + z).scaleByFactor(this.factor),
                             rotation: "-1 0 0 1.57",
                             scale: "0.05 0.05 0.05".scaleByFactor(this.factor),
-                            render: true
+                            render: false
                         });
                         studente.appendToScene(this.scene);
-                        this.studenti.push(studente);
+                        this.studentiverdi.push(studente);
                         z += 0.5;
                         count++;
                     }
                     z = -5.7;
                     x += 0.5;
                 }
-            }
+                
+                x = -1.1;
+                z = -5.2;
+                count = 0;
+                
+                for(var i=0; i < 5 && count < Renderer.MAX_STUDENTI; i++){
+                    for(var j=0; j < 2 && count < Renderer.MAX_STUDENTI; j++){
+                        studente = new X3DResource("studenterosso" + i);
+                        studente.addResource("studenterosso","models/studenteRosso.x3d");
+                        studente.setAttributes({
+                            translation: (x + " -3.97 " + z).scaleByFactor(this.factor),
+                            rotation: "-1 0 0 1.57",
+                            scale: "0.05 0.05 0.05".scaleByFactor(this.factor),
+                            render: false
+                        });
+                        studente.appendToScene(this.scene);
+                        this.studentirossi.push(studente);
+                        z -= 0.5;
+                        count++;
+                    }
+                    z = -5.2;
+                    x -= 0.5;
+                }
+            } 
         },
         
         generateFoglietti: { writtable: false, configurable: false, enumerable: false,
@@ -450,7 +478,7 @@
                         translation: ("5.7 " + y + " -1.7").scaleByFactor(this.factor),
                         scale: "0.2 0.2 0.2".scaleByFactor(this.factor),
                         rotation: "0 -1 0 1.57",
-                        render: true
+                        render: false
                     });
                     foglietto.appendToScene(this.scene);
                     this.foglietti.push(foglietto);
@@ -464,7 +492,7 @@
                         translation: (x + " -3.63 -3.85").scaleByFactor(this.factor),
                         scale: "0.2 0.2 0.2".scaleByFactor(this.factor),
                         rotation: "-1 0 0 1.78",
-                        render: true
+                        render: false
                     });
                     foglietto.appendToScene(this.scene);
                     this.fogliettiterra.push(foglietto);
@@ -563,14 +591,12 @@
         renderStudenti: { writtable: false, configurable: false, enumerable: false,
             value: function(number)
             {
-                var material;
-                for(var i=0; i < this.studenti.length; i++){
-                    material = $(this.studenti[i].getElement()).find("Material")[0];
-                    if(!material){
-                        material = $(document.createElement("Material"));
-                        $(this.studenti[i].getElement()).prepend(material);
-                    }
-                    material.attr("diffuseColor",(i < number ? "0 1 0" : "1 0 0"));
+                var rossi = Renderer.MAX_STUDENTI - number;
+                for(var i=0; i < this.studentiverdi.length; i++){
+                    this.studentiverdi[i].setAttributes({render: i < number});
+                }
+                for(var i=0; i < this.studentirossi.length; i++){
+                    this.studentirossi[i].setAttributes({render: i < rossi});
                 }
             }
         }
