@@ -65,6 +65,10 @@
                 this.cestinox.addResource("cestino","models/Cestino2.x3d");
                 this.universita.addResource("universita","models/universita2.x3d");
                 this.cartellini.addResource("cartellini","models/Cartellini.x3d");
+                this.tunnel1.addResource("tunnel1","models/tunnel.x3d");
+                this.tunnel2.addResource("tunnel2","models/tunnel.x3d");
+                this.tunnel3.addResource("tunnel3","models/tunnel.x3d");
+                this.tunnel4.addResource("tunnel4","models/tunnel.x3d");
                 this.muro_destro.appendToScene(this.scene);
                 this.muro_sinistro.appendToScene(this.scene);
                 this.muro_frontale.appendToScene(this.scene);
@@ -78,8 +82,8 @@
                 this.cartellini.appendToScene(this.scene);
                 this.tunnel1.appendToScene(this.scene);
                 this.tunnel2.appendToScene(this.scene);
-                this.tunnel3.appendToScene(this.scene);
-                this.tunnel4.appendToScene(this.scene);
+                //this.tunnel3.appendToScene(this.scene);
+                //this.tunnel4.appendToScene(this.scene);
                 this.generateLibri();
                 this.generateAlberi();
                 this.generateVeicoli();
@@ -156,8 +160,15 @@
                 });
                 
                 this.tunnel1.setAttributes({
-                    translation: "5.7 -3 -6.5".scaleByFactor(this.factor),
-                    scale: "0.05 0.05 0.05".scaleByFactor(this.factor),
+                    translation: "5 -3.9 -2.55".scaleByFactor(this.factor),
+                    scale: "0.1 0.05 0.05".scaleByFactor(this.factor),
+                    rotation: "-1 0 0 1.57"
+                });
+                
+                this.tunnel2.setAttributes({
+                    translation: "-15 -3.9 -2.55".scaleByFactor(this.factor),
+                    scale: "0.1 0.05 0.05".scaleByFactor(this.factor),
+                    rotation: "-1 0 0 1.57"
                 });
                 
                 this.renderLibri(this.calculateNumber(dataManager,data,"Materiali",Renderer.MAX_LIBRI));
