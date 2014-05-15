@@ -54,9 +54,9 @@
             </select>
         </form>
 
-        <x3d width="100%" height="95%">
+        <x3d width="100%" height="95%" Antialiased="True">
             <Scene>
-                <Group id="scene" Antialiased="True"></Group>
+                <Group id="scene" render="false"></Group>
                 <Transform DEF="Lamp_TRANSFORM" translation="0 0 0">
                     <PointLight DEF="LA_Lamp"
                             ambientIntensity="0.9000"
@@ -162,5 +162,9 @@
             var camera = document.getElementById(name + "Camera");
             camera.setAttribute("set_bind","true");
         }
+        
+        $(document).ready(function(){
+           $("#scene").attr("render",true);
+        });
     </script>
 </html>
