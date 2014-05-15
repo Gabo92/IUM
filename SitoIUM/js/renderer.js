@@ -15,6 +15,8 @@
         this.buses = [];
         this.lampade = [];
         this.studenti = [];
+        this.fogliettiterra = [];
+        this.foglietti = [];
         this.scene = document.getElementById("scene");
         this.factor = configs["factor"] || 3;
         this.libreria = new X3DResource("libreria");
@@ -43,6 +45,7 @@
     window.Renderer.MAX_ROBOTS = 9;
     window.Renderer.MAX_LAMPADE = 6;
     window.Renderer.MAX_STUDENTI = 10;
+    window.Renderer.MAX_FOGLIETTI = 4;
     
     Object.defineProperties(window.Renderer.prototype, {
         addElementsToScene: { writtable: false, configurable: false, enumerable: false,
@@ -75,7 +78,7 @@
                 this.generateRobots();
                 this.generateLampade();
                 this.generateStudenti();
-
+                this.generateFoglietti();
             }
         },
         render: { writtable: false, configurable: false, enumerable: false,
@@ -385,6 +388,41 @@
                     }
                     z = -5.7;
                     x += 0.5;
+                }
+            }
+        },
+        
+        generateFoglietti: { writtable: false, configurable: false, enumerable: false,
+            value: function(number){
+                var foglietto;
+                var x = 2.91;
+                var y = 5;              
+                for(var i=0; i < Renderer.MAX_FOGLIETTI; i++){
+                    foglietto = new X3DResource("foglietto" + i);
+                    foglietto.addResource("foglietto","models/Foglietto.x3d");
+                    foglietto.setAttributes({
+                        translation: ("5.7 " + y + " -1.7").scaleByFactor(this.factor),
+                        scale: "0.2 0.2 0.2".scaleByFactor(this.factor),
+                        rotation: "0 -1 0 1.57",
+                        render: true
+                    });
+                    foglietto.appendToScene(this.scene);
+                    this.foglietti.push(foglietto);
+                    y -= 0.7;
+                }
+                
+                for(var i=0; i < Renderer.MAX_FOGLIETTI; i++){
+                    foglietto = new X3DResource("fogliettoterra" + i);
+                    foglietto.addResource("fogliettoterra","models/Foglietto.x3d");
+                    foglietto.setAttributes({
+                        translation: (x + " -3.63 -1.7").scaleByFactor(this.factor),
+                        scale: "0.2 0.2 0.2".scaleByFactor(this.factor),
+                        rotation: "-1 0 0 1.78",
+                        render: true
+                    });
+                    foglietto.appendToScene(this.scene);
+                    this.fogliettiterra.push(foglietto);
+                    x -= 0.7;
                 }
             }
         },
