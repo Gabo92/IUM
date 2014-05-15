@@ -56,22 +56,22 @@
     Object.defineProperties(window.Renderer.prototype, {
         addElementsToScene: { writtable: false, configurable: false, enumerable: false,
             value: function(){
-                this.muro_destro.addResource("muro_destro","models/wall.x3d");
-                this.muro_sinistro.addResource("muro_sinistro","models/wall.x3d");
-                this.muro_frontale.addResource("muro_frontale","models/wall.x3d");
-                this.soffitto.addResource("soffitto","models/soffitto.x3d");
-                this.pavimento.addResource("pavimento","models/pavimento.x3d");
-                this.libreria.addResource("libreria","models/libreria.x3d");
-                this.lavello.addResource("lavello","models/lavello1.x3d");
-                this.acqua.addResource("acqua","models/water.x3d");
-                this.cestino.addResource("cestino","models/Cestino.x3d");
-                this.cestinox.addResource("cestino","models/Cestino2.x3d");
-                this.universita.addResource("universita","models/universita2.x3d");
-                this.cartellini.addResource("cartellini","models/Cartellini.x3d");
-                this.tunnel1.addResource("tunnel1","models/tunnel.x3d");
-                this.tunnel2.addResource("tunnel2","models/tunnel.x3d");
-                this.tunnel3.addResource("tunnel3","models/tunnel.x3d");
-                this.tunnel4.addResource("tunnel4","models/tunnel.x3d");
+                this.muro_destro.useResource("preload_muro");
+                this.muro_sinistro.useResource("preload_muro");
+                this.muro_frontale.useResource("preload_muro");
+                this.soffitto.useResource("preload_soffitto");
+                this.pavimento.useResource("preload_pavimento");
+                this.libreria.useResource("preload_libreria");
+                this.lavello.useResource("preload_lavello");
+                this.acqua.useResource("preload_acqua");
+                this.cestino.useResource("preload_cestino1");
+                this.cestinox.useResource("preload_cestino2");
+                this.universita.useResource("preload_universita");
+                this.cartellini.useResource("preload_cartellini");
+                this.tunnel1.useResource("preload_tunnel");
+                this.tunnel2.useResource("preload_tunnel");
+                this.tunnel3.useResource("preload_tunnel");
+                this.tunnel4.useResource("preload_tunnel");
                 this.muro_destro.appendToScene(this.scene);
                 this.muro_sinistro.appendToScene(this.scene);
                 this.muro_frontale.appendToScene(this.scene);
@@ -245,7 +245,7 @@
         },
 
         generateLibri: { writtable: false, configurable: false, enumerable: false,
-            value: function(number){
+            value: function(){
                 var libro;
                 var x = 2.91;
                 var y = 0.355;
@@ -254,7 +254,7 @@
                     x = 2.91;
                     for(var i=1; i<10 && count < Renderer.MAX_LIBRI; i++){
                         libro = new X3DResource("libro" + i);
-                        libro.addResource("libro","models/libro.x3d");
+                        libro.useResource("preload_libro");
                         libro.setAttributes({
                             translation: (x + " " + y + " -9.5").scaleByFactor(this.factor),
                             scale: "0.5 0.5 0.5".scaleByFactor(this.factor),
@@ -287,7 +287,7 @@
                 for(var i=0; i < 3 && countalberi < Renderer.MAX_ALBERI; i++){
                     for(var j=0; j < 4 && countalberi < Renderer.MAX_ALBERI; j++){
                         albero = new X3DResource("albero" + i);
-                        albero.addResource("albero","models/Albero.x3d");
+                        albero.useResource("preload_albero");
                         albero.setAttributes({
                             translation: (xalberi + " -3.9 " + z).scaleByFactor(this.factor),
                             scale: "0.02 0.02 0.035".scaleByFactor(this.factor),
@@ -306,7 +306,7 @@
                 for(var i=0; i < 3 && countbarili < Renderer.MAX_ALBERI; i++){
                     for(var j=0; j < 4 && countbarili < Renderer.MAX_ALBERI; j++){
                         barile = new X3DResource("barile" + i);
-                        barile.addResource("barile","models/barile.x3d");
+                        barile.useResource("preload_barile");
                         barile.setAttributes({
                             translation: (xbarili + " -3.9 " + z).scaleByFactor(this.factor),
                             scale: "0.05 0.05 0.05".scaleByFactor(this.factor),
@@ -332,7 +332,7 @@
 
                 for(var i=0; i < Renderer.MAX_VEICOLI; i++){
                     macchina = new X3DResource("macchina" + i);
-                    macchina.addResource("macchina","models/Macchina2.x3d");
+                    macchina.useResource("preload_macchina");
                     macchina.setAttributes({
                         translation: (xmacchina + " -3.9 -4").scaleByFactor(this.factor),
                         scale: "0.05 0.05 0.05".scaleByFactor(this.factor),
@@ -346,7 +346,7 @@
 
                 for(var i=0; i < Renderer.MAX_VEICOLI; i++){
                     autobus = new X3DResource("autobus" + i);
-                    autobus.addResource("autobus","models/Autobus.x3d");
+                    autobus.useResource("preload_autobus");
                     autobus.setAttributes({
                         translation: (xautobus + " -3.9 -2.5").scaleByFactor(this.factor),
                         scale: "0.05 0.05 0.05".scaleByFactor(this.factor),
@@ -369,7 +369,7 @@
                 for(var i=0; i < 3 && count < Renderer.MAX_ROBOTS; i++){
                     for(var j=0; j < 3 && count < Renderer.MAX_ROBOTS; j++){
                         robot = new X3DResource("robot" + i);
-                        robot.addResource("robot","models/robot.x3d");
+                        robot.useResource("preload_robot");
                         robot.setAttributes({
                             translation: (x + " -3.9 " + z).scaleByFactor(this.factor),
                             scale: "0.25 0.25 0.25".scaleByFactor(this.factor),
@@ -397,7 +397,7 @@
                 for(var i=0; i < 2 && count < Renderer.MAX_LAMPADE; i++){
                     for(var j=0; j < 3 && count < Renderer.MAX_LAMPADE; j++){
                         lampada = new X3DResource("lampada" + i);
-                        lampada.addResource("lampada","models/lampada.x3d");
+                        lampada.useResource("preload_lampada");
                         lampada.setAttributes({
                             translation: (x + " 3.25 " + z).scaleByFactor(this.factor),
                             rotation: "0 1 0 1.57",
@@ -425,7 +425,7 @@
                 for(var i=0; i < 5 && count < Renderer.MAX_STUDENTI; i++){
                     for(var j=0; j < 2 && count < Renderer.MAX_STUDENTI; j++){
                         studente = new X3DResource("studenteverde" + i);
-                        studente.addResource("studenteverde","models/studenteVerde.x3d");
+                        studente.useResource("preload_studenteverde");
                         studente.setAttributes({
                             translation: (x + " -3.97 " + z).scaleByFactor(this.factor),
                             rotation: "-1 0 0 1.57",
@@ -448,7 +448,7 @@
                 for(var i=0; i < 5 && count < Renderer.MAX_STUDENTI; i++){
                     for(var j=0; j < 2 && count < Renderer.MAX_STUDENTI; j++){
                         studente = new X3DResource("studenterosso" + i);
-                        studente.addResource("studenterosso","models/studenteRosso.x3d");
+                        studente.useResource("preload_studenterosso");
                         studente.setAttributes({
                             translation: (x + " -3.97 " + z).scaleByFactor(this.factor),
                             rotation: "-1 0 0 1.57",
@@ -473,7 +473,8 @@
                 var y = -1.8;              
                 for(var i=0; i < Renderer.MAX_FOGLIETTI; i++){
                     foglietto = new X3DResource("foglietto" + i);
-                    foglietto.addResource("foglietto","models/Foglietto.x3d");
+                    foglietto.useResource("preload_foglietto");
+                    
                     foglietto.setAttributes({
                         translation: ("5.7 " + y + " -1.7").scaleByFactor(this.factor),
                         scale: "0.2 0.2 0.2".scaleByFactor(this.factor),
@@ -487,7 +488,7 @@
                 
                 for(var i=0; i < Renderer.MAX_FOGLIETTI; i++){
                     foglietto = new X3DResource("fogliettoterra" + i);
-                    foglietto.addResource("fogliettoterra","models/Foglietto.x3d");
+                    foglietto.useResource("preload_foglietto");
                     foglietto.setAttributes({
                         translation: (x + " -3.63 -3.85").scaleByFactor(this.factor),
                         scale: "0.2 0.2 0.2".scaleByFactor(this.factor),
@@ -556,7 +557,6 @@
         
         renderLampade: { writtable: false, configurable: false, enumerable: false,
             value: function(number){
-                console.log("Lampade: " + number);
                 for(var i=0; i < this.lampade.length; i++){
                     this.lampade[i].setAttributes({render: i < number});
                 }

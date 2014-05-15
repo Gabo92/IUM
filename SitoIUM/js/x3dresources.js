@@ -20,13 +20,11 @@ X3DResource.prototype = {
 		this.transform.appendChild(inline);
 		this.children[def] = inline;
 	},
-	setChildAttributes: function(def,attributes){
-		if(this.children[def]){
-			for(attr in attributes){
-				this.children[def].setAttribute(attr.toString(),attributes[attr]);
-			}
-		}
-	},
+        useResource: function(resource){
+           var shape = document.createElement("Shape");
+           shape.setAttribute("USE",resource);
+           this.transform.appendChild(shape);
+        },
 	getElement: function(){
 		return this.transform;
 	},
@@ -40,7 +38,6 @@ X3DResource.prototype = {
 
 String.prototype.scaleByFactor = function(factor){
 	var nums = this.split(" ");
-	var result = "";
 	var i;
 	for(i=0;i<nums.length;i++){
 		nums[i] = parseFloat(nums[i]) * factor;
