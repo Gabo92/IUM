@@ -142,7 +142,7 @@
                 this.cestino.setAttributes({
                     translation: "-9 -3.97 -9".scaleByFactor(this.factor),
                     scale: "0.05 0.05 0.05".scaleByFactor(this.factor),
-                    rotation: "0 1 0 0.3"
+                    rotation: "0 1 0 0.4"
                 });
                 
                 this.cestinox.setAttributes({
