@@ -192,6 +192,7 @@
                 this.renderRobots(this.calculateNumber(dataManager,data,"Innovazione",Renderer.MAX_ROBOTS));
                 this.renderLampade(this.calculateNumber(dataManager,data,"Energia",Renderer.MAX_LAMPADE));
                 this.renderFoglietti(this.calculateNumber(dataManager,data,"Politiche Personale",Renderer.MAX_FOGLIETTI));
+                this.renderStudenti(this.calculateNumber(dataManager,data,"Politiche Studenti",Renderer.MAX_STUDENTI));
 
                 if(data && data["Rifiuti"]){
                     var values = data["Rifiuti"].values || [];
@@ -556,6 +557,21 @@
                 this.acqua.setAttributes({translation: ("-8.8 " + y +" -4.5").scaleByFactor(this.factor),
                                           scale: "1 1 1".scaleByFactor(this.factor),
                                           rotation: "0 -1 0 1.57"});
+            }
+        },
+        
+        renderStudenti: { writtable: false, configurable: false, enumerable: false,
+            value: function(number)
+            {
+                var material;
+                for(var i=0; i < this.studenti.length; i++){
+                    material = $(this.studenti[i].getElement()).find("Material")[0];
+                    if(!material){
+                        material = $(document.createElement("Material"));
+                        $(this.studenti[i].getElement()).prepend(material);
+                    }
+                    material.attr("diffuseColor",(i < number ? "0 1 0" : "1 0 0"));
+                }
             }
         }
     });
