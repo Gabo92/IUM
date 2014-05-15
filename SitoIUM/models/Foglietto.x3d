@@ -1,111 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.0//EN" "http://www.web3d.org/specifications/x3d-3.0.dtd">
-<X3D profile='Immersive' >
-<head>
- <meta name='Vizthumbnail' content='Thumb_Foglietto_x3d838441369750237.jpg'/>
- <meta name='ExportTime' content='16:10:38'/>
- <meta name='ExportDate' content='5/28/2013'/>
- <meta name='VivatyStudioVersion' content='738'/>
- <meta name='VivatyStudioSource' content='foglietto.fxw'/>
-</head>
-<Scene>
-<WorldInfo
- title='Foglietto'
- info='"This Web3D Content was created with Vivaty Studio, a Web3D authoring tool"
- "www.mediamachines.com"'/>
-<Group DEF='Import_Foglietto_wrl'>
- <Background
-  containerField='children'
-  skyAngle=''
-  skyColor='
-   .62745 .62745 .62745'/>
- <Transform
-  containerField='children'
-  rotation='-1 0 0 1.571'>
-  <Shape
-   containerField='children'>
-   <Appearance
-    containerField='appearance'>
-    <Material DEF='material0'
-     containerField='material'
-     ambientIntensity='0'
-     shininess='1'
-     diffuseColor='1 1 1'/>
-   </Appearance>
-   <IndexedFaceSet
-    containerField='geometry'
-    solid='false'
-    creaseAngle='.5236'
-    coordIndex='
-      0 2 3 -1
-      0 3 1 -1
-      4 6 7 -1
-      4 7 5 -1
-      8 10 11 -1
-      8 11 9 -1
-      12 14 15 -1
-      12 15 13 -1
-      17 16 19 -1
-      19 18 17 -1
-      21 23 20 -1
-      23 21 22 -1'>
-    <Coordinate
-     containerField='coord'
-     point='
-      -12.81504 -.2611 6.97224
-      -12.81504 -.06028 7.01735
-      -12.81504 -1.02074 10.35378
-      -12.81504 -.81992 10.39889
-      -12.81504 -1.02074 10.35378
-      -12.81504 -.81992 10.39889
-      -9.94908 -1.02074 10.35378
-      -9.94908 -.81992 10.39889
-      -9.94908 -1.02074 10.35378
-      -9.94908 -.81992 10.39889
-      -9.94908 -.2611 6.97224
-      -9.94908 -.06028 7.01735
-      -9.94908 -.2611 6.97224
-      -9.94908 -.06028 7.01735
-      -12.81504 -.2611 6.97224
-      -12.81504 -.06028 7.01735
-      -12.81504 -.2611 6.97224
-      -12.81504 -1.02074 10.35378
-      -9.94908 -1.02074 10.35378
-      -9.94908 -.2611 6.97224
-      -12.81504 -.06028 7.01735
-      -12.81504 -.81992 10.39889
-      -9.94908 -.81992 10.39889
-      -9.94908 -.06028 7.01735'/>
-    <Normal
-     containerField='normal'
-     vector='
-      -1 0 0
-      -1 0 0
-      -1 0 0
-      -1 0 0
-      0 -.21918 .97568
-      0 -.21918 .97568
-      0 -.21918 .97568
-      0 -.21918 .97568
-      1 -0 0
-      1 -0 0
-      1 -0 0
-      1 -0 0
-      0 .21918 -.97568
-      0 .21918 -.97568
-      0 .21918 -.97568
-      0 .21918 -.97568
-      -0 -.97568 -.21918
-      -0 -.97568 -.21918
-      -0 -.97568 -.21918
-      -0 -.97568 -.21918
-      0 .97568 .21918
-      0 .97568 .21918
-      0 .97568 .21918
-      0 .97568 .21918'/>
-   </IndexedFaceSet>
-  </Shape>
- </Transform>
-</Group>
-</Scene>
+<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
+	<head>
+		<meta name="filename" content="Foglietto.x3d" />
+		<meta name="generator" content="Blender 2.70 (sub 0)" />
+	</head>
+	<Scene>
+		<NavigationInfo headlight="true"
+		                visibilityLimit="0.0"
+		                type='"EXAMINE", "ANY"'
+		                avatarSize="0.25, 1.75, 0.75"
+		                />
+		<Background DEF="WO_World"
+		            groundColor="0.051 0.051 0.051"
+		            skyColor="0.051 0.051 0.051"
+		            />
+		<Transform DEF="ShapeIndexedFaceSet_TRANSFORM"
+		           translation="0.000000 0.000000 0.000000"
+		           scale="1.000000 1.000000 1.000000"
+		           rotation="-1.000000 0.000000 0.000000 1.571000"
+		           >
+			<Transform DEF="ShapeIndexedFaceSet_ifs_TRANSFORM"
+			           translation="0.000000 0.000000 0.000000"
+			           scale="1.000000 1.000000 1.000000"
+			           rotation="0.000000 0.000000 -0.000000 0.000000"
+			           >
+				<Group DEF="group_ME_ShapeIndexedFaceSet">
+					<Shape>
+						<Appearance>
+							<ImageTexture DEF="IM_CartellinoTexture_png"
+							              url='"textures/CartellinoTexture.png"'
+							              />
+							<TextureTransform 
+							                  translation="0.000000 0.000000"
+							                  scale="1.000000 1.000000"
+							                  rotation="0.000000"
+							                  />
+							<Material DEF="MA_Shape"
+							          diffuseColor="1.000 1.000 1.000"
+							          specularColor="0.000 0.000 0.000"
+							          emissiveColor="0.000 0.000 0.000"
+							          ambientIntensity="0.000"
+							          shininess="0.998"
+							          transparency="0.0"
+							          />
+						</Appearance>
+						<IndexedFaceSet solid="true"
+						                normalPerVertex="true"
+						                texCoordIndex="0 1 2 -1 3 4 5 -1 6 7 8 -1 9 10 11 -1 12 13 14 -1 15 16 17 -1 18 19 20 -1 21 22 23 -1 24 25 26 -1 27 28 29 -1 30 31 32 -1 33 34 35 -1 "
+						                coordIndex="1 3 4 -1 1 4 2 -1 5 7 8 -1 5 8 6 -1 9 11 12 -1 9 12 10 -1 13 15 16 -1 13 16 14 -1 18 17 20 -1 20 19 18 -1 22 24 21 -1 24 22 23 -1 "
+						                >
+							<Coordinate DEF="coords_ME_ShapeIndexedFaceSet"
+							            point="0.000000 0.000000 0.000000 -12.815040 -0.261100 6.972240 -12.815040 -0.060280 7.017350 -12.815040 -1.020740 10.353780 -12.815040 -0.819920 10.398890 -12.815040 -1.020740 10.353780 -12.815040 -0.819920 10.398890 -9.949080 -1.020740 10.353780 -9.949080 -0.819920 10.398890 -9.949080 -1.020740 10.353780 -9.949080 -0.819920 10.398890 -9.949080 -0.261100 6.972240 -9.949080 -0.060280 7.017350 -9.949080 -0.261100 6.972240 -9.949080 -0.060280 7.017350 -12.815040 -0.261100 6.972240 -12.815040 -0.060280 7.017350 -12.815040 -0.261100 6.972240 -12.815040 -1.020740 10.353780 -9.949080 -1.020740 10.353780 -9.949080 -0.261100 6.972240 -12.815040 -0.060280 7.017350 -12.815040 -0.819920 10.398890 -9.949080 -0.819920 10.398890 -9.949080 -0.060280 7.017350 "
+							            />
+							<Normal DEF="normals_ME_ShapeIndexedFaceSet"
+							        vector="0.000000 0.000000 0.000000 -0.999969 0.000000 0.000000 -1.000000 0.000000 0.000000 -1.000000 0.000000 0.000000 -0.999969 0.000000 0.000000 0.000000 -0.219153 0.975677 0.000000 -0.219153 0.975677 0.000000 -0.219153 0.975677 0.000000 -0.219153 0.975677 1.000000 0.000000 0.000000 1.000000 0.000000 0.000000 1.000000 0.000000 0.000000 1.000000 0.000000 0.000000 0.000000 0.219153 -0.975677 0.000000 0.219153 -0.975677 0.000000 0.219153 -0.975677 0.000000 0.219153 -0.975677 0.000000 -0.975677 -0.219153 0.000000 -0.975677 -0.219153 0.000000 -0.975677 -0.219153 0.000000 -0.975677 -0.219153 0.000000 0.975677 0.219153 0.000000 0.975677 0.219153 0.000000 0.975677 0.219153 0.000000 0.975677 0.219153 "
+							        />
+							<TextureCoordinate point="0.6220 0.2544 0.6220 0.8015 0.5895 0.8015 0.6220 0.2544 0.5895 0.8015 0.5895 0.2544 0.5231 0.0332 0.9755 0.0332 0.9755 0.0657 0.5231 0.0332 0.9755 0.0657 0.5231 0.0657 0.5147 0.9998 0.5147 0.4528 0.5472 0.4528 0.5147 0.9998 0.5472 0.4528 0.5472 0.9998 0.9755 0.0985 0.5231 0.0985 0.5231 0.0660 0.9755 0.0985 0.5231 0.0660 0.9755 0.0660 -0.0403 1.0462 -0.0403 0.4015 0.4928 0.4015 0.4928 0.4015 0.4928 1.0462 -0.0403 1.0462 0.5472 0.0002 0.0002 0.4525 0.0002 0.0002 0.0002 0.4525 0.5472 0.0002 0.5472 0.4525 " />
+						</IndexedFaceSet>
+					</Shape>
+				</Group>
+			</Transform>
+		</Transform>
+	</Scene>
 </X3D>
