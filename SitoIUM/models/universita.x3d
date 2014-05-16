@@ -132,7 +132,7 @@
 					<Shape>
 						<Appearance>
 							<ImageTexture DEF="IM_univeMuro3_jpg"
-							              url='"textures/univeMuro3.jpg"'
+							              url='"textures/univeMuro3.png"'
 							              />
 							<TextureTransform 
 							                  translation="0.000000 0.000000"
@@ -161,7 +161,7 @@
 					<Shape>
 						<Appearance>
 							<ImageTexture DEF="IM_univeTetto_jpg"
-							              url='"textures/univeTetto.jpg"'
+							              url='"textures/univeTetto.png"'
 							              />
 							<TextureTransform 
 							                  translation="0.000000 0.000000"
