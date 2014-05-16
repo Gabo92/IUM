@@ -486,7 +486,7 @@
         },
         
         generateFoglietti: { writtable: false, configurable: false, enumerable: false,
-            value: function(number){
+            value: function(){
                 var foglietto;
                 var x = 7.5;
                 var y = -1.8;              
@@ -560,10 +560,10 @@
             value: function(number){
                 var fogliettiterra = Renderer.MAX_FOGLIETTI - number;
                 for(var i=0; i < this.foglietti.length; i++){
-                    this.foglietti[i].setAttributes({render: i < number});
+                    this.foglietti[i].setAttributes({render: i < Math.round(number)});
                 }
                 for(var i=0; i < this.fogliettiterra.length; i++){
-                    this.fogliettiterra[i].setAttributes({render: i < fogliettiterra});
+                    this.fogliettiterra[i].setAttributes({render: i < Math.round(fogliettiterra)});
                 }
             }
         },
