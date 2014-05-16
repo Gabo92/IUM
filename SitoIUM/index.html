@@ -21,6 +21,38 @@
         <link rel="stylesheet" type="text/css" href="css/interface.css" />
     </head>
     <body bgcolor="#0E0E0E" style="margin: 0px; padding: 0px; height: 100%;">
+        <audio id="sSottofondo" loop='loop' autoplay>
+            <source src="sounds\sottofondo.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="sInnovazione">
+            <source src="sounds\innovazione.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="sGovernance">
+            <source src="sounds\governance.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="sPolitichePersonale">
+            <source src="sounds\sottofondo.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="sMateriali">
+            <source src="sounds\materiali.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="sEnergia">
+            <source src="sounds\energia.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="sAcqua">
+            <source src="sounds\acqua.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="sRifiuti">
+            <source src="sounds\rifiuti.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="sSupplyChain">
+            <source src="sounds\supply_chain.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="sMobilita">
+            <source src="sounds\bus.mp3" type="audio/mpeg">
+        </audio>
+        
+        
         <button onclick="cameraHome();">Home</button>
         <button onclick="cameraInnovazione();">Innovazione</button>
         <button onclick="cameraGovernance();">Governance</button>
@@ -42,7 +74,7 @@
         </div>
         <div id="info">  
             <b>Guida</b>
-            <p id="testo">Premi i bottoni nella barra superiore per spostarti tra le varie telecamere. <br/> Usa la barra nella zona bassa dello schermo per selezionare l'anno. <br/> Clicca su un elemento per informazioni dettagliate sui dati disponibili.</p>
+            <p id="testo">Premere i bottoni del menù superiore per spostarsi tra le varie tematiche. <br/><br/> Usare la barra nella zona bassa dello schermo per selezionare l'anno di cui visualizzare i dati. <br/><br/> Cliccare su un elemento per ottenere informazioni più dettagliate riguardo all'area di interesse.</p>
             <input type="button" value="Chiudi" onclick="$('#info').hide(); " />
         </div>
         <form id="barra">
@@ -179,6 +211,7 @@
     </body>
     <script type="text/javascript">
         $(document).ready(function(){
+            document.getElementById("sSottofondo").volume = 0.2;
             window.focused = "defaultCamera";
             window.renderer = new Renderer({factor: 3});
             window.dataManager = new DataManager({
