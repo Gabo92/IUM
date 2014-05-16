@@ -172,25 +172,29 @@
                 this.tunnel1.setAttributes({
                     translation: "5 -3.9 -2.55".scaleByFactor(this.factor),
                     scale: "0.1 0.05 0.05".scaleByFactor(this.factor),
-                    rotation: "-1 0 0 1.57"
+                    rotation: "-1 0 0 1.57",
+                    onclick: "clickMobilita();"
                 });
                 
                 this.tunnel2.setAttributes({
                     translation: "-9.1 -3.9 -2.55".scaleByFactor(this.factor),
                     scale: "0.1 0.05 0.05".scaleByFactor(this.factor),
-                    rotation: "-1 0 0 1.57"
+                    rotation: "-1 0 0 1.57",
+                    onclick: "clickMobilita();"
                 });
                 
                 this.tunnel3.setAttributes({
                     translation: "5 -3.9 -4".scaleByFactor(this.factor),
                     scale: "0.1 0.05 0.05".scaleByFactor(this.factor),
-                    rotation: "-1 0 0 1.57"
+                    rotation: "-1 0 0 1.57",
+                    onclick: "clickMobilita();"
                 });
                 
                 this.tunnel4.setAttributes({
                     translation: "-9.1 -3.9 -4".scaleByFactor(this.factor),
                     scale: "0.1 0.05 0.05".scaleByFactor(this.factor),
-                    rotation: "-1 0 0 1.57"
+                    rotation: "-1 0 0 1.57",
+                    onclick: "clickMobilita();"
                 });
                 
                 this.renderLibri(this.calculateNumber(dataManager,data,"Materiali",Renderer.MAX_LIBRI));
@@ -337,7 +341,7 @@
                 var macchina;
                 var autobus;
                 var xmacchina = -4;
-                var xautobus = 0;
+                var xautobus = -5;
 
                 for(var i=0; i < Renderer.MAX_VEICOLI; i++){
                     macchina = new X3DResource("macchina" + i);
@@ -365,7 +369,7 @@
                     });
                     autobus.appendToScene(this.scene);
                     this.buses.push(autobus);
-                    xautobus += 1.5;
+                    xautobus += 2.5;
                 }           
             }
         },
@@ -599,9 +603,12 @@
         renderAcqua: { writtable: false, configurable: false, enumerable: false,
             value: function(number){
                 var y = -3.5 + 1.7*(number/100);
-                this.acqua.setAttributes({translation: ("-8.8 " + y +" -4.5").scaleByFactor(this.factor),
-                                          scale: "1 1 1".scaleByFactor(this.factor),
-                                          rotation: "0 -1 0 1.57"});
+                this.acqua.setAttributes({
+                    translation: ("-8.8 " + y +" -4.5").scaleByFactor(this.factor),
+                    scale: "1 1 1".scaleByFactor(this.factor),
+                    rotation: "0 -1 0 1.57",
+                    onclick: "clickAcqua();"
+                });
             }
         },
         

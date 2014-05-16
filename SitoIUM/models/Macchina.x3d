@@ -286,7 +286,7 @@
 		</Transform>
         </Transform>
                 <TimeSensor DEF='Wizard'
-            cycleInterval='6'
+            cycleInterval='10'
             loop='true'
             startTime='-1'/>
         <PositionInterpolator DEF='Wizard_pos0'

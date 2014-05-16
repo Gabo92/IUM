@@ -11466,7 +11466,7 @@
  keyValue='
   0 0 1 0 -0 -0 1 -1.571 -0 -0 1 -3.142 -0 -0 1 -4.712 0 0 1 -6.283'/>
 <TimeSensor DEF='Wizard'
-            cycleInterval='6'
+            cycleInterval='12'
             loop='true'
             startTime='-1'/>
         <PositionInterpolator DEF='Wizard_pos0'
