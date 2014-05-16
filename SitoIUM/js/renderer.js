@@ -130,37 +130,43 @@
                 this.libreria.setAttributes({
                     translation: "4 -4.05 -9.5".scaleByFactor(this.factor),
                     scale: "2.5 2.5 2.5".scaleByFactor(this.factor),
-                    rotation: "0 1 0 -3.14"
+                    rotation: "0 1 0 -3.14",
+                    onclick: "clickMateriali();"
                 });
                 
                 this.lavello.setAttributes({
                     translation: "-8.8 -3 -4.5".scaleByFactor(this.factor),
                     scale: "1 1 1".scaleByFactor(this.factor),
-                    rotation: "0 1 0 4.71"
+                    rotation: "0 1 0 4.71",
+                    onclick: "clickAcqua();"
                 });
                 
                 this.cestino.setAttributes({
                     translation: "-9 -3.97 -9".scaleByFactor(this.factor),
                     scale: "0.05 0.05 0.05".scaleByFactor(this.factor),
-                    rotation: "0 1 0 0.4"
+                    rotation: "0 1 0 0.4",
+                    onclick: "clickRifiuti();"
                 });
                 
                 this.cestinox.setAttributes({
                     translation: "-7.5 -3.97 -9".scaleByFactor(this.factor),
                     scale: "0.05 0.05 0.05".scaleByFactor(this.factor),
-                    rotation: "0 1 0 0.3"
+                    rotation: "0 1 0 0.3",
+                    onclick: "clickRifiuti();"
                 });
                 
                 this.universita.setAttributes({
                     translation: "-2 -3.97 -9".scaleByFactor(this.factor),
                     rotation: "0 1 0 -3.14",
-                    scale: "0.7 0.7 0.7".scaleByFactor(this.factor)
+                    scale: "0.7 0.7 0.7".scaleByFactor(this.factor),
+                    onclick: "clickGovernance();"
                 });
                 
                 this.cartellini.setAttributes({
                     translation: "5.7 -3 -6.5".scaleByFactor(this.factor),
                     scale: "0.2 0.2 0.2".scaleByFactor(this.factor),
-                    rotation: "0 1 0 4.71"
+                    rotation: "0 1 0 4.71",
+                    onclick: "clickPolitichePersonale();"
                 });
                 
                 this.tunnel1.setAttributes({
@@ -259,7 +265,8 @@
                             translation: (x + " " + y + " -9.5").scaleByFactor(this.factor),
                             scale: "0.5 0.5 0.5".scaleByFactor(this.factor),
                             rotation: "-0.25 1 -0.25 -1.57",
-                            render: false
+                            render: false,
+                            onclick: "clickMateriali();"
                         });
                         libro.appendToScene(this.scene);
                         this.libri.push(libro);
@@ -292,7 +299,8 @@
                             translation: (xalberi + " -3.9 " + z).scaleByFactor(this.factor),
                             scale: "0.02 0.02 0.035".scaleByFactor(this.factor),
                             rotation: "1 0 0 -1.57",
-                            render: false
+                            render: false,
+                            onclick: "clickSupplyChain();"
                         });
                         albero.appendToScene(this.scene);
                         this.alberi.push(albero);
@@ -310,7 +318,8 @@
                         barile.setAttributes({
                             translation: (xbarili + " -3.9 " + z).scaleByFactor(this.factor),
                             scale: "0.05 0.05 0.05".scaleByFactor(this.factor),
-                            render: true
+                            render: true,
+                            onclick: "clickSupplyChain();"
                         });
                         barile.appendToScene(this.scene);
                         this.barili.push(barile);
@@ -337,7 +346,8 @@
                         translation: (xmacchina + " -3.9 -4").scaleByFactor(this.factor),
                         scale: "0.05 0.05 0.05".scaleByFactor(this.factor),
                         rotation: "1 0 0 -1.57",
-                        render: false
+                        render: false,
+                        onclick: "clickMobilita();"
                     });
                     macchina.appendToScene(this.scene);
                     this.macchine.push(macchina);
@@ -350,7 +360,8 @@
                     autobus.setAttributes({
                         translation: (xautobus + " -3.9 -2.5").scaleByFactor(this.factor),
                         scale: "0.05 0.05 0.05".scaleByFactor(this.factor),
-                        render: false
+                        render: false,
+                        onclick: "clickMobilita();"
                     });
                     autobus.appendToScene(this.scene);
                     this.buses.push(autobus);
@@ -374,7 +385,8 @@
                             translation: (x + " -3.9 " + z).scaleByFactor(this.factor),
                             scale: "0.25 0.25 0.25".scaleByFactor(this.factor),
                             rotation: "0 1 0 1.57",
-                            render: false
+                            render: false,
+                            onclick: "clickInnovazione();"
                         });
                         robot.appendToScene(this.scene);
                         this.robots.push(robot);
@@ -402,7 +414,8 @@
                             translation: (x + " 3.25 " + z).scaleByFactor(this.factor),
                             rotation: "0 1 0 1.57",
                             scale: "0.3 0.3 0.3".scaleByFactor(this.factor),
-                            render: false
+                            render: false,
+                            onclick: "clickEnergia();"
                         });
                         lampada.appendToScene(this.scene);
                         this.lampade.push(lampada);
@@ -430,7 +443,8 @@
                             translation: (x + " -3.97 " + z).scaleByFactor(this.factor),
                             rotation: "-1 0 0 1.57",
                             scale: "0.05 0.05 0.05".scaleByFactor(this.factor),
-                            render: false
+                            render: false,
+                            onclick: "clickPoliticheStudenti();"
                         });
                         studente.appendToScene(this.scene);
                         this.studentiverdi.push(studente);
@@ -453,7 +467,8 @@
                             translation: (x + " -3.97 " + z).scaleByFactor(this.factor),
                             rotation: "-1 0 0 1.57",
                             scale: "0.05 0.05 0.05".scaleByFactor(this.factor),
-                            render: false
+                            render: false,
+                            onclick: "clickPoliticheStudenti();"
                         });
                         studente.appendToScene(this.scene);
                         this.studentirossi.push(studente);
@@ -479,7 +494,8 @@
                         translation: ("5.7 " + y + " -1.7").scaleByFactor(this.factor),
                         scale: "0.2 0.2 0.2".scaleByFactor(this.factor),
                         rotation: "0 -1 0 1.57",
-                        render: false
+                        render: false,
+                        onclick: "clickPolitichePersonale();"
                     });
                     foglietto.appendToScene(this.scene);
                     this.foglietti.push(foglietto);
@@ -493,7 +509,8 @@
                         translation: (x + " -3.63 -3.85").scaleByFactor(this.factor),
                         scale: "0.2 0.2 0.2".scaleByFactor(this.factor),
                         rotation: "-1 0 0 1.78",
-                        render: false
+                        render: false,
+                        onclick: "clickPolitichePersonale();"
                     });
                     foglietto.appendToScene(this.scene);
                     this.fogliettiterra.push(foglietto);

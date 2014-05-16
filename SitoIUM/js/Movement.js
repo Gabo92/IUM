@@ -1,12 +1,16 @@
 function cameraHome(){
     camera('default');
-    window.focused = "defaultCamera";
+    window.focused = "default";
     
     $('#popup').hide();
 }
 
 function cameraInnovazione(){
     camera('innovazione');
+    $('#popup').hide();
+}
+
+function clickInnovazione(){
     window.focused = "innovazioneCamera";
     
     var data = window.dataManager.data;
@@ -24,6 +28,10 @@ function cameraInnovazione(){
 
 function cameraGovernance(){
     camera('governance');
+    $('#popup').hide();
+}
+
+function clickGovernance(){
     window.focused = "governanceCamera";
     
     var data = window.dataManager.data;
@@ -48,6 +56,10 @@ function cameraGovernance(){
 
 function cameraPolitichePersonale(){
     camera('pol_personale');
+    $('#popup').hide();
+}
+
+function clickPolitichePersonale(){
     window.focused = "pol_personaleCamera";
     
     var data = window.dataManager.data;
@@ -65,6 +77,10 @@ function cameraPolitichePersonale(){
 
 function cameraPoliticheStudenti(){
     camera('pol_studenti');
+    $('#popup').hide();
+}
+
+function clickPoliticheStudenti(){  
     window.focused = "pol_studentiCamera";
     
     var data = window.dataManager.data;
@@ -82,6 +98,10 @@ function cameraPoliticheStudenti(){
 
 function cameraMateriali(){
     camera('materiali');
+    $('#popup').hide();
+}
+
+function clickMateriali(){
     window.focused = "materialiCamera";
     
     var data = window.dataManager.data;
@@ -99,6 +119,10 @@ function cameraMateriali(){
 
 function cameraEnergia(){
     camera('energia');
+    $('#popup').hide();
+}
+
+function clickEnergia(){
     window.focused = "energiaCamera";
     
     var data = window.dataManager.data;
@@ -123,7 +147,11 @@ function cameraEnergia(){
 
 function cameraAcqua(){
     camera('acqua');
-    window.focused = "acquaCamera";
+    $('#popup').hide();
+}
+
+function clickAcqua(){
+    window.focused = "acquaCamera";    
     
     var data = window.dataManager.data;
     var anno = $("#anni").val();
@@ -140,6 +168,10 @@ function cameraAcqua(){
 
 function cameraRifiuti(){
     camera('rifiuti');
+    $('#popup').hide();
+}
+
+function clickRifiuti(){
     window.focused = "rifiutiCamera";
     
     var data = window.dataManager.data;
@@ -157,6 +189,10 @@ function cameraRifiuti(){
 
 function cameraSupplyChain(){
     camera('supply_chain');
+    $('#popup').hide();
+}
+
+function clickSupplyChain(){
     window.focused = "supplychainCamera";
     
     var data = window.dataManager.data;
@@ -174,7 +210,11 @@ function cameraSupplyChain(){
 
 function cameraMobilita(){
     camera('mobilita');
-    window.focused = "mobilitaCamera";
+    $('#popup').hide();
+}
+
+function clickMobilita(){
+    window.focused = "mobilitaCamera";    
     
     var data = window.dataManager.data;
     var anno = $("#anni").val();

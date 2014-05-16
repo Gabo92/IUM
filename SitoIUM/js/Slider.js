@@ -13,45 +13,45 @@ $(function() {
             }
 
             switch(window.focused){
-                case "defaultCamera":{break;}
+                default :{break;}
                 case "innovazioneCamera":{
-                        cameraInnovazione();
+                        clickInnovazione();
                         break;
                 }
                 case "governanceCamera":{
-                        cameraGovernance();
+                        clickGovernance();
                         break;
                 }
                 case "pol_personaleCamera":{
-                        cameraPolitichePersonale();
+                        clickPolitichePersonale();
                         break;
                 }
                 case "pol_studentiCamera":{
-                        cameraPoliticheStudenti();
+                        clickPoliticheStudenti();
                         break;
                 }
                 case "materialiCamera":{
-                        cameraMateriali();
+                        clickMateriali();
                         break;
                 }
                 case "energiaCamera":{
-                        cameraEnergia();
+                        clickEnergia();
                         break;
                 }
                 case "acquaCamera":{
-                        cameraAcqua();
+                        clickAcqua();
                         break;
                 }
                 case "rifiutiCamera":{
-                        cameraRifiuti();
+                        clickRifiuti();
                         break;
                 }
                 case "supplychainCamera":{
-                        cameraSupplyChain();
+                        clickSupplyChain();
                         break;
                 }
                 case "mobilitaCamera":{
-                        cameraMobilita();
+                        clickMobilita();
                         break;
                 }
             }
