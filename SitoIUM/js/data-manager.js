@@ -57,6 +57,11 @@
                 if(this.responsesCount === DataManager.NAMES.length){
                     this.trigger("onReady",this.data);
                     this.ready = true;
+                }else{
+                    this.trigger("onResourceLoaded",{
+                        loaded: this.responsesCount,
+                        total: DataManager.NAMES.length
+                    });
                 }
             }
         },
