@@ -161,7 +161,7 @@ function clickAcqua(){
     
     $("#tipo").html("Obiettivo strategico: Migliorare l'efficienza energetica");
     $("#testo").html("In questa area sono raccolte tutte le attivita' utili all'avviare di un piano operativo per la gestione dell'acqua all'interno dell'ateneo. Oltre agli impegni specifici relativi ai consumi, Ca' Foscari si propone di attuare delle azioni di sensibilizzazione del personale e degli studenti per promuovere un utilizzo piu' oculato dell'acqua.");
-    $("#nomeValore").html("Acqua utilizzata: <b>" + String(valore) + " " + String(unita) + "</b>");
+    $("#nomeValore").html("Media consumo d'acqua mensile: <b>" + String(valore) + " " + String(unita) + "</b>");
     
     $('#popup').show();
 }
