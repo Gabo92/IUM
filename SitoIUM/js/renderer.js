@@ -19,7 +19,7 @@
         this.fogliettiterra = [];
         this.foglietti = [];
         this.scene = document.getElementById("scene");
-        this.factor = configs["factor"] || 3;
+        this.factor = 3;
         this.libreria = new X3DResource("libreria");
         this.autobus = new X3DResource("autobus");
         this.macchina = new X3DResource("macchina");
