@@ -214,7 +214,9 @@ function cameraMobilita(){
 }
 
 function clickMobilita(){
-    window.focused = "mobilitaCamera";    
+    window.focused = "mobilitaCamera";
+    
+    document.getElementById("soundMobilita").play();
     
     var data = window.dataManager.data;
     var anno = $("#anni").val();
